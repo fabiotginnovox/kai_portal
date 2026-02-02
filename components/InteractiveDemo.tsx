@@ -69,12 +69,7 @@ const InteractiveDemo: React.FC = () => {
     setIsLoading(true);
 
     try {
-      const response = {
-        message: {
-          content: "Desculpe, não consegui obter uma resposta do KaiAssist no momento.",
-        },
-        blueprint: "\"content\": \"Desculpe, não consegui obter uma resposta do KaiAssist no momento.\","
-      };//await sendMessageToKai(userMessage.text, sessionId);
+      const response = await sendMessageToKai(userMessage.text, sessionId);
       const botMessage: ChatMessage = {
         role: 'model',
         text: response.message.content,

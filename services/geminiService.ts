@@ -16,6 +16,10 @@ export const sendMessageToKai = async (message: string, sessionId: string): Prom
         blueprint: null,
       }
     }
+    // detect the end of the conversation, when the blueprint is complete
+    if (response.blueprint) {
+      response.message.content = "# Blueprint Complete\nDownload the blueprint clicking the button above to view the full details.\n\n" + response.message.content;
+    }
     return response;
   } catch (error) {
     return {

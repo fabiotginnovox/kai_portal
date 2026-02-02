@@ -27,6 +27,7 @@ const InteractiveDemo: React.FC = () => {
   };
 
   useEffect(() => {
+    if (messages.length === 1) return;
     scrollToBottom();
   }, [messages]);
 

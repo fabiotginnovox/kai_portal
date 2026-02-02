@@ -1,7 +1,6 @@
-import { AssistantService, MessageCreate } from "@/clients/innocore";
-import { getAssistantSessionId, saveAssistantSessionId } from "@/contexts/DataContext";
+import { AssistantService, Business_Analysis_Message } from "@/clients/innocore";
 
-export const sendMessageToKai = async (message: string, sessionId: string): Promise<string> => {
+export const sendMessageToKai = async (message: string, sessionId: string): Promise<Business_Analysis_Message> => {
   try {
     const response = await AssistantService.iterateBusinessAutomationAnalysisAssistantIterateBusinessAutomationAnalysisPost(
       sessionId,
@@ -9,9 +8,21 @@ export const sendMessageToKai = async (message: string, sessionId: string): Prom
         content: message,
       }]
     )
-    return response.content || "Desculpe, não consegui processar sua solicitação no momento.";
+    if (!response) {
+      return {
+        message: {
+          content: "Desculpe, não consegui obter uma resposta do KaiAssist no momento.",
+        },
+        blueprint: null,
+      }
+    }
+    return response;
   } catch (error) {
-    console.error("Erro ao comunicar com KaiAssist:", error);
-    return "Ocorreu um erro ao conectar com o serviço. Verifique sua conexão e tente novamente.";
+    return {
+        message: {
+          content: "Desculpe, não consegui obter uma resposta do KaiAssist no momento.",
+        },
+        blueprint: null,
+      }
   }
 };

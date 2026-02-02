@@ -21,6 +21,7 @@ export type { Body_analyze_file_endpoint_ai_business_analyst_analyze_file_post }
 export type { Body_make_new_course_aurora__post } from './models/Body_make_new_course_aurora__post';
 export type { Body_reset_password_access_reset_password_post } from './models/Body_reset_password_access_reset_password_post';
 export type { Body_token_access_access_token_post } from './models/Body_token_access_access_token_post';
+export type { Business_Analysis_Message } from './models/Business_Analysis_Message';
 export type { Catalogue } from './models/Catalogue';
 export type { CompleteCourseResponse } from './models/CompleteCourseResponse';
 export type { Course } from './models/Course';

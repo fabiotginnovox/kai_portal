@@ -10,6 +10,7 @@ import MessageText from './MessageText/MessageText';
 
 const InteractiveDemo: React.FC = () => {
   const { createAnonymousUser } = useContext(AuthContext);
+  const [blueprint, setBlueprint] = useState<string | null>(null);
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
       role: 'model',
@@ -68,13 +69,14 @@ const InteractiveDemo: React.FC = () => {
     setIsLoading(true);
 
     try {
-      const responseText = await sendMessageToKai(userMessage.text, sessionId);
+      const response = await sendMessageToKai(userMessage.text, sessionId);
       const botMessage: ChatMessage = {
         role: 'model',
-        text: responseText,
+        text: response.message.content,
         timestamp: new Date()
       };
       setMessages(prev => [...prev, botMessage]);
+      setBlueprint(response.blueprint || null);
     } catch (error) {
       console.error(error);
     } finally {

@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect, useContext } from 'react';
-import { Send, Loader2, Bot, User } from 'lucide-react';
+import { Send, Loader2, Bot, User, Download } from 'lucide-react';
 import { sendMessageToKai } from '../services/geminiService';
 import { ChatMessage } from '../types';
 import { AuthContext } from '../contexts/AuthContext';
@@ -69,7 +69,12 @@ const InteractiveDemo: React.FC = () => {
     setIsLoading(true);
 
     try {
-      const response = await sendMessageToKai(userMessage.text, sessionId);
+      const response = {
+        message: {
+          content: "Desculpe, não consegui obter uma resposta do KaiAssist no momento.",
+        },
+        blueprint: "\"content\": \"Desculpe, não consegui obter uma resposta do KaiAssist no momento.\","
+      };//await sendMessageToKai(userMessage.text, sessionId);
       const botMessage: ChatMessage = {
         role: 'model',
         text: response.message.content,
@@ -83,7 +88,19 @@ const InteractiveDemo: React.FC = () => {
       setIsLoading(false);
     }
   };
-
+  const handleDownloadBlueprint = () => {
+    if (!blueprint) return;
+    
+    const blob = new Blob([blueprint], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `blueprint-${new Date().toISOString()}.json`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  };
   return (
     <section id="demo" className="py-24 bg-[#08100b]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -105,6 +122,16 @@ const InteractiveDemo: React.FC = () => {
              <div className="w-3 h-3 rounded-full bg-yellow-500/50"></div>
              <div className="w-3 h-3 rounded-full bg-green-500/50"></div>
              <div className="ml-auto text-xs text-kai-muted uppercase tracking-widest font-mono">LIVE_SESSION_ACTIVE</div>
+             {blueprint && (
+               <button
+                 onClick={handleDownloadBlueprint}
+                 className="ml-3 p-2 bg-kai-accent text-kai-black rounded-lg hover:bg-kai-accentHover transition-colors flex items-center gap-2"
+                 title="Download Blueprint"
+               >
+                 <Download size={16} />
+                 <span className="text-xs font-medium">Blueprint</span>
+               </button>
+             )}
           </div>
 
           {/* Messages Area */}

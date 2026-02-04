@@ -2,7 +2,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { innocore__aurora__v2__schemas__Syllabus } from './innocore__aurora__v2__schemas__Syllabus';
+import type { apps__paideia__v2__schemas__Syllabus } from './apps__paideia__v2__schemas__Syllabus';
 export type Course = {
     subject: string;
     target_audience: string;
@@ -11,6 +11,6 @@ export type Course = {
     created_at?: (string | null);
     updated_at?: (string | null);
     id?: (string | null);
-    syllabus: innocore__aurora__v2__schemas__Syllabus;
+    syllabus: apps__paideia__v2__schemas__Syllabus;
 };
 

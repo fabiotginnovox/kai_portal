@@ -3,7 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { MappingItem } from './MappingItem';
-export type innocore__aurora__v2__schemas__Syllabus = {
+export type apps__paideia__v2__schemas__Syllabus = {
     content: string;
     course_id: string;
     created_at?: (string | null);

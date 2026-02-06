@@ -15,36 +15,31 @@ const Hero: React.FC = () => {
         <div className="lg:grid lg:grid-cols-12 lg:gap-16 items-center">
 
           {/* Text Content */}
-          <div className="lg:col-span-6 text-center lg:text-left">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-kai-card border border-kai-accent/20 mb-6">
-              <Sparkles className="w-4 h-4 text-kai-accent" />
-              <span className="text-xs font-medium text-kai-accent tracking-wide uppercase">Novo: KaiAssist Pro</span>
-            </div>
-
-            <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight text-white mb-6 leading-[1.1]">
-              Executive Automation <br />
+          <div className="lg:col-span-12 text-center">
+            <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight text-white mb-6 leading-[1.1] max-w-4xl mx-auto">
+              Transforme seu Dia com <span className="text-kai-accent">KaiAssist</span>:<br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-kai-accent to-emerald-400">
-                AI: Elevate Efficiency
+                Pequenas Automações, Grande Impacto.
               </span>
             </h1>
 
-            <p className="mt-4 text-lg text-kai-muted max-w-2xl mx-auto lg:mx-0 font-light">
-              O assistente inteligente pronto-para-uso da InnoVox.
-              Ele resume, organiza, responde e executa tarefas operacionais sem precisar configurar nada complicado.
+            <p className="mt-4 text-xl text-kai-muted max-w-3xl mx-auto font-light">
+              Descubra o assistente de IA que libera seu tempo das tarefas repetitivas.
+              <br />Automação inteligente, resultados instantâneos.
             </p>
 
-            <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="#demo"
                 className="inline-flex items-center justify-center px-8 py-4 border border-transparent text-base font-bold rounded-full text-kai-black bg-kai-accent hover:bg-kai-accentHover transition-all shadow-[0_0_20px_rgba(163,198,68,0.4)] hover:shadow-[0_0_30px_rgba(163,198,68,0.6)]"
               >
-                Get Started
+                Começar Agora
               </a>
               <a
                 href="#features"
                 className="inline-flex items-center justify-center px-8 py-4 border border-kai-muted/30 text-base font-medium rounded-full text-white hover:bg-white/5 transition-all"
               >
-                Learn More
+                Saiba Mais
                 <ArrowRight className="ml-2 w-4 h-4" />
               </a>
             </div>
@@ -61,60 +56,47 @@ const Hero: React.FC = () => {
           </div>
 
           {/* Hero Image / Interface Mockup */}
-          <div className="lg:col-span-6 mt-16 lg:mt-0 relative group">
-            <div className="relative rounded-xl bg-kai-dark border border-kai-muted/20 shadow-2xl overflow-hidden transform group-hover:scale-[1.01] transition-transform duration-500 aspect-video">
+          <div className="lg:col-span-12 mt-16 relative group max-w-5xl mx-auto w-full">
+            <div className="relative rounded-2xl bg-[#0d1610] border border-kai-accent/20 shadow-[0_0_50px_rgba(163,198,68,0.15)] overflow-hidden transform transition-transform duration-500 aspect-[16/10] flex flex-col">
+
               {/* Fake Browser Header */}
-              <div className="h-8 bg-[#1a2e20] border-b border-kai-muted/10 flex items-center px-4 gap-2 z-20 relative">
-                <div className="w-3 h-3 rounded-full bg-red-500/50"></div>
-                <div className="w-3 h-3 rounded-full bg-yellow-500/50"></div>
-                <div className="w-3 h-3 rounded-full bg-green-500/50"></div>
-                <div className="ml-4 h-4 w-64 bg-white/5 rounded-full"></div>
+              <div className="h-10 bg-[#1a2e20] border-b border-kai-accent/10 flex items-center px-6 gap-2 z-20 relative">
+                <div className="flex gap-1.5">
+                  <div className="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
+                  <div className="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+                  <div className="w-3 h-3 rounded-full bg-[#27c93f]"></div>
+                </div>
+                <div className="ml-auto text-[10px] text-kai-accent/70 uppercase tracking-[0.2em] font-mono">LIVE_SESSION_ACTIVE</div>
               </div>
 
-              {/* Dashboard Content Mockup */}
-              <div className="relative w-full h-full bg-[#0d1610]">
-                {/* 1. Chart Background - Moved to background, low opacity */}
-                <div className="absolute bottom-0 left-0 w-full h-48 px-10 pb-10 flex items-end gap-2 opacity-20 pointer-events-none">
-                  <div className="w-1/5 h-[40%] bg-kai-accent/40 rounded-t"></div>
-                  <div className="w-1/5 h-[70%] bg-kai-accent/60 rounded-t"></div>
-                  <div className="w-1/5 h-[50%] bg-kai-accent/50 rounded-t"></div>
-                  <div className="w-1/5 h-[90%] bg-kai-accent rounded-t"></div>
-                  <div className="w-1/5 h-[65%] bg-kai-accent/70 rounded-t"></div>
+              {/* Chat Content Background (Circuit Board Style) */}
+              <div className="relative flex-1 bg-[#050a06] overflow-hidden flex flex-col">
+                {/* Circuit Board Pattern Simulation */}
+                <div className="absolute inset-0 opacity-20 pointer-events-none">
+                  <div className="absolute inset-0 bg-grid opacity-20" />
+                  <div className="absolute top-10 left-10 w-32 h-32 border border-kai-accent/20 rounded-full blur-2xl" />
+                  <div className="absolute bottom-20 right-20 w-40 h-40 border border-kai-accent/20 rounded-full blur-3xl opacity-50" />
                 </div>
 
-                {/* 2. Scrolling List - Foreground of the chart, Main Content */}
-                <div className="absolute inset-0 z-10">
-                  <ScrollingList />
+                {/* Chat Bubble from Image */}
+                <div className="relative z-10 p-8 flex flex-col items-center justify-center h-full">
+                  <div className="bg-[#e8f5e9] text-[#1a2e20] p-6 rounded-2xl rounded-tl-none max-w-lg shadow-xl transform animate-in fade-in slide-in-from-bottom-4 duration-700">
+                    <p className="text-sm md:text-base leading-relaxed font-medium">
+                      Olá! 😊 Sou o <span className="font-bold text-kai-black">KaiAssist</span>, seu parceiro de produtividade.
+                      Estou aqui para eliminar as pequenas tarefas que te atrasam. Imagine o que podemos fazer juntos!
+                      <br /><br />
+                      Qual é a primeira automação que você gostaria de explorar?
+                    </p>
+                  </div>
                 </div>
 
-                {/* 3. Floating Widget - Top Right Only */}
-                <div className="absolute inset-0 flex flex-col p-6 lg:p-10 bg-gradient-to-t from-kai-dark via-transparent to-transparent pointer-events-none z-20 opacity-80">
-                  <div className="self-end bg-kai-card/90 backdrop-blur-md p-3 rounded-lg border border-kai-accent/20 mb-4 w-56 shadow-lg transform translate-x-2 animate-pulse">
-                    <div className="h-1.5 w-20 bg-kai-accent rounded mb-1.5"></div>
-                    <div className="h-1.5 w-full bg-white/10 rounded"></div>
-                    <div className="h-1.5 w-4/5 bg-white/10 rounded mt-1"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Mobile Companion Mockup */}
-            <div className="absolute -bottom-6 -right-4 w-32 md:w-48 bg-kai-card rounded-2xl border border-kai-accent/30 shadow-2xl p-2 transform rotate-[-5deg] lg:rotate-[-8deg] hover:rotate-0 transition-transform duration-300 z-20">
-              <div className="h-full w-full bg-kai-dark rounded-xl overflow-hidden flex flex-col">
-                <div className="p-3 border-b border-white/5 flex justify-between items-center">
-                  <div className="w-6 h-6 rounded-full bg-kai-accent/20 flex items-center justify-center text-[10px] text-kai-accent">K</div>
-                </div>
-                <div className="p-3 space-y-2">
-                  <div className="bg-white/5 p-2 rounded-lg rounded-tl-none text-[8px] text-gray-300">
-                    Resumo da reunião enviado.
-                  </div>
-                  <div className="bg-kai-accent/10 p-2 rounded-lg rounded-tr-none text-[8px] text-kai-accent text-right border border-kai-accent/20">
-                    Perfeito, obrigado!
-                  </div>
-                </div>
-                <div className="mt-auto p-3 flex justify-center pb-4">
-                  <div className="w-8 h-8 rounded-full bg-kai-accent flex items-center justify-center shadow-[0_0_10px_rgba(163,198,68,0.5)]">
-                    <div className="w-2 h-2 bg-kai-black rounded-full animate-ping"></div>
+                {/* Input Area Simulation */}
+                <div className="p-4 bg-kai-dark/80 backdrop-blur-sm border-t border-kai-accent/10 mt-auto">
+                  <div className="flex gap-4 items-center bg-white/5 border border-white/10 rounded-xl px-4 py-3">
+                    <span className="text-kai-muted text-sm flex-1">Descreva sua próxima automação criativa aqui...</span>
+                    <div className="bg-kai-accent text-kai-black p-2 rounded-lg">
+                      <Send size={18} />
+                    </div>
                   </div>
                 </div>
               </div>

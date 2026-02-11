@@ -5,7 +5,6 @@
 import type { Assistant } from '../models/Assistant';
 import type { AssistantCreate } from '../models/AssistantCreate';
 import type { AssistantUpdate } from '../models/AssistantUpdate';
-import type { Business_Analysis_Message } from '../models/Business_Analysis_Message';
 import type { Message } from '../models/Message';
 import type { MessageCreate } from '../models/MessageCreate';
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -224,42 +223,6 @@ export class AssistantService {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/assistant/get_supported_file_mime_types/',
-        });
-    }
-    /**
-     * Create Business Automation Analysis
-     * Return the supported formats.
-     * @returns Assistant Successful Response
-     * @throws ApiError
-     */
-    public static createBusinessAutomationAnalysisAssistantCreateBusinessAutomationAnalysisPost(): CancelablePromise<Assistant> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/assistant/create_business_automation_analysis/',
-        });
-    }
-    /**
-     * Iterate Business Automation Analysis
-     * @param assistantId
-     * @param requestBody
-     * @returns Business_Analysis_Message Successful Response
-     * @throws ApiError
-     */
-    public static iterateBusinessAutomationAnalysisAssistantIterateBusinessAutomationAnalysisPost(
-        assistantId: string,
-        requestBody: Array<MessageCreate>,
-    ): CancelablePromise<Business_Analysis_Message> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/assistant/iterate_business_automation_analysis',
-            query: {
-                'assistant_id': assistantId,
-            },
-            body: requestBody,
-            mediaType: 'application/json',
-            errors: {
-                422: `Validation Error`,
-            },
         });
     }
 }

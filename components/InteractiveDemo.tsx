@@ -4,7 +4,7 @@ import { sendMessageToKai } from '../services/geminiService';
 import { ChatMessage } from '../types';
 import { AuthContext } from '../contexts/AuthContext';
 import { getAssistantSessionId, saveAssistantSessionId, getUserToken, getAnonymousUserToken, deleteAnonymousUserToken, deleteAssistantSessionId } from '@/contexts/DataContext';
-import { AssistantService } from '@/clients/innocore';
+import { KaiAssistService } from '@/clients/innocore';
 import MessageText from './MessageText/MessageText';
 
 
@@ -52,7 +52,7 @@ const InteractiveDemo: React.FC = () => {
     }
     let sessionId: string = "";
     if (!getAssistantSessionId()) {
-      const session = await AssistantService.createBusinessAutomationAnalysisAssistantCreateBusinessAutomationAnalysisPost();
+      const session = await KaiAssistService.createBusinessAutomationAnalysisKaiAssistCreateBusinessAutomationAnalysisPost();
       sessionId = session.id;
       saveAssistantSessionId(sessionId);
     } else {

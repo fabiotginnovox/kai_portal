@@ -2,13 +2,13 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { apps__paideia__v2__schemas__Lesson } from '../models/apps__paideia__v2__schemas__Lesson';
+import type { apps__paideia__v2__schemas__Module } from '../models/apps__paideia__v2__schemas__Module';
+import type { apps__paideia__v2__schemas__Syllabus } from '../models/apps__paideia__v2__schemas__Syllabus';
 import type { CompleteCourseResponse } from '../models/CompleteCourseResponse';
 import type { Course } from '../models/Course';
 import type { CourseCreationDetails } from '../models/CourseCreationDetails';
 import type { CourseUpdate } from '../models/CourseUpdate';
-import type { innocore__aurora__v2__schemas__Lesson } from '../models/innocore__aurora__v2__schemas__Lesson';
-import type { innocore__aurora__v2__schemas__Module } from '../models/innocore__aurora__v2__schemas__Module';
-import type { innocore__aurora__v2__schemas__Syllabus } from '../models/innocore__aurora__v2__schemas__Syllabus';
 import type { LessonUpdate } from '../models/LessonUpdate';
 import type { MappingItem } from '../models/MappingItem';
 import type { MappingItemUpdate } from '../models/MappingItemUpdate';
@@ -177,13 +177,13 @@ export class PaideiaService {
      * 404 if item is not found.
      * @param itemId
      * @param requestBody
-     * @returns innocore__aurora__v2__schemas__Syllabus Successful Response
+     * @returns apps__paideia__v2__schemas__Syllabus Successful Response
      * @throws ApiError
      */
     public static updateItemPaideiaSyllabusItemIdPut(
         itemId: string,
         requestBody: SyllabusUpdate,
-    ): CancelablePromise<innocore__aurora__v2__schemas__Syllabus> {
+    ): CancelablePromise<apps__paideia__v2__schemas__Syllabus> {
         return __request(OpenAPI, {
             method: 'PUT',
             url: '/paideia/syllabus/{item_id}',
@@ -209,13 +209,13 @@ export class PaideiaService {
      * 404 if item is not found.
      * @param itemId
      * @param requestBody
-     * @returns innocore__aurora__v2__schemas__Syllabus Successful Response
+     * @returns apps__paideia__v2__schemas__Syllabus Successful Response
      * @throws ApiError
      */
     public static patchItemPaideiaSyllabusItemIdPatch(
         itemId: string,
         requestBody: SyllabusUpdate,
-    ): CancelablePromise<innocore__aurora__v2__schemas__Syllabus> {
+    ): CancelablePromise<apps__paideia__v2__schemas__Syllabus> {
         return __request(OpenAPI, {
             method: 'PATCH',
             url: '/paideia/syllabus/{item_id}',
@@ -238,12 +238,12 @@ export class PaideiaService {
      * HTTPException
      * 404 if item is not found.
      * @param itemId
-     * @returns innocore__aurora__v2__schemas__Syllabus Successful Response
+     * @returns apps__paideia__v2__schemas__Syllabus Successful Response
      * @throws ApiError
      */
     public static deleteItemPaideiaSyllabusItemIdDelete(
         itemId: string,
-    ): CancelablePromise<innocore__aurora__v2__schemas__Syllabus> {
+    ): CancelablePromise<apps__paideia__v2__schemas__Syllabus> {
         return __request(OpenAPI, {
             method: 'DELETE',
             url: '/paideia/syllabus/{item_id}',
@@ -258,12 +258,12 @@ export class PaideiaService {
     /**
      * Get Item
      * @param courseId
-     * @returns innocore__aurora__v2__schemas__Syllabus Successful Response
+     * @returns apps__paideia__v2__schemas__Syllabus Successful Response
      * @throws ApiError
      */
     public static getItemPaideiaSyllabusCourseIdGet(
         courseId: string,
-    ): CancelablePromise<innocore__aurora__v2__schemas__Syllabus> {
+    ): CancelablePromise<apps__paideia__v2__schemas__Syllabus> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/paideia/syllabus/{course_id}',
@@ -307,13 +307,13 @@ export class PaideiaService {
      * 404 if item is not found.
      * @param itemId
      * @param requestBody
-     * @returns innocore__aurora__v2__schemas__Module Successful Response
+     * @returns apps__paideia__v2__schemas__Module Successful Response
      * @throws ApiError
      */
     public static updateItemPaideiaModulesItemIdPut(
         itemId: string,
         requestBody: ModuleUpdate,
-    ): CancelablePromise<innocore__aurora__v2__schemas__Module> {
+    ): CancelablePromise<apps__paideia__v2__schemas__Module> {
         return __request(OpenAPI, {
             method: 'PUT',
             url: '/paideia/modules/{item_id}',
@@ -339,13 +339,13 @@ export class PaideiaService {
      * 404 if item is not found.
      * @param itemId
      * @param requestBody
-     * @returns innocore__aurora__v2__schemas__Module Successful Response
+     * @returns apps__paideia__v2__schemas__Module Successful Response
      * @throws ApiError
      */
     public static patchItemPaideiaModulesItemIdPatch(
         itemId: string,
         requestBody: ModuleUpdate,
-    ): CancelablePromise<innocore__aurora__v2__schemas__Module> {
+    ): CancelablePromise<apps__paideia__v2__schemas__Module> {
         return __request(OpenAPI, {
             method: 'PATCH',
             url: '/paideia/modules/{item_id}',
@@ -368,12 +368,12 @@ export class PaideiaService {
      * HTTPException
      * 404 if item is not found.
      * @param itemId
-     * @returns innocore__aurora__v2__schemas__Module Successful Response
+     * @returns apps__paideia__v2__schemas__Module Successful Response
      * @throws ApiError
      */
     public static deleteItemPaideiaModulesItemIdDelete(
         itemId: string,
-    ): CancelablePromise<innocore__aurora__v2__schemas__Module> {
+    ): CancelablePromise<apps__paideia__v2__schemas__Module> {
         return __request(OpenAPI, {
             method: 'DELETE',
             url: '/paideia/modules/{item_id}',
@@ -388,12 +388,12 @@ export class PaideiaService {
     /**
      * Get Item
      * @param courseId
-     * @returns innocore__aurora__v2__schemas__Module Successful Response
+     * @returns apps__paideia__v2__schemas__Module Successful Response
      * @throws ApiError
      */
     public static getItemPaideiaModulesCourseIdGet(
         courseId: string,
-    ): CancelablePromise<Array<innocore__aurora__v2__schemas__Module>> {
+    ): CancelablePromise<Array<apps__paideia__v2__schemas__Module>> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/paideia/modules/{course_id}',
@@ -414,12 +414,12 @@ export class PaideiaService {
      * HTTPException
      * 404 if item is not found.
      * @param itemId
-     * @returns innocore__aurora__v2__schemas__Lesson Successful Response
+     * @returns apps__paideia__v2__schemas__Lesson Successful Response
      * @throws ApiError
      */
     public static getItemPaideiaLessonsItemIdGet(
         itemId: string,
-    ): CancelablePromise<innocore__aurora__v2__schemas__Lesson> {
+    ): CancelablePromise<apps__paideia__v2__schemas__Lesson> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/paideia/lessons/{item_id}',
@@ -443,13 +443,13 @@ export class PaideiaService {
      * 404 if item is not found.
      * @param itemId
      * @param requestBody
-     * @returns innocore__aurora__v2__schemas__Lesson Successful Response
+     * @returns apps__paideia__v2__schemas__Lesson Successful Response
      * @throws ApiError
      */
     public static updateItemPaideiaLessonsItemIdPut(
         itemId: string,
         requestBody: LessonUpdate,
-    ): CancelablePromise<innocore__aurora__v2__schemas__Lesson> {
+    ): CancelablePromise<apps__paideia__v2__schemas__Lesson> {
         return __request(OpenAPI, {
             method: 'PUT',
             url: '/paideia/lessons/{item_id}',
@@ -475,13 +475,13 @@ export class PaideiaService {
      * 404 if item is not found.
      * @param itemId
      * @param requestBody
-     * @returns innocore__aurora__v2__schemas__Lesson Successful Response
+     * @returns apps__paideia__v2__schemas__Lesson Successful Response
      * @throws ApiError
      */
     public static patchItemPaideiaLessonsItemIdPatch(
         itemId: string,
         requestBody: LessonUpdate,
-    ): CancelablePromise<innocore__aurora__v2__schemas__Lesson> {
+    ): CancelablePromise<apps__paideia__v2__schemas__Lesson> {
         return __request(OpenAPI, {
             method: 'PATCH',
             url: '/paideia/lessons/{item_id}',
@@ -504,12 +504,12 @@ export class PaideiaService {
      * HTTPException
      * 404 if item is not found.
      * @param itemId
-     * @returns innocore__aurora__v2__schemas__Lesson Successful Response
+     * @returns apps__paideia__v2__schemas__Lesson Successful Response
      * @throws ApiError
      */
     public static deleteItemPaideiaLessonsItemIdDelete(
         itemId: string,
-    ): CancelablePromise<innocore__aurora__v2__schemas__Lesson> {
+    ): CancelablePromise<apps__paideia__v2__schemas__Lesson> {
         return __request(OpenAPI, {
             method: 'DELETE',
             url: '/paideia/lessons/{item_id}',

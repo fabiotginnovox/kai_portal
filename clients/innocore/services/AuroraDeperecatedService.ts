@@ -2,13 +2,13 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { apps__paideia__v1__service__Syllabus } from '../models/apps__paideia__v1__service__Syllabus';
 import type { Body_make_new_course_aurora__post } from '../models/Body_make_new_course_aurora__post';
 import type { CourseDetails } from '../models/CourseDetails';
-import type { innocore__aurora__service__Syllabus } from '../models/innocore__aurora__service__Syllabus';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import { OpenAPI } from '../core/OpenAPI';
 import { request as __request } from '../core/request';
-export class AuroraService {
+export class AuroraDeperecatedService {
     /**
      * User Courses
      * @returns CourseDetails Successful Response
@@ -42,12 +42,12 @@ export class AuroraService {
     /**
      * Course Structure
      * @param course
-     * @returns innocore__aurora__service__Syllabus Successful Response
+     * @returns apps__paideia__v1__service__Syllabus Successful Response
      * @throws ApiError
      */
     public static courseStructureAuroraCourseGet(
         course: string,
-    ): CancelablePromise<innocore__aurora__service__Syllabus> {
+    ): CancelablePromise<apps__paideia__v1__service__Syllabus> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/aurora/{course}',

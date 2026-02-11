@@ -1,8 +1,8 @@
-import { AssistantService, Business_Analysis_Message } from "@/clients/innocore";
+import { KaiAssistService, Business_Analysis_Message } from "@/clients/innocore";
 
 export const sendMessageToKai = async (message: string, sessionId: string): Promise<Business_Analysis_Message> => {
   try {
-    const response = await AssistantService.iterateBusinessAutomationAnalysisAssistantIterateBusinessAutomationAnalysisPost(
+    const response = await KaiAssistService.iterateBusinessAutomationAnalysisKaiAssistIterateBusinessAutomationAnalysisPost(
       sessionId,
       [{
         content: message,

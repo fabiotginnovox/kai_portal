@@ -2,11 +2,13 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-export type innocore__aurora__v2__schemas__Lesson = {
+import type { apps__paideia__v2__schemas__Lesson } from './apps__paideia__v2__schemas__Lesson';
+export type apps__paideia__v2__schemas__Module = {
     content: string;
-    module_id: string;
+    course_id: string;
     created_at?: (string | null);
     updated_at?: (string | null);
     id?: (string | null);
+    lessons: Array<apps__paideia__v2__schemas__Lesson>;
 };
 

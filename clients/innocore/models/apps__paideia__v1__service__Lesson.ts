@@ -2,7 +2,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-export type innocore__aurora__service__Lesson = {
+export type apps__paideia__v1__service__Lesson = {
     id: string;
     title: string;
 };

@@ -2,10 +2,10 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { innocore__aurora__v2__agent_schemas__Syllabus } from './innocore__aurora__v2__agent_schemas__Syllabus';
+import type { apps__paideia__v2__agent_schemas__Syllabus } from './apps__paideia__v2__agent_schemas__Syllabus';
 import type { LessonContentResponse } from './LessonContentResponse';
 export type CompleteCourseResponse = {
-    syllabus: innocore__aurora__v2__agent_schemas__Syllabus;
+    syllabus: apps__paideia__v2__agent_schemas__Syllabus;
     lessons_content: Array<LessonContentResponse>;
 };
 

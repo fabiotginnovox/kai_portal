@@ -21,16 +21,31 @@ const InteractiveDemo: React.FC = () => {
   const [inputValue, setInputValue] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const messagesContainerRef = useRef<HTMLDivElement>(null);
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
+
+  const adjustTextareaHeight = () => {
+    const textarea = textareaRef.current;
+    if (textarea) {
+      textarea.style.height = 'auto';
+      textarea.style.height = `${Math.min(textarea.scrollHeight, 128)}px`;
+    }
+  };
 
   const scrollToBottom = () => {
-    // messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    if (messagesContainerRef.current) {
+      messagesContainerRef.current.scrollTop = messagesContainerRef.current.scrollHeight;
+    }
   };
 
   useEffect(() => {
     if (messages.length === 1) return;
     scrollToBottom();
   }, [messages]);
+
+  useEffect(() => {
+    adjustTextareaHeight();
+  }, [inputValue]);
 
   useEffect(() => {
     // This runs on component mount (including page refresh)
@@ -42,11 +57,11 @@ const InteractiveDemo: React.FC = () => {
     initializeOnRefresh();
   }, []);
 
-  const handleSend = async (e?: React.FormEvent) => {
+  const handleSend = async (e?: React.FormEvent<HTMLFormElement>) => {
     e?.preventDefault();
     if (!inputValue.trim() || isLoading) return;
 
-    // Check authentication directly from localStorage instead of context
+    setIsLoading(true);
     const hasToken = !!getUserToken() || !!getAnonymousUserToken();
     if (!hasToken) {
       await createAnonymousUser();
@@ -66,7 +81,6 @@ const InteractiveDemo: React.FC = () => {
 
     setMessages(prev => [...prev, userMessage]);
     setInputValue('');
-    setIsLoading(true);
 
     try {
       const response = await sendMessageToKai(userMessage.text, sessionId);
@@ -83,6 +97,14 @@ const InteractiveDemo: React.FC = () => {
       setIsLoading(false);
     }
   };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      handleSend();
+    }
+  };
+
   const handleDownloadBlueprint = () => {
     if (!blueprint) return;
 
@@ -96,18 +118,21 @@ const InteractiveDemo: React.FC = () => {
     document.body.removeChild(link);
     URL.revokeObjectURL(url);
   };
-  return (
-    <section id="demo" className="py-24 bg-[#08100b]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  return (    
+    <div className="lg:col-span-12 mt-16 relative group max-w-5xl mx-auto w-full">
+      <div className="relative rounded-2xl bg-[#0d1610] border border-kai-accent/30 shadow-[0_0_50px_rgba(163,198,68,0.2)] overflow-hidden transform transition-transform duration-500 aspect-[16/10] flex flex-col">
 
-        <div className="max-w-3xl mx-auto bg-kai-card border border-kai-muted/20 rounded-2xl shadow-2xl overflow-hidden flex flex-col h-[600px]">
-          {/* Chat Header */}
-          <div className="p-4 bg-kai-dark border-b border-white/5 flex items-center gap-3">
-            <div className="w-3 h-3 rounded-full bg-red-500/50"></div>
-            <div className="w-3 h-3 rounded-full bg-yellow-500/50"></div>
-            <div className="w-3 h-3 rounded-full bg-green-500/50"></div>
-            <div className="ml-auto text-xs text-kai-muted uppercase tracking-widest font-mono">LIVE_SESSION_ACTIVE</div>
-            {blueprint && (
+        {/* Fake Browser Header */}
+        <div className="h-10 bg-[#1a2e20] border-b border-kai-accent/20 flex items-center px-6 gap-2 z-20 relative">
+          <div className="flex gap-1.5">
+            <div className="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
+            <div className="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+            <div className="w-3 h-3 rounded-full bg-[#27c93f]"></div>
+          </div>
+          <div className="ml-auto text-[10px] text-kai-accent uppercase tracking-[0.2em] font-mono opacity-80">
+            LIVE_SESSION_ACTIVE
+          </div>
+          {blueprint && (
               <button
                 onClick={handleDownloadBlueprint}
                 className="ml-3 p-2 bg-kai-accent text-kai-black rounded-lg hover:bg-kai-accentHover transition-colors flex items-center gap-2"
@@ -117,10 +142,18 @@ const InteractiveDemo: React.FC = () => {
                 <span className="text-xs font-medium">Blueprint</span>
               </button>
             )}
+        </div>
+
+        {/* Chat Content Background (Circuit Board Style) */}
+        <div className="relative flex-1 bg-[#050a06] overflow-hidden flex flex-col">
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute inset-0 bg-grid opacity-30" />
+            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-kai-accent/5 via-transparent to-emerald-900/10" />
+            <div className="absolute top-10 left-10 w-64 h-64 border border-kai-accent/10 rounded-full blur-3xl" />
           </div>
 
           {/* Messages Area */}
-          <div className="flex-1 overflow-y-auto p-6 space-y-6 bg-gradient-to-b from-kai-card to-kai-black">
+          <div ref={messagesContainerRef} className="relative z-10 flex-1 overflow-y-auto p-4 md:p-8 space-y-4">
             {messages.map((msg, idx) => (
               <div
                 key={idx}
@@ -129,21 +162,16 @@ const InteractiveDemo: React.FC = () => {
                 <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center ${msg.role === 'model' ? 'bg-kai-accent text-kai-black' : 'bg-white/10 text-white'}`}>
                   {msg.role === 'model' ? <Bot size={18} /> : <User size={18} />}
                 </div>
-                <MessageText content={msg.text} userSent={msg.role === 'user'} />
+                <div className={`${msg.role === 'model' ? 'bg-[#e8f5e9] text-[#1a2e20]' : 'bg-kai-card text-white border border-white/10'} p-4 rounded-2xl ${msg.role === 'model' ? 'rounded-tl-none' : 'rounded-tr-none'} max-w-md shadow-lg`}>
+                  <MessageText content={msg.text} userSent={msg.role === 'user'} />
+                </div>
               </div>
             ))}
             {isLoading && (
               <div className="flex gap-3">
-                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-kai-accent text-kai-black flex items-center justify-center">
-                  <Bot size={18} />
-                </div>
+                <div className="bg-kai-accent text-kai-black w-8 h-8 rounded-full flex items-center justify-center"><Bot size={18} /></div>
                 <div className="bg-kai-dark border border-kai-accent/20 rounded-2xl p-4 flex items-center gap-2">
-                  <span className="text-xs text-kai-accent animate-pulse">Pensando</span>
-                  <div className="flex gap-1">
-                    <div className="w-1 h-1 bg-kai-accent rounded-full animate-bounce delay-75"></div>
-                    <div className="w-1 h-1 bg-kai-accent rounded-full animate-bounce delay-150"></div>
-                    <div className="w-1 h-1 bg-kai-accent rounded-full animate-bounce delay-300"></div>
-                  </div>
+                  <span className="text-xs text-white animate-pulse font-mono">PROCESSANDO...</span>
                 </div>
               </div>
             )}
@@ -151,47 +179,31 @@ const InteractiveDemo: React.FC = () => {
           </div>
 
           {/* Input Area */}
-          <div className="p-4 bg-kai-dark border-t border-white/5">
-            <form onSubmit={handleSend} className="relative">
-              <input
-                type="text"
+          <div className="p-4 bg-[#0d1610]/95 backdrop-blur-sm border-t border-kai-accent/20 mt-auto z-20">
+            <form onSubmit={handleSend} className="flex gap-4 items-end bg-white/5 border border-white/10 rounded-xl px-4 py-1">
+              <textarea
+                ref={textareaRef}
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
+                onKeyDown={handleKeyDown}
                 placeholder="Descreva sua próxima automação criativa aqui..."
-                className="w-full bg-kai-card text-white pl-4 pr-12 py-4 rounded-xl border border-white/10 focus:border-kai-accent focus:ring-1 focus:ring-kai-accent outline-none placeholder-kai-muted/50 transition-all"
+                className="bg-transparent text-kai-text text-sm flex-1 py-3 outline-none placeholder:text-kai-muted/50 resize-none overflow-hidden"
                 disabled={isLoading}
+                rows={1}
+                style={{ minHeight: '24px', maxHeight: '128px' }}
               />
               <button
                 type="submit"
                 disabled={isLoading || !inputValue.trim()}
-                className="absolute right-2 top-2 p-2 bg-kai-accent text-kai-black rounded-lg hover:bg-kai-accentHover disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                className="bg-kai-accent text-kai-black p-2 rounded-lg hover:scale-110 transition-transform disabled:opacity-50 flex-shrink-0"
               >
-                {isLoading ? <Loader2 className="w-5 h-5 animate-spin" /> : <Send className="w-5 h-5" />}
+                {isLoading ? <Loader2 className="w-5 h-5 animate-spin" /> : <Send size={18} />}
               </button>
             </form>
           </div>
         </div>
-
-        {/* Comparison Text Block */}
-        <div className="mt-20 grid md:grid-cols-2 gap-12 text-sm text-kai-muted">
-          <div className="space-y-4">
-            <h4 className="text-white font-bold text-lg flex items-center gap-2">
-              <span className="w-2 h-2 bg-kai-accent rounded-full"></span>
-              Posicionamento KaiAssist
-            </h4>
-            <p>É a versão "plug-and-play" do ecossistema KAI — simples, acessível e voltada para produtividade imediata.</p>
-          </div>
-          <div className="space-y-4">
-            <h4 className="text-white font-bold text-lg flex items-center gap-2">
-              <span className="w-2 h-2 bg-emerald-600 rounded-full"></span>
-              Posicionamento KaiAssist Pro
-            </h4>
-            <p>É o assistente para empresas que querem automação real. Enquanto o KaiAssist trabalha por tarefa, o KaiAssist Pro trabalha por processo.</p>
-          </div>
-        </div>
-
       </div>
-    </section>
+    </div>
   );
 };
 

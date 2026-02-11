@@ -14,7 +14,7 @@ const InteractiveDemo: React.FC = () => {
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
       role: 'model',
-      text: 'Olá! 😊 Eu sou o KAI Assist, focado em entender o seu trabalho do dia a dia para encontrar oportunidades de automação e ganho de eficiência.\n\nPara começar, por favor, me conte um pouco sobre suas tarefas diárias.',
+      text: 'Olá! 😊 Sou o KaiAssist, seu parceiro de produtividade. Estou aqui para eliminar as pequenas tarefas que te atrasam. Imagine o que podemos fazer juntos!\n\nQual é a primeira automação que você gostaria de explorar?',
       timestamp: new Date()
     }
   ]);
@@ -37,7 +37,7 @@ const InteractiveDemo: React.FC = () => {
       deleteAnonymousUserToken();
       deleteAssistantSessionId();
     };
-    
+
     initializeOnRefresh();
   }, []);
 
@@ -58,7 +58,7 @@ const InteractiveDemo: React.FC = () => {
     } else {
       sessionId = getAssistantSessionId()!;
     }
-    
+
     const userMessage: ChatMessage = {
       role: 'user',
       text: inputValue,
@@ -86,7 +86,7 @@ const InteractiveDemo: React.FC = () => {
   };
   const handleDownloadBlueprint = () => {
     if (!blueprint) return;
-    
+
     const blob = new Blob([blueprint], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
@@ -100,13 +100,13 @@ const InteractiveDemo: React.FC = () => {
   return (
     <section id="demo" className="py-24 bg-[#08100b]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Experimente o <span className="text-kai-accent">KaiAssist</span> Agora
           </h2>
           <p className="text-kai-muted max-w-2xl mx-auto">
-            Veja como o assistente "plug-and-play" responde instantaneamente. 
+            Veja como o assistente "plug-and-play" responde instantaneamente.
             Sem configurações complicadas.
           </p>
         </div>
@@ -114,27 +114,27 @@ const InteractiveDemo: React.FC = () => {
         <div className="max-w-3xl mx-auto bg-kai-card border border-kai-muted/20 rounded-2xl shadow-2xl overflow-hidden flex flex-col h-[600px]">
           {/* Chat Header */}
           <div className="p-4 bg-kai-dark border-b border-white/5 flex items-center gap-3">
-             <div className="w-3 h-3 rounded-full bg-red-500/50"></div>
-             <div className="w-3 h-3 rounded-full bg-yellow-500/50"></div>
-             <div className="w-3 h-3 rounded-full bg-green-500/50"></div>
-             <div className="ml-auto text-xs text-kai-muted uppercase tracking-widest font-mono">LIVE_SESSION_ACTIVE</div>
-             {blueprint && (
-               <button
-                 onClick={handleDownloadBlueprint}
-                 className="ml-3 p-2 bg-kai-accent text-kai-black rounded-lg hover:bg-kai-accentHover transition-colors flex items-center gap-2"
-                 title="Download Blueprint"
-               >
-                 <Download size={16} />
-                 <span className="text-xs font-medium">Blueprint</span>
-               </button>
-             )}
+            <div className="w-3 h-3 rounded-full bg-red-500/50"></div>
+            <div className="w-3 h-3 rounded-full bg-yellow-500/50"></div>
+            <div className="w-3 h-3 rounded-full bg-green-500/50"></div>
+            <div className="ml-auto text-xs text-kai-muted uppercase tracking-widest font-mono">LIVE_SESSION_ACTIVE</div>
+            {blueprint && (
+              <button
+                onClick={handleDownloadBlueprint}
+                className="ml-3 p-2 bg-kai-accent text-kai-black rounded-lg hover:bg-kai-accentHover transition-colors flex items-center gap-2"
+                title="Download Blueprint"
+              >
+                <Download size={16} />
+                <span className="text-xs font-medium">Blueprint</span>
+              </button>
+            )}
           </div>
 
           {/* Messages Area */}
           <div className="flex-1 overflow-y-auto p-6 space-y-6 bg-gradient-to-b from-kai-card to-kai-black">
             {messages.map((msg, idx) => (
-              <div 
-                key={idx} 
+              <div
+                key={idx}
                 className={`flex gap-3 ${msg.role === 'user' ? 'flex-row-reverse' : 'flex-row'}`}
               >
                 <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center ${msg.role === 'model' ? 'bg-kai-accent text-kai-black' : 'bg-white/10 text-white'}`}>
@@ -144,19 +144,19 @@ const InteractiveDemo: React.FC = () => {
               </div>
             ))}
             {isLoading && (
-               <div className="flex gap-3">
-                 <div className="flex-shrink-0 w-8 h-8 rounded-full bg-kai-accent text-kai-black flex items-center justify-center">
-                    <Bot size={18} />
-                 </div>
-                 <div className="bg-kai-dark border border-kai-accent/20 rounded-2xl p-4 flex items-center gap-2">
-                    <span className="text-xs text-kai-accent animate-pulse">Pensando</span>
-                    <div className="flex gap-1">
-                        <div className="w-1 h-1 bg-kai-accent rounded-full animate-bounce delay-75"></div>
-                        <div className="w-1 h-1 bg-kai-accent rounded-full animate-bounce delay-150"></div>
-                        <div className="w-1 h-1 bg-kai-accent rounded-full animate-bounce delay-300"></div>
-                    </div>
-                 </div>
-               </div>
+              <div className="flex gap-3">
+                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-kai-accent text-kai-black flex items-center justify-center">
+                  <Bot size={18} />
+                </div>
+                <div className="bg-kai-dark border border-kai-accent/20 rounded-2xl p-4 flex items-center gap-2">
+                  <span className="text-xs text-kai-accent animate-pulse">Pensando</span>
+                  <div className="flex gap-1">
+                    <div className="w-1 h-1 bg-kai-accent rounded-full animate-bounce delay-75"></div>
+                    <div className="w-1 h-1 bg-kai-accent rounded-full animate-bounce delay-150"></div>
+                    <div className="w-1 h-1 bg-kai-accent rounded-full animate-bounce delay-300"></div>
+                  </div>
+                </div>
+              </div>
             )}
             <div ref={messagesEndRef} />
           </div>
@@ -168,7 +168,7 @@ const InteractiveDemo: React.FC = () => {
                 type="text"
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
-                placeholder="Qual tarefa você gostaria de automatizar hoje?"
+                placeholder="Descreva sua próxima automação criativa aqui..."
                 className="w-full bg-kai-card text-white pl-4 pr-12 py-4 rounded-xl border border-white/10 focus:border-kai-accent focus:ring-1 focus:ring-kai-accent outline-none placeholder-kai-muted/50 transition-all"
                 disabled={isLoading}
               />
@@ -182,23 +182,23 @@ const InteractiveDemo: React.FC = () => {
             </form>
           </div>
         </div>
-        
+
         {/* Comparison Text Block */}
         <div className="mt-20 grid md:grid-cols-2 gap-12 text-sm text-kai-muted">
-           <div className="space-y-4">
-              <h4 className="text-white font-bold text-lg flex items-center gap-2">
-                 <span className="w-2 h-2 bg-kai-accent rounded-full"></span>
-                 Posicionamento KaiAssist
-              </h4>
-              <p>É a versão "plug-and-play" do ecossistema KAI — simples, acessível e voltada para produtividade imediata.</p>
-           </div>
-           <div className="space-y-4">
-              <h4 className="text-white font-bold text-lg flex items-center gap-2">
-                 <span className="w-2 h-2 bg-emerald-600 rounded-full"></span>
-                 Posicionamento KaiAssist Pro
-              </h4>
-              <p>É o assistente para empresas que querem automação real. Enquanto o KaiAssist trabalha por tarefa, o KaiAssist Pro trabalha por processo.</p>
-           </div>
+          <div className="space-y-4">
+            <h4 className="text-white font-bold text-lg flex items-center gap-2">
+              <span className="w-2 h-2 bg-kai-accent rounded-full"></span>
+              Posicionamento KaiAssist
+            </h4>
+            <p>É a versão "plug-and-play" do ecossistema KAI — simples, acessível e voltada para produtividade imediata.</p>
+          </div>
+          <div className="space-y-4">
+            <h4 className="text-white font-bold text-lg flex items-center gap-2">
+              <span className="w-2 h-2 bg-emerald-600 rounded-full"></span>
+              Posicionamento KaiAssist Pro
+            </h4>
+            <p>É o assistente para empresas que querem automação real. Enquanto o KaiAssist trabalha por tarefa, o KaiAssist Pro trabalha por processo.</p>
+          </div>
         </div>
 
       </div>

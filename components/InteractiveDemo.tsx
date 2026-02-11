@@ -23,6 +23,7 @@ const InteractiveDemo: React.FC = () => {
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const scrollToBottom = () => {
+    // messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
@@ -50,13 +51,11 @@ const InteractiveDemo: React.FC = () => {
     if (!hasToken) {
       await createAnonymousUser();
     }
-    let sessionId: string = "";
-    if (!getAssistantSessionId()) {
+    let sessionId = getAssistantSessionId();
+    if (!sessionId) {
       const session = await KaiAssistService.createBusinessAutomationAnalysisKaiAssistCreateBusinessAutomationAnalysisPost();
       sessionId = session.id;
       saveAssistantSessionId(sessionId);
-    } else {
-      sessionId = getAssistantSessionId()!;
     }
 
     const userMessage: ChatMessage = {
@@ -100,16 +99,6 @@ const InteractiveDemo: React.FC = () => {
   return (
     <section id="demo" className="py-24 bg-[#08100b]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Experimente o <span className="text-kai-accent">KaiAssist</span> Agora
-          </h2>
-          <p className="text-kai-muted max-w-2xl mx-auto">
-            Veja como o assistente "plug-and-play" responde instantaneamente.
-            Sem configurações complicadas.
-          </p>
-        </div>
 
         <div className="max-w-3xl mx-auto bg-kai-card border border-kai-muted/20 rounded-2xl shadow-2xl overflow-hidden flex flex-col h-[600px]">
           {/* Chat Header */}

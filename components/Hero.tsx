@@ -7,53 +7,6 @@ import { AssistantService } from '@/clients/innocore';
 import MessageText from './MessageText/MessageText';
 
 const Hero: React.FC = () => {
-  const [inputValue, setInputValue] = React.useState('');
-  const [messages, setMessages] = React.useState<ChatMessage[]>([
-    {
-      role: 'model',
-      text: 'Olá! 😊 Sou o KaiAssist, seu parceiro de produtividade. Estou aqui para eliminar as pequenas tarefas que te atrasam. Imagine o que podemos fazer juntos!\n\nQual é a primeira automação que você gostaria de explorar?',
-      timestamp: new Date()
-    }
-  ]);
-  const [isLoading, setIsLoading] = React.useState(false);
-  const messagesEndRef = React.useRef<HTMLDivElement>(null);
-
-  const handleSend = async (e?: React.FormEvent) => {
-    e?.preventDefault();
-    if (!inputValue.trim() || isLoading) return;
-
-    let sessionId = getAssistantSessionId();
-    if (!sessionId) {
-      try {
-        const session = await AssistantService.createBusinessAutomationAnalysisAssistantCreateBusinessAutomationAnalysisPost();
-        sessionId = session.id;
-        saveAssistantSessionId(sessionId);
-      } catch (err) {
-        console.error("Erro ao criar sessão:", err);
-        sessionId = "hero-demo-session";
-      }
-    }
-
-    const userMsg: ChatMessage = { role: 'user', text: inputValue, timestamp: new Date() };
-    setMessages(prev => [...prev, userMsg]);
-    setInputValue('');
-    setIsLoading(true);
-
-    try {
-      const response = await sendMessageToKai(userMsg.text, sessionId!);
-      const botMsg: ChatMessage = { role: 'model', text: response.message.content, timestamp: new Date() };
-      setMessages(prev => [...prev, botMsg]);
-    } catch (error) {
-      console.error(error);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  React.useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages]);
-
   return (
     <div id="about" className="relative pt-24 pb-12 overflow-hidden sm:pt-32 sm:pb-24 lg:pb-32 bg-kai-black">
       {/* Background glow effects */}
@@ -119,7 +72,7 @@ const Hero: React.FC = () => {
                 </div>
 
                 {/* Messages Area */}
-                <div className="relative z-10 flex-1 overflow-y-auto p-4 md:p-8 space-y-4">
+                {/* <div className="relative z-10 flex-1 overflow-y-auto p-4 md:p-8 space-y-4">
                   {messages.map((msg, idx) => (
                     <div key={idx} className={`flex gap-3 ${msg.role === 'user' ? 'flex-row-reverse' : 'flex-row'}`}>
                       <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center ${msg.role === 'model' ? 'bg-kai-accent text-kai-black' : 'bg-white/10 text-white'}`}>
@@ -139,10 +92,10 @@ const Hero: React.FC = () => {
                     </div>
                   )}
                   <div ref={messagesEndRef} />
-                </div>
+                </div> */}
 
                 {/* Input Area */}
-                <div className="p-4 bg-[#0d1610]/95 backdrop-blur-sm border-t border-kai-accent/20 mt-auto z-20">
+                {/* <div className="p-4 bg-[#0d1610]/95 backdrop-blur-sm border-t border-kai-accent/20 mt-auto z-20">
                   <form onSubmit={handleSend} className="flex gap-4 items-center bg-white/5 border border-white/10 rounded-xl px-4 py-1">
                     <input
                       type="text"
@@ -160,7 +113,7 @@ const Hero: React.FC = () => {
                       {isLoading ? <Loader2 className="w-5 h-5 animate-spin" /> : <Send size={18} />}
                     </button>
                   </form>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

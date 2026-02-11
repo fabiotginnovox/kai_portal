@@ -12,11 +12,10 @@ const App: React.FC = () => {
       <Navbar />
       <main>
         <Hero />
-
+        <InteractiveDemo />
         <Suspense fallback={<div className="h-64 flex items-center justify-center text-kai-accent">Carregando funcionalidades...</div>}>
           <Features />
         </Suspense>
-        <InteractiveDemo />
       </main>
       <Footer />
     </div>

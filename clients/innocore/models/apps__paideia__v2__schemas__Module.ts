@@ -4,7 +4,8 @@
 /* eslint-disable */
 import type { apps__paideia__v2__schemas__Lesson } from './apps__paideia__v2__schemas__Lesson';
 export type apps__paideia__v2__schemas__Module = {
-    content: string;
+    content: Record<string, any>;
+    module_number: number;
     course_id: string;
     created_at?: (string | null);
     updated_at?: (string | null);

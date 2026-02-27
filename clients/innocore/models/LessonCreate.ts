@@ -2,10 +2,10 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-export type ModuleUpdate = {
+export type LessonCreate = {
     content: Record<string, any>;
-    module_number: number;
-    course_id: string;
+    module_id: string;
+    lesson_number: number;
     created_at?: (string | null);
     updated_at?: (string | null);
 };

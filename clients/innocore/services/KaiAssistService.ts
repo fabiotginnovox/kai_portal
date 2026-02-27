@@ -45,4 +45,40 @@ export class KaiAssistService {
             },
         });
     }
+    /**
+     * Create Conversational Assessor
+     * Return the supported formats.
+     * @returns Assistant Successful Response
+     * @throws ApiError
+     */
+    public static createConversationalAssessorKaiAssistCreateConversationalAssessorPost(): CancelablePromise<Assistant> {
+        return __request(OpenAPI, {
+            method: 'POST',
+            url: '/kai_assist/create_conversational_assessor/',
+        });
+    }
+    /**
+     * Iterate Conversational Assessor
+     * @param assistantId
+     * @param requestBody
+     * @returns string Successful Response
+     * @throws ApiError
+     */
+    public static iterateConversationalAssessorKaiAssistIterateConversationalAssessorPost(
+        assistantId: string,
+        requestBody: Array<MessageCreate>,
+    ): CancelablePromise<string> {
+        return __request(OpenAPI, {
+            method: 'POST',
+            url: '/kai_assist/iterate_conversational_assessor',
+            query: {
+                'assistant_id': assistantId,
+            },
+            body: requestBody,
+            mediaType: 'application/json',
+            errors: {
+                422: `Validation Error`,
+            },
+        });
+    }
 }

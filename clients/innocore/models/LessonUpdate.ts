@@ -3,8 +3,9 @@
 /* tslint:disable */
 /* eslint-disable */
 export type LessonUpdate = {
-    content: string;
-    module_id: string;
+    content: Record<string, any>;
+    module_id?: (string | null);
+    lesson_number?: (number | null);
     created_at?: (string | null);
     updated_at?: (string | null);
 };

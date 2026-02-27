@@ -2,9 +2,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { apps__paideia__v2__schemas__Module } from './apps__paideia__v2__schemas__Module';
-import type { apps__paideia__v2__schemas__Syllabus } from './apps__paideia__v2__schemas__Syllabus';
-export type Course = {
+export type CourseCreate = {
     subject: string;
     target_audience: string;
     language: string;
@@ -15,8 +13,5 @@ export type Course = {
     idempotency_key?: (string | null);
     created_at?: (string | null);
     updated_at?: (string | null);
-    id?: (string | null);
-    syllabus?: (apps__paideia__v2__schemas__Syllabus | null);
-    modules?: (Array<apps__paideia__v2__schemas__Module> | null);
 };
 

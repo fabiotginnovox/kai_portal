@@ -7,5 +7,7 @@ export type CourseCreationDetails = {
     target_audience: string;
     language: string;
     extra_info?: string;
+    short_course?: boolean;
+    request_id?: (string | null);
 };
 

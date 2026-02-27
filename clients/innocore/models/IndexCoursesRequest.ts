@@ -2,8 +2,13 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-export type apps__paideia__v1__service__Lesson = {
-    id: string;
-    title: string;
+/**
+ * Request to index courses
+ */
+export type IndexCoursesRequest = {
+    /**
+     * Name of the index
+     */
+    index_name: string;
 };
 

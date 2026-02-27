@@ -3,8 +3,8 @@
 /* tslint:disable */
 /* eslint-disable */
 export type SyllabusUpdate = {
-    content: string;
-    course_id: string;
+    content: Record<string, any>;
+    course_id?: (string | null);
     created_at?: (string | null);
     updated_at?: (string | null);
 };

@@ -3,8 +3,9 @@
 /* tslint:disable */
 /* eslint-disable */
 export type apps__paideia__v2__schemas__Lesson = {
-    content: string;
+    content: Record<string, any>;
     module_id: string;
+    lesson_number: number;
     created_at?: (string | null);
     updated_at?: (string | null);
     id?: (string | null);

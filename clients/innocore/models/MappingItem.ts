@@ -3,7 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 export type MappingItem = {
-    content: string;
+    content: Record<string, any>;
     syllabus_id: string;
     created_at?: (string | null);
     updated_at?: (string | null);

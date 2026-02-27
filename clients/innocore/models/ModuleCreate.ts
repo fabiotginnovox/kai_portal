@@ -2,9 +2,10 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-export type MappingItemUpdate = {
-    content: string;
-    syllabus_id: string;
+export type ModuleCreate = {
+    content: Record<string, any>;
+    module_number: number;
+    course_id: string;
     created_at?: (string | null);
     updated_at?: (string | null);
 };

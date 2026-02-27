@@ -4,6 +4,7 @@
 /* eslint-disable */
 import type { Assistant } from '../models/Assistant';
 import type { Business_Analysis_Message } from '../models/Business_Analysis_Message';
+import type { MaturidadeResponse } from '../models/MaturidadeResponse';
 import type { MessageCreate } from '../models/MessageCreate';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import { OpenAPI } from '../core/OpenAPI';
@@ -61,13 +62,13 @@ export class KaiAssistService {
      * Iterate Conversational Assessor
      * @param assistantId
      * @param requestBody
-     * @returns string Successful Response
+     * @returns MaturidadeResponse Successful Response
      * @throws ApiError
      */
     public static iterateConversationalAssessorKaiAssistIterateConversationalAssessorPost(
         assistantId: string,
         requestBody: Array<MessageCreate>,
-    ): CancelablePromise<string> {
+    ): CancelablePromise<MaturidadeResponse> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/kai_assist/iterate_conversational_assessor',

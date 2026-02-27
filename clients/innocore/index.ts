@@ -55,6 +55,7 @@ export type { LLMModel } from './models/LLMModel';
 export type { LLMModelCreate } from './models/LLMModelCreate';
 export type { LLMModelUpdate } from './models/LLMModelUpdate';
 export type { MappingItem } from './models/MappingItem';
+export type { MaturidadeResponse } from './models/MaturidadeResponse';
 export { Message } from './models/Message';
 export { MessageCreate } from './models/MessageCreate';
 export type { ModuleCreate } from './models/ModuleCreate';

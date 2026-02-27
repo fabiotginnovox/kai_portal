@@ -1,4 +1,4 @@
-import { KaiAssistService, Business_Analysis_Message } from "@/clients/innocore";
+import { KaiAssistService, Business_Analysis_Message, MaturidadeResponse } from "@/clients/innocore";
 
 export const sendMessageToKai = async (message: string, sessionId: string): Promise<Business_Analysis_Message> => {
   try {
@@ -28,5 +28,28 @@ export const sendMessageToKai = async (message: string, sessionId: string): Prom
         },
         blueprint: null,
       }
+  }
+};
+
+export const sendMessageToKaiMaturidade = async (message: string, sessionId: string): Promise<MaturidadeResponse> => {
+  try {
+    const response = await KaiAssistService.iterateConversationalAssessorKaiAssistIterateConversationalAssessorPost(
+      sessionId,
+      [{
+        content: message,
+      }]
+    )
+    if (!response) {
+      return {
+        message: "Desculpe, não consegui obter uma resposta do KaiAssist no momento.",
+        handoff: false,
+      };
+    }
+    return response;
+  } catch (error) {
+    return {
+      message: "Desculpe, não consegui obter uma resposta do KaiAssist no momento.",
+      handoff: false,
+    };
   }
 };

@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect, useContext } from 'react';
 import { Send, Loader2, Bot, User, Download } from 'lucide-react';
-import { sendMessageToKai } from '../services/geminiService';
+import { sendMessageToKai, sendMessageToKaiMaturidade } from '../services/geminiService';
 import { ChatMessage } from '../types';
 import { AuthContext } from '../contexts/AuthContext';
 import { getAssistantSessionId, saveAssistantSessionId, getUserToken, getAnonymousUserToken, deleteAnonymousUserToken, deleteAssistantSessionId } from '@/contexts/DataContext';
@@ -10,7 +10,9 @@ import MessageText from './MessageText/MessageText';
 
 const InteractiveDemo: React.FC = () => {
   const { createAnonymousUser } = useContext(AuthContext);
+  const [analysisMode, setAnalysisMode] = useState<'Automação' | 'Maturidade'>('Automação');
   const [blueprint, setBlueprint] = useState<string | null>(null);
+  const [maturidade, setMaturidade] = useState<string | null>(null);
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
       role: 'model',
@@ -68,9 +70,16 @@ const InteractiveDemo: React.FC = () => {
     }
     let sessionId = getAssistantSessionId();
     if (!sessionId) {
-      const session = await KaiAssistService.createBusinessAutomationAnalysisKaiAssistCreateBusinessAutomationAnalysisPost();
-      sessionId = session.id;
-      saveAssistantSessionId(sessionId);
+      if (analysisMode === 'Maturidade') {
+        const session = await KaiAssistService.createConversationalAssessorKaiAssistCreateConversationalAssessorPost();
+        sessionId = session.id;
+        saveAssistantSessionId(sessionId);
+      }
+       else {
+        const session = await KaiAssistService.createBusinessAutomationAnalysisKaiAssistCreateBusinessAutomationAnalysisPost();
+        sessionId = session.id;
+        saveAssistantSessionId(sessionId);
+      }
     }
 
     const userMessage: ChatMessage = {
@@ -83,14 +92,27 @@ const InteractiveDemo: React.FC = () => {
     setInputValue('');
 
     try {
-      const response = await sendMessageToKai(userMessage.text, sessionId);
-      const botMessage: ChatMessage = {
-        role: 'model',
-        text: response.message.content,
-        timestamp: new Date()
-      };
-      setMessages(prev => [...prev, botMessage]);
-      setBlueprint(response.blueprint || null);
+      if (analysisMode === 'Maturidade') {
+        const response = await sendMessageToKaiMaturidade(userMessage.text, sessionId);
+        const botMessage: ChatMessage = {
+          role: 'model',
+          text: response.message,
+          timestamp: new Date()
+        };
+        setMessages(prev => [...prev, botMessage]);
+        if (response.handoff) {
+          setMaturidade(response.message);
+        }
+      } else {
+        const response = await sendMessageToKai(userMessage.text, sessionId);
+        const botMessage: ChatMessage = {
+          role: 'model',
+          text: response.message.content,
+          timestamp: new Date()
+        };
+        setMessages(prev => [...prev, botMessage]);
+        setBlueprint(response.blueprint || null);
+      }
     } catch (error) {
       console.error(error);
     } finally {
@@ -118,6 +140,40 @@ const InteractiveDemo: React.FC = () => {
     document.body.removeChild(link);
     URL.revokeObjectURL(url);
   };
+
+  const handleDownloadMaturidade = () => {
+    if (!maturidade) return;
+
+    const blob = new Blob([maturidade], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `maturidade-${new Date().toISOString()}.md`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  };
+
+  const handleToggleAnalysisMode = () => {
+    setAnalysisMode((prev) => (prev === 'Automação' ? 'Maturidade' : 'Automação'));
+    deleteAssistantSessionId();
+    let msg = "";
+    if (analysisMode === 'Automação') {
+      msg = 'Olá! 😊 Sou o KaiAssist, seu parceiro de produtividade. Vamos começar por analisar o grau de maturidade da sua organização.';
+    } else {
+      msg = 'Olá! 😊 Sou o KaiAssist, seu parceiro de produtividade. Estou aqui para eliminar as pequenas tarefas que te atrasam. Imagine o que podemos fazer juntos!\n\nQual é a primeira automação que você gostaria de explorar?';
+    }
+    setMessages([
+      {
+        role: 'model',
+        text: msg,
+        timestamp: new Date()
+      }]);
+    setBlueprint(null);
+    setMaturidade(null);
+  };
+
   return (    
     <div className="lg:col-span-12 mt-16 relative group max-w-5xl mx-auto w-full">
       <div className="relative rounded-2xl bg-[#0d1610] border border-kai-accent/30 shadow-[0_0_50px_rgba(163,198,68,0.2)] overflow-hidden transform transition-transform duration-500 aspect-[16/10] flex flex-col">
@@ -129,7 +185,23 @@ const InteractiveDemo: React.FC = () => {
             <div className="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
             <div className="w-3 h-3 rounded-full bg-[#27c93f]"></div>
           </div>
-          <div className="ml-auto text-[10px] text-kai-accent uppercase tracking-[0.2em] font-mono opacity-80">
+          <div className="ml-auto flex items-center gap-2">
+            <button
+              type="button"
+              onClick={handleToggleAnalysisMode}
+              aria-pressed={analysisMode === 'Maturidade'}
+              className="relative w-11 h-6 rounded-full transition-colors bg-white/15 border border-white/20"
+              title="Alternar entre Automação e Maturidade"
+            >
+              <span
+                className={`absolute top-0.5 h-5 w-5 rounded-full bg-kai-accent transition-all ${analysisMode === 'Maturidade' ? 'left-5' : 'left-0.5'}`}
+              />
+            </button>
+            <span className="text-[10px] text-kai-accent tracking-[0.12em] font-mono opacity-90 min-w-[92px] text-right">
+              {analysisMode}
+            </span>
+          </div>
+          <div className="text-[10px] text-kai-accent uppercase tracking-[0.2em] font-mono opacity-80">
             LIVE_SESSION_ACTIVE
           </div>
           {blueprint && (
@@ -140,6 +212,16 @@ const InteractiveDemo: React.FC = () => {
               >
                 <Download size={16} />
                 <span className="text-xs font-medium">Blueprint</span>
+              </button>
+            )}
+            {maturidade && (
+              <button
+                onClick={handleDownloadMaturidade}
+                className="ml-3 p-2 bg-kai-accent text-kai-black rounded-lg hover:bg-kai-accentHover transition-colors flex items-center gap-2"
+                title="Download Maturidade"
+              >
+                <Download size={16} />
+                <span className="text-xs font-medium">Maturidade</span>
               </button>
             )}
         </div>
@@ -186,7 +268,7 @@ const InteractiveDemo: React.FC = () => {
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
                 onKeyDown={handleKeyDown}
-                placeholder="Descreva sua próxima automação criativa aqui..."
+                placeholder={analysisMode === 'Automação' ? "Descreva sua próxima automação criativa aqui..." : "Descreva sua próxima análise de maturidade aqui..."}
                 className="bg-transparent text-kai-text text-sm flex-1 py-3 outline-none placeholder:text-kai-muted/50 resize-none overflow-hidden"
                 disabled={isLoading}
                 rows={1}

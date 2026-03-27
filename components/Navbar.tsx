@@ -24,7 +24,6 @@ const Navbar: React.FC = () => {
               <a href="#about" className="text-kai-text hover:text-kai-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Sobre</a>
               <a href="#features" className="text-kai-text hover:text-kai-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Funcionalidades</a>
               <a href="#pricing" className="text-kai-text hover:text-kai-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Planos</a>
-              <a href="#demo" className="text-kai-text hover:text-kai-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Demo</a>
             </div>
           </div>
 

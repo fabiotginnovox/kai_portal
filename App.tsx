@@ -2,7 +2,6 @@ import React, { Suspense } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Features from './components/Features';
-import InteractiveDemo from './components/InteractiveDemo';
 import Footer from './components/Footer';
 
 
@@ -12,7 +11,6 @@ const App: React.FC = () => {
       <Navbar />
       <main>
         <Hero />
-        <InteractiveDemo />
         <Suspense fallback={<div className="h-64 flex items-center justify-center text-kai-accent">Carregando funcionalidades...</div>}>
           <Features />
         </Suspense>

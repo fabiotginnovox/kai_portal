@@ -1,10 +1,6 @@
 import React from 'react';
-import { ArrowRight, Send, Bot, User, Loader2 } from 'lucide-react';
-import { sendMessageToKai } from '../services/geminiService';
-import { ChatMessage } from '../types';
-import { getAssistantSessionId, saveAssistantSessionId } from '@/contexts/DataContext';
-import { AssistantService } from '@/clients/innocore';
-import MessageText from './MessageText/MessageText';
+import { ArrowRight } from 'lucide-react';
+import { FlippingCard } from './ui/flipping-card';
 
 const Hero: React.FC = () => {
   return (
@@ -32,16 +28,33 @@ const Hero: React.FC = () => {
               <br className="hidden md:block" />Automação inteligente, resultados instantâneos.
             </p>
 
-            <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="#demo"
-                className="inline-flex items-center justify-center px-8 py-4 border border-transparent text-base font-bold rounded-full text-kai-black bg-kai-accent hover:bg-kai-accentHover transition-all shadow-[0_0_20px_rgba(163,198,68,0.4)] hover:shadow-[0_0_30px_rgba(163,198,68,0.6)]"
-              >
-                Começar Agora
-              </a>
+            <div className="mt-12 flex flex-col items-center justify-center gap-4">
+              <FlippingCard
+                width={320}
+                height={350}
+                frontContent={
+                  <GenericCardFront 
+                    data={{
+                      imageSrc: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=400&h=300",
+                      imageAlt: "KaiAssist AI",
+                      title: "Começar Agora",
+                      description: "Toque ou passe o mouse para descobrir como o KaiAssist pode ajudar você."
+                    }} 
+                  />
+                }
+                backContent={
+                  <GenericCardBack 
+                    data={{
+                      description: "KaiAssist automatiza tarefas complexas em segundos. Pronto para otimizar sua produtividade?",
+                      buttonText: "Experimentar Agora"
+                    }} 
+                  />
+                }
+              />
+              
               <a
                 href="#features"
-                className="inline-flex items-center justify-center px-8 py-4 border border-kai-muted/30 text-base font-medium rounded-full text-white hover:bg-white/5 transition-all"
+                className="inline-flex items-center justify-center px-8 py-4 border border-kai-muted/30 text-base font-medium rounded-full text-white hover:bg-white/5 transition-all mt-6"
               >
                 Saiba Mais
                 <ArrowRight className="ml-2 w-4 h-4" />
@@ -53,5 +66,52 @@ const Hero: React.FC = () => {
     </div>
   );
 };
+
+interface CardData {
+  front: {
+    imageSrc: string;
+    imageAlt: string;
+    title: string;
+    description: string;
+  };
+  back: {
+    description: string;
+    buttonText: string;
+  };
+}
+
+function GenericCardFront({ data }: { data: CardData["front"] }) {
+  return (
+    <div className="flex flex-col h-full w-full p-4">
+      <img
+        src={data.imageSrc}
+        alt={data.imageAlt}
+        className="w-full h-auto object-cover flex-grow min-h-0 rounded-md"
+      />
+      <div className="p-2">
+        <h3 className="text-base font-semibold mt-2 text-white">{data.title}</h3>
+        <p className="text-[13.5px] mt-2 text-kai-muted">
+          {data.description}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function GenericCardBack({ data }: { data: CardData["back"] }) {
+  return (
+    <div className="flex flex-col items-center justify-center h-full w-full p-6 text-center">
+      <p className="text-[13.5px] mt-2 text-kai-muted">
+        {data.description}
+      </p>
+      <a 
+        href="#demo"
+        className="mt-6 bg-kai-accent text-kai-black px-6 py-2 rounded-full font-bold text-[13.5px] transition-all hover:bg-kai-accentHover shadow-[0_0_15px_rgba(163,198,68,0.3)]"
+      >
+        {data.buttonText}
+      </a>
+    </div>
+  );
+}
 
 export default Hero;

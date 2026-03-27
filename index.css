@@ -1,6 +1,62 @@
-/* Global Styles */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 130 10% 2%;
+    --foreground: 130 10% 98%;
+    --card: 130 10% 4%;
+    --card-foreground: 130 10% 98%;
+    --popover: 130 10% 4%;
+    --popover-foreground: 130 10% 98%;
+    --primary: 76 56% 52%;
+    --primary-foreground: 130 10% 5%;
+    --secondary: 130 10% 10%;
+    --secondary-foreground: 130 10% 98%;
+    --muted: 130 5% 15%;
+    --muted-foreground: 130 5% 65%;
+    --accent: 76 56% 52%;
+    --accent-foreground: 130 10% 5%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 130 10% 98%;
+    --border: 130 10% 12%;
+    --input: 130 10% 12%;
+    --ring: 76 56% 52%;
+    --radius: 0.75rem;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
+  background-color: #050a06;
+  color: #e0e7e1;
+  font-family: 'Inter', sans-serif;
   margin: 0;
+  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.bg-grid {
+  background-image: linear-gradient(to right, #131f16 1px, transparent 1px),
+                    linear-gradient(to bottom, #131f16 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0d1610; 
+}
+::-webkit-scrollbar-thumb {
+  background: #1f3325; 
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2a4532; 
 }

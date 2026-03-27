@@ -10,8 +10,8 @@ const Navbar: React.FC = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center gap-2 cursor-pointer">
-            <div className="text-3xl font-bold tracking-tighter text-kai-accent">
-              kai<span className="text-white">Assist</span>
+            <div className="text-3xl font-bold tracking-tighter">
+              <span className="text-[#FF2D9E]">k</span><span className="text-[#FFF500]">a</span><span className="text-[#00FF85]">i</span><span className="text-white">Assist</span>
             </div>
             <div className="hidden sm:block text-[10px] uppercase tracking-widest text-kai-muted ml-2 pt-2 border-l border-kai-muted pl-2 leading-3">
               Your Intelligent<br/>Assistant

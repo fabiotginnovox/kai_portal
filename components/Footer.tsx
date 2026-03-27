@@ -6,8 +6,8 @@ const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex items-center gap-2">
-            <div className="text-2xl font-bold tracking-tighter text-kai-accent">
-              kai<span className="text-white">Assist</span>
+            <div className="text-2xl font-bold tracking-tighter">
+              <span className="text-[#FF2D9E]">k</span><span className="text-[#FFF500]">a</span><span className="text-[#00FF85]">i</span><span className="text-white">Assist</span>
             </div>
           </div>
           

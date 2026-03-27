@@ -16,22 +16,25 @@ const Hero: React.FC = () => {
 
           {/* Text Content */}
           <div className="lg:col-span-12 text-center">
-            <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white mb-6 leading-[1.1] max-w-4xl mx-auto">
-              Transforme seu Dia com <span className="text-kai-accent">KaiAssist</span>:<br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-kai-accent to-emerald-400">
-                Pequenas Automações, Grande Impacto.
-              </span>
+            <h1 className="text-4xl md:text-6xl lg:text-[4rem] font-extrabold tracking-tight mb-8 leading-none max-w-5xl mx-auto">
+              <span className="block text-kai-accent">Método <span className="bg-kai-dark/60 border border-kai-accent/20 px-3 py-0.5 rounded-lg inline-block align-middle transform -translate-y-[2px]">KAI</span> de Automação com IA</span>
+              <span className="block text-[#FF2D9E]">para preparar sua equipe,</span>
+              <span className="block text-[#FFF500]">estruturar seus processos</span>
+              <span className="block text-[#00FF85]">e transformar sua empresa</span>
+              <span className="block text-[#00E0FF]">com inteligência escalável</span>
             </h1>
 
-            <p className="mt-4 text-lg md:text-xl text-kai-muted max-w-3xl mx-auto font-light">
-              Descubra o assistente de IA que libera seu tempo das tarefas repetitivas.
-              <br className="hidden md:block" />Automação inteligente, resultados instantâneos.
+            <p className="mt-12 text-lg md:text-[1.8rem] max-w-4xl mx-auto font-medium leading-relaxed">
+              <span className="block text-[#FF2D9E] mb-2">Sua equipe preparada para trabalhar com IA, com o apoio do nosso AI Maturity para avaliar o nível atual.</span>
+              <span className="block text-[#FFF500] mb-2">Sua operação organizada com um mapeamento claro de processos e uma priorização prática das melhores oportunidades.</span>
+              <span className="block text-[#00FF85]">E sua empresa pronta para o Método Kai de automações inteligentes que realmente escalam.</span>
             </p>
 
             <div className="mt-12 flex flex-row flex-wrap items-center justify-center gap-6">
               <FlippingCard
                 width={350}
                 height={400}
+                bgColor="rgba(255, 45, 158, 1)"
                 frontContent={
                   <GenericCardFront 
                     data={{
@@ -55,6 +58,7 @@ const Hero: React.FC = () => {
               <FlippingCard
                 width={350}
                 height={400}
+                bgColor="rgba(255, 246, 2, 1)"
                 frontContent={
                   <GenericCardFront 
                     data={{
@@ -78,6 +82,7 @@ const Hero: React.FC = () => {
               <FlippingCard
                 width={350}
                 height={400}
+                bgColor="rgba(14, 255, 132, 1)"
                 frontContent={
                   <GenericCardFront 
                     data={{
@@ -107,6 +112,12 @@ const Hero: React.FC = () => {
                 Saiba Mais
                 <ArrowRight className="ml-2 w-4 h-4" />
               </a>
+            </div>
+
+            <div className="mt-24 mb-6 text-center">
+              <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white">
+                <span className="text-[#FF2D9E]">K</span>nowledge, <span className="text-[#FFF500]">A</span>utomation, <span className="text-[#00FF85]">I</span>ntelligence
+              </h2>
             </div>
           </div>
         </div>
@@ -151,12 +162,12 @@ function GenericCardBack({ data }: { data: CardData["back"] }) {
       <p className="text-[18px] font-semibold text-zinc-900 leading-tight">
         {data.description}
       </p>
-      {/* <a 
+      <a 
         href="#demo"
-        className="mt-8 bg-[#95B142] text-zinc-950 px-10 py-3 rounded-full font-bold text-[16px] transition-all hover:scale-105 shadow-[0_4px_15px_rgba(149,177,66,0.3)] tracking-wide uppercase"
+        className="mt-8 bg-zinc-950 text-white px-10 py-3 rounded-full font-bold text-[16px] transition-all hover:scale-105 hover:bg-zinc-800 shadow-xl tracking-wide uppercase"
       >
         {data.buttonText}
-      </a> */}
+      </a>
     </div>
   );
 }

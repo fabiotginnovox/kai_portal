@@ -30,23 +30,23 @@ const Hero: React.FC = () => {
 
             <div className="mt-12 flex flex-col items-center justify-center gap-4">
               <FlippingCard
-                width={320}
-                height={350}
+                width={350}
+                height={400}
                 frontContent={
                   <GenericCardFront 
                     data={{
                       imageSrc: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=400&h=300",
                       imageAlt: "KaiAssist AI",
-                      title: "Começar Agora",
-                      description: "Toque ou passe o mouse para descobrir como o KaiAssist pode ajudar você."
+                      title: "",
+                      description: "Toque ou passe o mouse para descobrir se você e seu time já estão prontos para a era da Automação com IA"
                     }} 
                   />
                 }
                 backContent={
                   <GenericCardBack 
                     data={{
-                      description: "KaiAssist automatiza tarefas complexas em segundos. Pronto para otimizar sua produtividade?",
-                      buttonText: "Experimentar Agora"
+                      description: "Receba um relatório gratuito sobre o quanto sua empresa está apta para a automação com IA",
+                      buttonText: "AI MATURITY"
                     }} 
                   />
                 }
@@ -88,9 +88,8 @@ function GenericCardFront({ data }: { data: CardData["front"] }) {
         alt={data.imageAlt}
         className="w-full h-auto object-cover flex-grow min-h-0 rounded-md"
       />
-      <div className="p-2">
-        <h3 className="text-base font-semibold mt-2 text-white">{data.title}</h3>
-        <p className="text-[13.5px] mt-2 text-kai-muted">
+      <div className="p-4 flex flex-col items-center justify-center text-center">
+        <p className="text-[16px] font-medium text-zinc-900 leading-relaxed">
           {data.description}
         </p>
       </div>
@@ -100,13 +99,13 @@ function GenericCardFront({ data }: { data: CardData["front"] }) {
 
 function GenericCardBack({ data }: { data: CardData["back"] }) {
   return (
-    <div className="flex flex-col items-center justify-center h-full w-full p-6 text-center">
-      <p className="text-[13.5px] mt-2 text-kai-muted">
+    <div className="flex flex-col items-center justify-center h-full w-full p-8 text-center">
+      <p className="text-[18px] font-semibold text-zinc-900 leading-tight">
         {data.description}
       </p>
       <a 
         href="#demo"
-        className="mt-6 bg-kai-accent text-kai-black px-6 py-2 rounded-full font-bold text-[13.5px] transition-all hover:bg-kai-accentHover shadow-[0_0_15px_rgba(163,198,68,0.3)]"
+        className="mt-8 bg-[#95B142] text-zinc-950 px-10 py-3 rounded-full font-bold text-[16px] transition-all hover:scale-105 shadow-[0_4px_15px_rgba(149,177,66,0.3)] tracking-wide uppercase"
       >
         {data.buttonText}
       </a>

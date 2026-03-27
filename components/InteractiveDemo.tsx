@@ -175,7 +175,7 @@ const InteractiveDemo: React.FC = () => {
   };
 
   return (    
-    <div className="lg:col-span-12 mt-16 relative group max-w-5xl mx-auto w-full">
+    <div id="demo" className="lg:col-span-12 mt-10 relative group max-w-5xl mx-auto w-full">
       <div className="relative rounded-2xl bg-[#0d1610] border border-kai-accent/30 shadow-[0_0_50px_rgba(163,198,68,0.2)] overflow-hidden transform transition-transform duration-500 aspect-[16/10] flex flex-col">
 
         {/* Fake Browser Header */}

@@ -4,7 +4,7 @@ import { FlippingCard } from './ui/flipping-card';
 
 const Hero: React.FC = () => {
   return (
-    <div id="about" className="relative pt-24 pb-12 overflow-hidden sm:pt-32 sm:pb-24 lg:pb-32 bg-kai-black">
+    <div id="about" className="relative pt-24 pb-10 overflow-hidden sm:pt-32 sm:pb-10 lg:pb-10 bg-kai-black">
       {/* Background glow effects */}
       <div className="absolute top-0 left-1/2 w-full -translate-x-1/2 h-full z-0 pointer-events-none">
         <div className="absolute top-20 left-1/4 w-[500px] h-[500px] bg-kai-accent/5 rounded-full blur-[120px]" />
@@ -28,7 +28,7 @@ const Hero: React.FC = () => {
               <br className="hidden md:block" />Automação inteligente, resultados instantâneos.
             </p>
 
-            <div className="mt-12 flex flex-col items-center justify-center gap-4">
+            <div className="mt-12 flex flex-row flex-wrap items-center justify-center gap-6">
               <FlippingCard
                 width={350}
                 height={400}
@@ -51,10 +51,58 @@ const Hero: React.FC = () => {
                   />
                 }
               />
-              
+
+              <FlippingCard
+                width={350}
+                height={400}
+                frontContent={
+                  <GenericCardFront 
+                    data={{
+                      imageSrc: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&q=80&w=400&h=300",
+                      imageAlt: "Mapeamento de Processos",
+                      title: "",
+                      description: "O Mapeamento de Processos é a chave para preparar sua empresa para a era da automação com IA."
+                    }} 
+                  />
+                }
+                backContent={
+                  <GenericCardBack 
+                    data={{
+                      description: "Estruture sua automação de forma estratégica e descubra os gargalos do seu negócio.",
+                      buttonText: "MAPEAMENTO"
+                    }} 
+                  />
+                }
+              />
+
+              <FlippingCard
+                width={350}
+                height={400}
+                frontContent={
+                  <GenericCardFront 
+                    data={{
+                      imageSrc: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=400&h=300",
+                      imageAlt: "Método Kai",
+                      title: "",
+                      description: "O Método Kai: Automação Inteligente desenhada para escalar seu negócio de forma exponencial."
+                    }} 
+                  />
+                }
+                backContent={
+                  <GenericCardBack 
+                    data={{
+                      description: "Contrate agora mesmo o Método Kai de Automação.",
+                      buttonText: "CONTRATAR"
+                    }} 
+                  />
+                }
+              />
+            </div>
+            
+            <div className="mt-12 flex justify-center">
               <a
                 href="#features"
-                className="inline-flex items-center justify-center px-8 py-4 border border-kai-muted/30 text-base font-medium rounded-full text-white hover:bg-white/5 transition-all mt-6"
+                className="inline-flex items-center justify-center px-8 py-4 border border-kai-muted/30 text-base font-medium rounded-full text-white hover:bg-white/5 transition-all"
               >
                 Saiba Mais
                 <ArrowRight className="ml-2 w-4 h-4" />

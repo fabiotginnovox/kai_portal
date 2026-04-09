@@ -163,7 +163,7 @@ function GenericCardBack({ data }: { data: CardData["back"] }) {
         {data.description}
       </p>
       <a 
-        href="#demo"
+        href="#pricing"
         className="mt-8 bg-zinc-950 text-white px-10 py-3 rounded-full font-bold text-[16px] transition-all hover:scale-105 hover:bg-zinc-800 shadow-xl tracking-wide uppercase"
       >
         {data.buttonText}

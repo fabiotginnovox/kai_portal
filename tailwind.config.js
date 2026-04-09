@@ -2,7 +2,12 @@
 export default {
   content: [
     "./index.html",
-    "./**/*.{js,ts,jsx,tsx}",
+    "./App.tsx",
+    "./index.tsx",
+    "./components/**/*.{js,ts,jsx,tsx}",
+    "./contexts/**/*.{js,ts,jsx,tsx}",
+    "./lib/**/*.{js,ts,jsx,tsx}",
+    "./services/**/*.{js,ts,jsx,tsx}",
   ],
   darkMode: "class",
   theme: {
@@ -14,6 +19,10 @@ export default {
           card: '#131f16',
           accent: '#A3C644',
           accentHover: '#8ead3b',
+          pink: '#FF2D9E',
+          yellow: '#FFF500',
+          green: '#00FF85',
+          blue: '#00E0FF',
           text: '#e0e7e1',
           muted: '#6b7f70'
         },

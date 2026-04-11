@@ -28,7 +28,7 @@ const Hero: React.FC = () => {
                   para preparar sua equipe,
                 </h2>
                 <p className="text-base md:text-[1.2rem] text-white font-medium leading-relaxed text-center max-w-sm mb-12 lg:h-24">
-                  Sua equipe preparada para trabalhar com IA, com o apoio do nosso <span className="text-kai-green">AI Maturity</span> para avaliar o nível atual.
+                  Sua equipe preparada para trabalhar<br /> com IA, com o apoio do nosso<br /> <span className="text-kai-green">AI Maturity</span> para avaliar o nível atual.
                 </p>
                 <FlippingCard
                   width={340}
@@ -63,7 +63,7 @@ const Hero: React.FC = () => {
                   estruturar seus processos
                 </h2>
                 <p className="text-base md:text-[1.2rem] text-white font-medium leading-relaxed text-center max-w-sm mb-12 lg:h-24">
-                  Sua operação organizada com um <span className="text-kai-yellow">mapeamento claro de processos</span> e uma priorização prática das melhores oportunidades.
+                  Sua operação organizada com um<br /> <span className="text-kai-yellow">Mapeamento Claro de Processos</span> e uma<br /> priorização prática das melhores<br /> oportunidades.
                 </p>
                 <FlippingCard
                   width={340}

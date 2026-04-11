@@ -24,6 +24,7 @@ const Navbar: React.FC = () => {
               <a href="#about" className="text-kai-text hover:text-kai-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Sobre</a>
               <a href="#features" className="text-kai-text hover:text-kai-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Funcionalidades</a>
               <a href="#pricing" className="text-kai-text hover:text-kai-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Planos</a>
+              <a href="#contact" className="text-kai-text hover:text-kai-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Contato</a>
             </div>
           </div>
 
@@ -58,6 +59,7 @@ const Navbar: React.FC = () => {
             <a href="#about" className="text-kai-text hover:text-kai-accent block px-3 py-2 rounded-md text-base font-medium">Sobre</a>
             <a href="#features" className="text-kai-text hover:text-kai-accent block px-3 py-2 rounded-md text-base font-medium">Funcionalidades</a>
             <a href="#pricing" className="text-kai-text hover:text-kai-accent block px-3 py-2 rounded-md text-base font-medium">Planos</a>
+            <a href="#contact" className="text-kai-text hover:text-kai-accent block px-3 py-2 rounded-md text-base font-medium" onClick={() => setIsOpen(false)}>Contato</a>
             <div className="mt-4 pt-4 border-t border-kai-muted/20 flex flex-col space-y-3 px-3">
                <button className="text-left text-kai-text hover:text-white font-medium">Log In</button>
                <button className="w-full bg-kai-accent text-kai-black py-2 rounded-full font-bold">Sign Up</button>

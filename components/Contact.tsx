@@ -11,23 +11,23 @@ const Contact: React.FC = () => {
         <section id="contact" className="py-20 px-4 md:px-8 bg-kai-black">
             <div className="mx-auto max-w-6xl">
                 <ContactCard
-                    title="Get in touch"
-                    description="If you have any questions regarding our Services or need help, please fill out the form here. We do our best to respond within 1 business day."
+                    title="Entre em contato"
+                    description="Se você tiver alguma dúvida sobre nossos serviços ou precisar de ajuda, preencha o formulário abaixo. Fazemos o nosso melhor para responder em até 1 dia útil."
                     contactInfo={[
                         {
                             icon: Mail,
-                            label: 'Email',
-                            value: 'contact@21st.dev',
+                            label: 'E-mail',
+                            value: 'cesar.medina@innovox.com.br',
                         },
                         {
                             icon: Phone,
-                            label: 'Phone',
-                            value: '+92 312 1234567',
+                            label: 'Telefone',
+                            value: '+55 21 98898-0953',
                         },
                         {
                             icon: MapPin,
-                            label: 'Address',
-                            value: 'Faisalabad, Pakistan',
+                            label: 'Endereço',
+                            value: 'Rio de Janeiro - RJ - BR',
                             className: 'col-span-1 md:col-span-2 lg:col-span-1',
                         }
                     ]}
@@ -36,38 +36,38 @@ const Contact: React.FC = () => {
                 >
                     <form action="" className="w-full space-y-6">
                         <div className="flex flex-col gap-2">
-                            <Label className="text-kai-text/80">Name</Label>
+                            <Label className="text-kai-text/80">Nome</Label>
                             <Input 
                                 type="text" 
                                 className="bg-kai-black border-kai-accent/20 focus-visible:ring-kai-accent text-white" 
-                                placeholder="Your Name"
+                                placeholder="Seu Nome"
                             />
                         </div>
                         <div className="flex flex-col gap-2">
-                            <Label className="text-kai-text/80">Email</Label>
+                            <Label className="text-kai-text/80">E-mail</Label>
                             <Input 
                                 type="email" 
                                 className="bg-kai-black border-kai-accent/20 focus-visible:ring-kai-accent text-white" 
-                                placeholder="your@email.com"
+                                placeholder="seu@email.com"
                             />
                         </div>
                         <div className="flex flex-col gap-2">
-                            <Label className="text-kai-text/80">Phone</Label>
+                            <Label className="text-kai-text/80">Telefone</Label>
                             <Input 
                                 type="phone" 
                                 className="bg-kai-black border-kai-accent/20 focus-visible:ring-kai-accent text-white" 
-                                placeholder="+1 234 567 890"
+                                placeholder="+55 21 98898-0953"
                             />
                         </div>
                         <div className="flex flex-col gap-2">
-                            <Label className="text-kai-text/80">Message</Label>
+                            <Label className="text-kai-text/80">Mensagem</Label>
                             <Textarea  
                                 className="bg-kai-black border-kai-accent/20 focus-visible:ring-kai-accent text-white min-h-[120px]" 
-                                placeholder="How can we help?"
+                                placeholder="Como podemos ajudar?"
                             />
                         </div>
-                        <Button className="w-full bg-kai-accent hover:bg-kai-accent/90 text-kai-black font-bold py-6" type="button">
-                            Submit
+                        <Button className="w-full bg-kai-accent hover:bg-kai-accent/90 text-kai-black font-bold py-6 text-lg uppercase tracking-wider" type="button">
+                            Enviar Mensagem
                         </Button>
                     </form>
                 </ContactCard>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { FlippingCard } from './ui/flipping-card';
+import { cn } from '@/lib/utils';
 
 const Hero: React.FC = () => {
   return (
@@ -16,107 +17,129 @@ const Hero: React.FC = () => {
 
           {/* Text Content */}
           <div className="lg:col-span-12 text-center">
-            <h1 className="text-4xl md:text-6xl lg:text-[4rem] font-extrabold tracking-tight mb-8 leading-none max-w-5xl mx-auto">
-              <span className="block text-kai-accent">Método <span className="bg-kai-dark/60 border border-kai-accent/20 px-3 py-0.5 rounded-lg inline-block align-middle transform -translate-y-[2px]">KAI</span> de Automação com IA</span>
-              <span className="block text-[#FF2D9E]">para preparar sua equipe,</span>
-              <span className="block text-[#FFF500]">estruturar seus processos</span>
-              <span className="block text-[#00FF85]">e transformar sua empresa</span>
-              <span className="block text-[#00E0FF]">com inteligência escalável</span>
+            <h1 className="text-[2.5rem] md:text-[5rem] lg:text-[6rem] font-black tracking-tight mb-16 leading-[1.1] max-w-7xl mx-auto text-white">
+              Método <span className="bg-[#1a1a1a] border border-white/10 px-6 py-1 rounded-xl inline-block align-middle transform -translate-y-[4px] text-[#FFD700]">KAI</span> de Automação com IA
             </h1>
 
-            <p className="mt-12 text-lg md:text-[1.8rem] max-w-4xl mx-auto font-medium leading-relaxed">
-              <span className="block text-[#FF2D9E] mb-2">Sua equipe preparada para trabalhar com IA, com o apoio do nosso AI Maturity para avaliar o nível atual.</span>
-              <span className="block text-[#FFF500] mb-2">Sua operação organizada com um mapeamento claro de processos e uma priorização prática das melhores oportunidades.</span>
-              <span className="block text-[#00FF85]">E sua empresa pronta para o Método Kai de automações inteligentes que realmente escalam.</span>
-            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 mb-20 px-4">
+              {/* Column 1 */}
+              <div className="flex flex-col items-center">
+                <h2 className="text-2xl md:text-[2.2rem] font-bold text-kai-green mb-8 leading-tight text-center lg:h-32 flex items-center">
+                  para preparar sua equipe,
+                </h2>
+                <p className="text-base md:text-[1.2rem] text-kai-green/90 font-medium leading-relaxed text-center max-w-sm mb-12 lg:h-24">
+                  Sua equipe preparada para trabalhar com IA, com o apoio do nosso AI Maturity para avaliar o nível atual.
+                </p>
+                <FlippingCard
+                  width={340}
+                  height={440}
+                  bgColor="rgba(0, 255, 133, 0.2)"
+                  className="border border-kai-green/20"
+                  frontContent={
+                    <GenericCardFront 
+                      colorClass="text-kai-green"
+                      data={{
+                        imageSrc: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=600&h=450",
+                        imageAlt: "KaiAssist AI",
+                        title: "",
+                        description: "Toque ou passe o mouse para descobrir se você e seu time já estão prontos para a era da Automação com IA"
+                      }} 
+                    />
+                  }
+                  backContent={
+                    <GenericCardBack 
+                      data={{
+                        description: "Receba um relatório gratuito sobre o quanto sua empresa está apta para a automação com IA",
+                        buttonText: "AI MATURITY"
+                      }} 
+                    />
+                  }
+                />
+              </div>
+              
+              {/* Column 2 */}
+              <div className="flex flex-col items-center">
+                <h2 className="text-2xl md:text-[2.2rem] font-bold text-kai-yellow mb-8 leading-tight text-center lg:h-32 flex items-center">
+                  estruturar seus processos
+                </h2>
+                <p className="text-base md:text-[1.2rem] text-kai-yellow/90 font-medium leading-relaxed text-center max-w-sm mb-12 lg:h-24">
+                  Sua operação organizada com um mapeamento claro de processos e uma priorização prática das melhores oportunidades.
+                </p>
+                <FlippingCard
+                  width={340}
+                  height={440}
+                  bgColor="rgba(255, 246, 2, 0.2)"
+                  className="border border-kai-yellow/20"
+                  frontContent={
+                    <GenericCardFront 
+                      colorClass="text-kai-yellow"
+                      data={{
+                        imageSrc: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&q=80&w=600&h=450",
+                        imageAlt: "Mapeamento de Processos",
+                        title: "",
+                        description: "O Mapeamento de Processos é a chave para preparar sua empresa para a era da automação com IA."
+                      }} 
+                    />
+                  }
+                  backContent={
+                    <GenericCardBack 
+                      data={{
+                        description: "Estruture sua automação de forma estratégica e descubra os gargalos do seu negócio.",
+                        buttonText: "MAPEAMENTO"
+                      }} 
+                    />
+                  }
+                />
+              </div>
 
-            <div className="mt-12 flex flex-row flex-wrap items-center justify-center gap-6">
-              <FlippingCard
-                width={350}
-                height={400}
-                bgColor="rgba(255, 45, 158, 1)"
-                frontContent={
-                  <GenericCardFront 
-                    data={{
-                      imageSrc: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=400&h=300",
-                      imageAlt: "KaiAssist AI",
-                      title: "",
-                      description: "Toque ou passe o mouse para descobrir se você e seu time já estão prontos para a era da Automação com IA"
-                    }} 
-                  />
-                }
-                backContent={
-                  <GenericCardBack 
-                    data={{
-                      description: "Receba um relatório gratuito sobre o quanto sua empresa está apta para a automação com IA",
-                      buttonText: "AI MATURITY"
-                    }} 
-                  />
-                }
-              />
-
-              <FlippingCard
-                width={350}
-                height={400}
-                bgColor="rgba(255, 246, 2, 1)"
-                frontContent={
-                  <GenericCardFront 
-                    data={{
-                      imageSrc: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&q=80&w=400&h=300",
-                      imageAlt: "Mapeamento de Processos",
-                      title: "",
-                      description: "O Mapeamento de Processos é a chave para preparar sua empresa para a era da automação com IA."
-                    }} 
-                  />
-                }
-                backContent={
-                  <GenericCardBack 
-                    data={{
-                      description: "Estruture sua automação de forma estratégica e descubra os gargalos do seu negócio.",
-                      buttonText: "MAPEAMENTO"
-                    }} 
-                  />
-                }
-              />
-
-              <FlippingCard
-                width={350}
-                height={400}
-                bgColor="rgba(14, 255, 132, 1)"
-                frontContent={
-                  <GenericCardFront 
-                    data={{
-                      imageSrc: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=400&h=300",
-                      imageAlt: "Método Kai",
-                      title: "",
-                      description: "O Método Kai: Automação Inteligente desenhada para escalar seu negócio de forma exponencial."
-                    }} 
-                  />
-                }
-                backContent={
-                  <GenericCardBack 
-                    data={{
-                      description: "Contrate agora mesmo o Método Kai de Automação.",
-                      buttonText: "CONTRATAR"
-                    }} 
-                  />
-                }
-              />
+              {/* Column 3 */}
+              <div className="flex flex-col items-center">
+                <h2 className="text-2xl md:text-[2.2rem] font-bold text-kai-pink mb-8 leading-tight text-center lg:h-32 flex items-center">
+                  com inteligência <span className="bg-[#441122] text-kai-pink px-3 py-1 rounded border border-kai-pink/30 ml-2">escalável</span>
+                </h2>
+                <p className="text-base md:text-[1.2rem] text-kai-pink/90 font-medium leading-relaxed text-center max-w-sm mb-12 lg:h-24">
+                  E sua empresa pronta para o Método Kai de automações inteligentes que realmente escalam.
+                </p>
+                <FlippingCard
+                  width={340}
+                  height={440}
+                  bgColor="rgba(255, 45, 158, 0.2)"
+                  className="border border-kai-pink/20"
+                  frontContent={
+                    <GenericCardFront 
+                      colorClass="text-kai-pink"
+                      data={{
+                        imageSrc: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=600&h=450",
+                        imageAlt: "Método Kai",
+                        title: "",
+                        description: "O Método Kai: Automação Inteligente desenhada para escalar seu negócio de forma exponencial."
+                      }} 
+                    />
+                  }
+                  backContent={
+                    <GenericCardBack 
+                      data={{
+                        description: "Contrate agora mesmo o Método Kai de Automação.",
+                        buttonText: "CONTRATAR"
+                      }} 
+                    />
+                  }
+                />
+              </div>
             </div>
             
-            <div className="mt-12 flex justify-center">
+            <div className="mt-20 flex justify-center">
               <a
                 href="#features"
-                className="inline-flex items-center justify-center px-8 py-4 border border-kai-muted/30 text-base font-medium rounded-full text-white hover:bg-white/5 transition-all"
+                className="group inline-flex items-center justify-center px-10 py-4 bg-transparent border border-white/20 text-lg font-bold rounded-full text-white hover:bg-white hover:text-black transition-all duration-300"
               >
                 Saiba Mais
-                <ArrowRight className="ml-2 w-4 h-4" />
+                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </a>
             </div>
-
-            <div className="mt-24 mb-6 text-center">
-              <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white">
-                <span className="text-[#FF2D9E]">K</span>nowledge, <span className="text-[#FFF500]">A</span>utomation, <span className="text-[#00FF85]">I</span>ntelligence
+            <div className="mt-24 mb-12 text-center opacity-70">
+              <h2 className="text-2xl md:text-3xl lg:text-5xl font-bold tracking-tight text-white">
+                <span className="text-[#00FF85]">K</span>nowledge, <span className="text-[#FFF500]">A</span>utomation, <span className="text-[#FF2D9E]">I</span>ntelligence
               </h2>
             </div>
           </div>
@@ -139,16 +162,19 @@ interface CardData {
   };
 }
 
-function GenericCardFront({ data }: { data: CardData["front"] }) {
+function GenericCardFront({ data, colorClass }: { data: CardData["front"], colorClass: string }) {
   return (
-    <div className="flex flex-col h-full w-full p-4">
-      <img
-        src={data.imageSrc}
-        alt={data.imageAlt}
-        className="w-full h-auto object-cover flex-grow min-h-0 rounded-md"
-      />
-      <div className="p-4 flex flex-col items-center justify-center text-center">
-        <p className="text-[16px] font-medium text-zinc-900 leading-relaxed">
+    <div className="flex flex-col h-full w-full p-6">
+      <div className="relative aspect-[4/3] w-full mb-6 overflow-hidden rounded-xl border border-black/10 shadow-inner">
+        <img
+          src={data.imageSrc}
+          alt={data.imageAlt}
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+      </div>
+      <div className="flex flex-col items-center justify-center text-center px-2">
+        <p className={cn("text-lg md:text-[20px] font-bold leading-tight text-zinc-900 drop-shadow-sm")}>
           {data.description}
         </p>
       </div>
@@ -158,13 +184,13 @@ function GenericCardFront({ data }: { data: CardData["front"] }) {
 
 function GenericCardBack({ data }: { data: CardData["back"] }) {
   return (
-    <div className="flex flex-col items-center justify-center h-full w-full p-8 text-center">
-      <p className="text-[18px] font-semibold text-zinc-900 leading-tight">
+    <div className="flex flex-col items-center justify-center h-full w-full p-10 text-center">
+      <p className="text-[22px] font-bold text-zinc-900 leading-snug mb-10">
         {data.description}
       </p>
       <a 
         href="#pricing"
-        className="mt-8 bg-zinc-950 text-white px-10 py-3 rounded-full font-bold text-[16px] transition-all hover:scale-105 hover:bg-zinc-800 shadow-xl tracking-wide uppercase"
+        className="bg-zinc-950 text-white px-12 py-4 rounded-full font-black text-[18px] transition-all hover:scale-105 hover:bg-zinc-800 shadow-2xl tracking-widest uppercase"
       >
         {data.buttonText}
       </a>

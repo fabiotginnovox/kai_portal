@@ -33,7 +33,7 @@ const Navbar: React.FC = () => {
               <button className="text-kai-text hover:text-white font-medium text-sm transition-colors">
                 Log In
               </button>
-              <button className="bg-kai-green text-kai-black hover:scale-105 px-5 py-2.5 rounded-full text-sm font-bold transition-all shadow-[0_0_20px_rgba(0,255,133,0.3)]">
+              <button className="bg-kai-pink text-white hover:scale-105 px-6 py-2.5 rounded-full text-sm font-black transition-all shadow-[0_0_20px_rgba(255,45,158,0.3)] tracking-wide">
                 Sign Up
               </button>
             </div>

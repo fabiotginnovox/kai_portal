@@ -33,11 +33,11 @@ const Hero: React.FC = () => {
                 <FlippingCard
                   width={340}
                   height={440}
-                  bgColor="rgba(0, 255, 133, 0.2)"
-                  className="border border-kai-green/20"
+                  bgColor="#00FF85"
+                  className="border border-white/10"
                   frontContent={
                     <GenericCardFront 
-                      colorClass="text-kai-green"
+                      colorClass="text-zinc-950"
                       data={{
                         imageSrc: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=600&h=450",
                         imageAlt: "KaiAssist AI",
@@ -68,11 +68,11 @@ const Hero: React.FC = () => {
                 <FlippingCard
                   width={340}
                   height={440}
-                  bgColor="rgba(255, 246, 2, 0.2)"
-                  className="border border-kai-yellow/20"
+                  bgColor="#FFF500"
+                  className="border border-white/10"
                   frontContent={
                     <GenericCardFront 
-                      colorClass="text-kai-yellow"
+                      colorClass="text-zinc-950"
                       data={{
                         imageSrc: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&q=80&w=600&h=450",
                         imageAlt: "Mapeamento de Processos",
@@ -103,11 +103,11 @@ const Hero: React.FC = () => {
                 <FlippingCard
                   width={340}
                   height={440}
-                  bgColor="rgba(255, 45, 158, 0.2)"
-                  className="border border-kai-pink/20"
+                  bgColor="#FF2D9E"
+                  className="border border-white/10"
                   frontContent={
                     <GenericCardFront 
-                      colorClass="text-kai-pink"
+                      colorClass="text-zinc-950"
                       data={{
                         imageSrc: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=600&h=450",
                         imageAlt: "Método Kai",
@@ -174,7 +174,7 @@ function GenericCardFront({ data, colorClass }: { data: CardData["front"], color
         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
       </div>
       <div className="flex flex-col items-center justify-center text-center px-2">
-        <p className={cn("text-lg md:text-[20px] font-bold leading-tight text-zinc-900 drop-shadow-sm")}>
+        <p className={cn("text-lg md:text-[20px] font-bold leading-tight drop-shadow-sm", colorClass)}>
           {data.description}
         </p>
       </div>
@@ -185,7 +185,7 @@ function GenericCardFront({ data, colorClass }: { data: CardData["front"], color
 function GenericCardBack({ data }: { data: CardData["back"] }) {
   return (
     <div className="flex flex-col items-center justify-center h-full w-full p-10 text-center">
-      <p className="text-[22px] font-bold text-zinc-900 leading-snug mb-10">
+      <p className="text-[22px] font-bold text-zinc-950 leading-snug mb-10">
         {data.description}
       </p>
       <a 

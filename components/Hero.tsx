@@ -27,8 +27,8 @@ const Hero: React.FC = () => {
                 <h2 className="text-2xl md:text-[2.2rem] font-bold text-kai-green mb-8 leading-tight text-center lg:h-32 flex items-center">
                   para preparar sua equipe,
                 </h2>
-                <p className="text-base md:text-[1.2rem] text-kai-green/90 font-medium leading-relaxed text-center max-w-sm mb-12 lg:h-24">
-                  Sua equipe preparada para trabalhar com IA, com o apoio do nosso AI Maturity para avaliar o nível atual.
+                <p className="text-base md:text-[1.2rem] text-white font-medium leading-relaxed text-center max-w-sm mb-12 lg:h-24">
+                  Sua equipe preparada para trabalhar com IA, com o apoio do nosso <span className="text-kai-green">AI Maturity</span> para avaliar o nível atual.
                 </p>
                 <FlippingCard
                   width={340}
@@ -62,8 +62,8 @@ const Hero: React.FC = () => {
                 <h2 className="text-2xl md:text-[2.2rem] font-bold text-kai-yellow mb-8 leading-tight text-center lg:h-32 flex items-center">
                   estruturar seus processos
                 </h2>
-                <p className="text-base md:text-[1.2rem] text-kai-yellow/90 font-medium leading-relaxed text-center max-w-sm mb-12 lg:h-24">
-                  Sua operação organizada com um mapeamento claro de processos e uma priorização prática das melhores oportunidades.
+                <p className="text-base md:text-[1.2rem] text-white font-medium leading-relaxed text-center max-w-sm mb-12 lg:h-24">
+                  Sua operação organizada com um <span className="text-kai-yellow">mapeamento claro de processos</span> e uma priorização prática das melhores oportunidades.
                 </p>
                 <FlippingCard
                   width={340}
@@ -97,8 +97,8 @@ const Hero: React.FC = () => {
                 <h2 className="text-2xl md:text-[2.2rem] font-bold text-kai-pink mb-8 leading-tight text-center lg:h-32 flex items-center">
                   com inteligência escalável
                 </h2>
-                <p className="text-base md:text-[1.2rem] text-kai-pink/90 font-medium leading-relaxed text-center max-w-sm mb-12 lg:h-24">
-                  E sua empresa pronta para o Método Kai de automações inteligentes que realmente escalam.
+                <p className="text-base md:text-[1.2rem] text-white font-medium leading-relaxed text-center max-w-sm mb-12 lg:h-24">
+                  E sua empresa pronta para o <span className="text-kai-pink">Método Kai</span> de automações inteligentes que realmente escalam.
                 </p>
                 <FlippingCard
                   width={340}

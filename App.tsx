@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 const Hero = lazy(() => import('./components/Hero'));
 const Features = lazy(() => import('./components/Features'));
 const Pricing = lazy(() => import('./components/Pricing'));
+const Contact = lazy(() => import('./components/Contact'));
 
 const App: React.FC = () => {
   return (
@@ -15,6 +16,7 @@ const App: React.FC = () => {
           <Hero />
           <Features />
           <Pricing />
+          <Contact />
         </Suspense>
       </main>
       <Footer />

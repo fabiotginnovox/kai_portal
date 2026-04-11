@@ -95,7 +95,7 @@ const Hero: React.FC = () => {
               {/* Column 3 */}
               <div className="flex flex-col items-center">
                 <h2 className="text-2xl md:text-[2.2rem] font-bold text-kai-pink mb-8 leading-tight text-center lg:h-32 flex items-center">
-                  com inteligência <span className="bg-[#441122] text-kai-pink px-3 py-1 rounded border border-kai-pink/30 ml-2">escalável</span>
+                  com inteligência escalável
                 </h2>
                 <p className="text-base md:text-[1.2rem] text-kai-pink/90 font-medium leading-relaxed text-center max-w-sm mb-12 lg:h-24">
                   E sua empresa pronta para o Método Kai de automações inteligentes que realmente escalam.

@@ -24,20 +24,20 @@ const Hero: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 mb-20 px-4">
               {/* Column 1 */}
               <div className="flex flex-col items-center">
-                <h2 className="t-h2 text-kai-forest-500 mb-8 text-center lg:h-32 flex items-center">
+                <h2 className="t-h2 text-[#849a30] mb-8 text-center lg:h-32 flex items-center">
                   para preparar sua equipe,
                 </h2>
                 <p className="t-body text-kai-fg-secondary text-center max-w-sm mb-12 lg:h-24">
-                  Sua equipe preparada para trabalhar<br /> com IA, com o apoio do nosso<br /> <span className="text-kai-forest-500 font-bold">AI Maturity</span> para avaliar o nível atual.
+                  Sua equipe preparada para trabalhar<br /> com IA, com o apoio do nosso<br /> <span className="text-[#849a30] font-bold">AI Maturity</span> para avaliar o nível atual.
                 </p>
                 <FlippingCard
                   width={340}
                   height={440}
-                  bgColor="#00FF85"
+                  bgColor="#849a30"
                   className="border border-white/10"
                   frontContent={
                     <GenericCardFront 
-                      colorClass="text-zinc-950"
+                      colorClass="text-white"
                       data={{
                         imageSrc: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=600&h=450",
                         imageAlt: "KaiAssist AI",
@@ -48,6 +48,7 @@ const Hero: React.FC = () => {
                   }
                   backContent={
                     <GenericCardBack 
+                      colorClass="text-white"
                       data={{
                         description: "Receba um relatório gratuito sobre o quanto sua empresa está apta para a automação com IA",
                         buttonText: "AI MATURITY"
@@ -59,20 +60,20 @@ const Hero: React.FC = () => {
               
               {/* Column 2 */}
               <div className="flex flex-col items-center">
-                <h2 className="t-h2 text-kai-olive-600 mb-8 text-center lg:h-32 flex items-center">
+                <h2 className="t-h2 text-[#4d633b] mb-8 text-center lg:h-32 flex items-center">
                   estruturar seus processos
                 </h2>
                 <p className="t-body text-kai-fg-secondary text-center max-w-sm mb-12 lg:h-24">
-                  Sua operação organizada com um<br /> <span className="text-kai-olive-600 font-bold">Mapeamento Claro de Processos</span> e uma<br /> priorização prática das melhores<br /> oportunidades.
+                  Sua operação organizada com um<br /> <span className="text-[#4d633b] font-bold">Mapeamento Claro de Processos</span> e uma<br /> priorização prática das melhores<br /> oportunidades.
                 </p>
                 <FlippingCard
                   width={340}
                   height={440}
-                  bgColor="#FFF500"
+                  bgColor="#4d633b"
                   className="border border-white/10"
                   frontContent={
                     <GenericCardFront 
-                      colorClass="text-zinc-950"
+                      colorClass="text-white"
                       data={{
                         imageSrc: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&q=80&w=600&h=450",
                         imageAlt: "Mapeamento de Processos",
@@ -83,6 +84,7 @@ const Hero: React.FC = () => {
                   }
                   backContent={
                     <GenericCardBack 
+                      colorClass="text-white"
                       data={{
                         description: "Estruture sua automação de forma estratégica e descubra os gargalos do seu negócio.",
                         buttonText: "MAPEAMENTO"
@@ -94,20 +96,20 @@ const Hero: React.FC = () => {
 
               {/* Column 3 */}
               <div className="flex flex-col items-center">
-                <h2 className="t-h2 text-kai-pink mb-8 text-center lg:h-32 flex items-center">
+                <h2 className="t-h2 text-[#1A3830] mb-8 text-center lg:h-32 flex items-center">
                   com inteligência escalável
                 </h2>
                 <p className="t-body text-kai-fg-secondary text-center max-w-sm mb-12 lg:h-24">
-                  E sua empresa pronta para o <span className="text-kai-pink font-bold">Método Kai</span> de automações inteligentes que realmente escalam.
+                  E sua empresa pronta para o <span className="text-[#1A3830] font-bold">Método Kai</span> de automações inteligentes que realmente escalam.
                 </p>
                 <FlippingCard
                   width={340}
                   height={440}
-                  bgColor="#FF2D9E"
+                  bgColor="#1A3830"
                   className="border border-white/10"
                   frontContent={
                     <GenericCardFront 
-                      colorClass="text-zinc-950"
+                      colorClass="text-white"
                       data={{
                         imageSrc: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=600&h=450",
                         imageAlt: "Método Kai",
@@ -118,6 +120,7 @@ const Hero: React.FC = () => {
                   }
                   backContent={
                     <GenericCardBack 
+                      colorClass="text-white"
                       data={{
                         description: "Contrate agora mesmo o Método Kai de Automação.",
                         buttonText: "CONTRATAR"
@@ -131,7 +134,7 @@ const Hero: React.FC = () => {
             <div className="mt-20 flex justify-center">
               <a
                 href="#features"
-                className="group inline-flex items-center justify-center px-10 py-4 bg-transparent border border-white/20 text-lg font-bold rounded-full text-white hover:bg-white hover:text-black transition-all duration-300"
+                className="group inline-flex items-center justify-center px-10 py-4 bg-[#1e3830] border border-white/20 text-lg font-bold rounded-full text-white hover:bg-white hover:text-[#1e3830] transition-all duration-300"
               >
                 Saiba Mais
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -182,10 +185,10 @@ function GenericCardFront({ data, colorClass }: { data: CardData["front"], color
   );
 }
 
-function GenericCardBack({ data }: { data: CardData["back"] }) {
+function GenericCardBack({ data, colorClass = "text-zinc-950" }: { data: CardData["back"], colorClass?: string }) {
   return (
     <div className="flex flex-col items-center justify-center h-full w-full p-10 text-center">
-      <p className="text-[22px] font-bold text-zinc-950 leading-snug mb-10">
+      <p className={cn("text-[22px] font-bold leading-snug mb-10", colorClass)}>
         {data.description}
       </p>
       <a 

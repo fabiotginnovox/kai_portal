@@ -2,12 +2,12 @@ import React from 'react';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-kai-black border-t border-white/5 py-12">
+    <footer className="bg-kai-bg-page border-t border-kai-border-default py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex items-center gap-2">
             <div className="text-2xl font-bold tracking-tighter">
-              <span className="text-[#FF2D9E]">k</span><span className="text-[#FFF500]">a</span><span className="text-[#00FF85]">i</span><span className="text-white">Assist</span>
+              <span className="text-kai-pink">k</span><span className="text-kai-olive-600">a</span><span className="text-kai-forest-500">i</span><span className="text-kai-fg-primary">Assist</span>
             </div>
           </div>
           

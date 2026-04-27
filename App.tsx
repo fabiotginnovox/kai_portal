@@ -9,7 +9,7 @@ const Contact = lazy(() => import('./components/Contact'));
 
 const App: React.FC = () => {
   return (
-    <div className="min-h-screen bg-kai-black text-kai-text selection:bg-kai-accent selection:text-kai-black font-sans antialiased">
+    <div className="min-h-screen bg-kai-bg-page text-kai-fg-primary selection:bg-kai-accent-primary selection:text-white font-sans antialiased">
       <Navbar />
       <main>
         <Suspense fallback={<div className="h-screen flex items-center justify-center text-kai-accent">Carregando...</div>}>

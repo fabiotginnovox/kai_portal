@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils';
 
 const Hero: React.FC = () => {
   return (
-    <div id="methodology" className="relative pt-24 pb-10 overflow-hidden sm:pt-32 sm:pb-10 lg:pb-10 bg-kai-black">
+    <div id="methodology" className="relative pt-24 pb-10 overflow-hidden sm:pt-32 sm:pb-10 lg:pb-10 bg-kai-bg-page">
       {/* Background glow effects */}
       <div className="absolute top-0 left-1/2 w-full -translate-x-1/2 h-full z-0 pointer-events-none">
         <div className="absolute top-20 left-1/4 w-[500px] h-[500px] bg-kai-accent/5 rounded-full blur-[120px]" />
@@ -17,8 +17,8 @@ const Hero: React.FC = () => {
 
           {/* Text Content */}
           <div className="lg:col-span-12 text-center">
-            <h1 className="text-[2.5rem] md:text-[5rem] lg:text-[6rem] font-black tracking-tight mb-16 leading-[1.1] max-w-7xl mx-auto text-white">
-              Método <span className="bg-[#1a1a1a] border border-white/10 px-6 py-1 rounded-xl inline-block align-middle transform -translate-y-[4px] text-[#FFD700]">KAI</span> de Automação com IA
+            <h1 className="text-[2.5rem] md:text-[5rem] lg:text-[6rem] font-black tracking-tight mb-16 leading-[1.1] max-w-7xl mx-auto text-kai-fg-primary">
+              Método <span className="bg-kai-bg-sunken border border-kai-border-default px-6 py-1 rounded-xl inline-block align-middle transform -translate-y-[4px] text-kai-brand-olive">KAI</span> de Automação com IA
             </h1>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 mb-20 px-4">
@@ -27,8 +27,8 @@ const Hero: React.FC = () => {
                 <h2 className="text-2xl md:text-[2.2rem] font-bold text-kai-green mb-8 leading-tight text-center lg:h-32 flex items-center">
                   para preparar sua equipe,
                 </h2>
-                <p className="text-base md:text-[1.2rem] text-white font-medium leading-relaxed text-center max-w-sm mb-12 lg:h-24">
-                  Sua equipe preparada para trabalhar<br /> com IA, com o apoio do nosso<br /> <span className="text-kai-green">AI Maturity</span> para avaliar o nível atual.
+                <p className="text-base md:text-[1.2rem] text-kai-fg-secondary font-medium leading-relaxed text-center max-w-sm mb-12 lg:h-24">
+                  Sua equipe preparada para trabalhar<br /> com IA, com o apoio do nosso<br /> <span className="text-kai-forest-500">AI Maturity</span> para avaliar o nível atual.
                 </p>
                 <FlippingCard
                   width={340}
@@ -62,8 +62,8 @@ const Hero: React.FC = () => {
                 <h2 className="text-2xl md:text-[2.2rem] font-bold text-kai-yellow mb-8 leading-tight text-center lg:h-32 flex items-center">
                   estruturar seus processos
                 </h2>
-                <p className="text-base md:text-[1.2rem] text-white font-medium leading-relaxed text-center max-w-sm mb-12 lg:h-24">
-                  Sua operação organizada com um<br /> <span className="text-kai-yellow">Mapeamento Claro de Processos</span> e uma<br /> priorização prática das melhores<br /> oportunidades.
+                <p className="text-base md:text-[1.2rem] text-kai-fg-secondary font-medium leading-relaxed text-center max-w-sm mb-12 lg:h-24">
+                  Sua operação organizada com um<br /> <span className="text-kai-olive-600">Mapeamento Claro de Processos</span> e uma<br /> priorização prática das melhores<br /> oportunidades.
                 </p>
                 <FlippingCard
                   width={340}
@@ -97,7 +97,7 @@ const Hero: React.FC = () => {
                 <h2 className="text-2xl md:text-[2.2rem] font-bold text-kai-pink mb-8 leading-tight text-center lg:h-32 flex items-center">
                   com inteligência escalável
                 </h2>
-                <p className="text-base md:text-[1.2rem] text-white font-medium leading-relaxed text-center max-w-sm mb-12 lg:h-24">
+                <p className="text-base md:text-[1.2rem] text-kai-fg-secondary font-medium leading-relaxed text-center max-w-sm mb-12 lg:h-24">
                   E sua empresa pronta para o <span className="text-kai-pink">Método Kai</span> de automações inteligentes que realmente escalam.
                 </p>
                 <FlippingCard
@@ -138,8 +138,8 @@ const Hero: React.FC = () => {
               </a>
             </div>
             <div className="mt-24 mb-12 text-center opacity-70">
-              <h2 className="text-2xl md:text-3xl lg:text-5xl font-bold tracking-tight text-white">
-                <span className="text-[#00FF85]">K</span>nowledge, <span className="text-[#FFF500]">A</span>utomation, <span className="text-[#FF2D9E]">I</span>ntelligence
+              <h2 className="text-2xl md:text-3xl lg:text-5xl font-bold tracking-tight text-kai-fg-primary">
+                <span className="text-kai-forest-500">K</span>nowledge, <span className="text-kai-olive-600">A</span>utomation, <span className="text-kai-pink">I</span>ntelligence
               </h2>
             </div>
           </div>

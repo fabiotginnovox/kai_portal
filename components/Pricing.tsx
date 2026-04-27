@@ -87,15 +87,15 @@ const Pricing: React.FC = () => {
   };
 
   return (
-    <section id="pricing" className="py-24 bg-kai-black relative overflow-hidden">
+    <section id="pricing" className="py-24 bg-kai-bg-page relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-kai-accent/5 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute inset-0 bg-grid opacity-10 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Plano de Preços - <span className="text-kai-accent">Método KAI</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-kai-fg-primary mb-4">
+            Plano de Preços - <span className="text-kai-accent-primary">Método KAI</span>
           </h2>
           <p className="text-kai-muted text-lg max-w-2xl mx-auto">
             Escolha o plano ideal para impulsionar sua automação e transformar seu negócio com inteligência escalável.
@@ -132,7 +132,7 @@ const Pricing: React.FC = () => {
 
                 <div className="mb-6">
                   <div className="flex items-baseline gap-1">
-                    <span className="text-4xl font-extrabold text-white">{plan.price}</span>
+                    <span className="text-4xl font-extrabold text-kai-fg-primary">{plan.price}</span>
                     <span className="text-kai-muted text-sm">{plan.period}</span>
                   </div>
                   <p className="text-kai-muted text-sm mt-4 min-h-[40px]">

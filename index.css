@@ -98,9 +98,9 @@ html {
 }
 
 body {
-  background-color: #050a06;
-  color: #e0e7e1;
-  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-page);
+  color: var(--fg-primary);
+  font-family: var(--font-body);
   margin: 0;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
@@ -108,8 +108,8 @@ body {
 }
 
 .bg-grid {
-  background-image: linear-gradient(to right, #131f16 1px, transparent 1px),
-                    linear-gradient(to bottom, #131f16 1px, transparent 1px);
+  background-image: linear-gradient(to right, var(--border-default) 1px, transparent 1px),
+                    linear-gradient(to bottom, var(--border-default) 1px, transparent 1px);
   background-size: 40px 40px;
 }
 

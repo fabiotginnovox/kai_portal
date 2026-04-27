@@ -14,22 +14,22 @@ const data = [
 
 const Features: React.FC = () => {
   return (
-    <section id="features" className="py-20 bg-kai-black relative">
-       <div className="absolute inset-0 bg-grid opacity-20 pointer-events-none"></div>
+    <section id="features" className="py-20 bg-kai-bg-page relative">
+       <div className="absolute inset-0 bg-grid opacity-5 pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           
           {/* Card 1: Intelligent Workflows */}
-          <div className="group relative bg-kai-card border border-kai-muted/20 rounded-2xl p-6 overflow-hidden hover:border-kai-accent/40 transition-all duration-300">
+          <div className="group relative bg-kai-bg-surface border border-kai-border-default rounded-2xl p-6 overflow-hidden hover:border-kai-accent-primary/40 transition-all duration-300 shadow-sm hover:shadow-md">
             <div className="absolute top-0 right-0 w-32 h-32 bg-kai-accent/5 rounded-full blur-3xl -mr-10 -mt-10"></div>
             
             <div className="flex justify-between items-start mb-6">
-                <h3 className="text-xl font-bold text-white">Intelligent Workflows</h3>
+                <h3 className="text-xl font-bold text-kai-fg-primary">Intelligent Workflows</h3>
                 <Network className="text-kai-accent w-6 h-6" />
             </div>
 
-            <div className="h-32 mb-6 bg-kai-dark/50 rounded-xl border border-white/5 p-4 flex items-center justify-center">
+            <div className="h-32 mb-6 bg-kai-bg-sunken rounded-xl border border-kai-border-default p-4 flex items-center justify-center">
                 <div className="flex gap-4 items-center">
                     <div className="w-10 h-10 rounded-lg bg-emerald-900/40 border border-emerald-500/30 flex items-center justify-center">
                         <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
@@ -66,7 +66,7 @@ const Features: React.FC = () => {
           {/* Card 2: Data-Driven Insights */}
           <div className="group relative bg-kai-card border border-kai-muted/20 rounded-2xl p-6 overflow-hidden hover:border-kai-accent/40 transition-all duration-300">
             <div className="flex justify-between items-start mb-6">
-                <h3 className="text-xl font-bold text-white">Data-Driven Insights</h3>
+                <h3 className="text-xl font-bold text-kai-fg-primary">Data-Driven Insights</h3>
                 <BarChart3 className="text-kai-accent w-6 h-6" />
             </div>
 
@@ -108,9 +108,9 @@ const Features: React.FC = () => {
           </div>
 
           {/* Card 3: Strategic AI Agents */}
-          <div className="group relative bg-kai-card border border-kai-accent/30 rounded-2xl p-6 overflow-hidden shadow-[0_0_30px_rgba(163,198,68,0.1)] hover:shadow-[0_0_40px_rgba(163,198,68,0.15)] transition-all duration-300">
+          <div className="group relative bg-kai-bg-surface border border-kai-accent-primary/30 rounded-2xl p-6 overflow-hidden shadow-[0_0_30px_rgba(38,92,74,0.05)] hover:shadow-[0_0_40px_rgba(38,92,74,0.1)] transition-all duration-300">
             <div className="flex justify-between items-start mb-6">
-                <h3 className="text-xl font-bold text-white">Strategic AI Agents</h3>
+                <h3 className="text-xl font-bold text-kai-fg-primary">Strategic AI Agents</h3>
                 <Bot className="text-kai-accent w-6 h-6" />
             </div>
 

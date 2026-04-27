@@ -8,7 +8,7 @@ import { Textarea } from '@/components/ui/textarea';
 
 const Contact: React.FC = () => {
     return (
-        <section id="contact" className="py-20 px-4 md:px-8 bg-kai-black">
+        <section id="contact" className="py-20 px-4 md:px-8 bg-kai-bg-page">
             <div className="mx-auto max-w-6xl">
                 <ContactCard
                     title="Entre em contato"
@@ -31,8 +31,8 @@ const Contact: React.FC = () => {
                             className: 'col-span-1 md:col-span-2 lg:col-span-1',
                         }
                     ]}
-                    className="bg-black/50 border-kai-accent/20 text-white rounded-none"
-                    formSectionClassName="bg-kai-accent/5 border-kai-accent/20"
+                    className="bg-kai-bg-surface border-kai-border-default text-kai-fg-primary rounded-2xl overflow-hidden shadow-xl"
+                    formSectionClassName="bg-kai-bg-sunken/50 border-kai-border-default"
                 >
                     <form action="" className="w-full space-y-6">
                         <div className="flex flex-col gap-2">

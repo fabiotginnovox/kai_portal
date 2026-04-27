@@ -4,47 +4,46 @@ import { Menu, X } from 'lucide-react';
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const navLinks = [
+    { name: 'Funcionalidades', href: '#features' },
+    { name: 'Metodologia', href: '#methodology' },
+    { name: 'Planos', href: '#pricing' },
+  ];
+
   return (
-    <nav className="fixed w-full z-50 bg-kai-black/80 backdrop-blur-md border-b border-kai-card">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+    <nav className="fixed w-full z-50 bg-kai-cream-100/90 backdrop-blur-md border-b border-kai-cream-300 transition-all duration-300">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex-shrink-0 flex items-center gap-2 cursor-pointer">
-            <div className="text-3xl font-bold tracking-tighter">
-              <span className="text-[#00FF85]">K</span><span className="text-[#FFF500]">a</span><span className="text-[#FF2D9E]">i</span><span className="text-white">Assist</span>
-            </div>
-            <div className="hidden sm:block text-[10px] uppercase tracking-widest text-kai-muted ml-2 pt-2 border-l border-kai-muted pl-2 leading-3">
-              Your Intelligent<br/>Assistant
-            </div>
+          <div className="flex-shrink-0 flex items-center cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+            <img src="/assets/logoKaiAssist2.png" alt="kaiAssist" className="h-8" />
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
-              <a href="#about" className="text-kai-text hover:text-kai-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Sobre</a>
-              <a href="#features" className="text-kai-text hover:text-kai-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Funcionalidades</a>
-              <a href="#pricing" className="text-kai-text hover:text-kai-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Planos</a>
-              <a href="#contact" className="text-kai-text hover:text-kai-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Contato</a>
-            </div>
+          <div className="hidden md:flex items-center gap-8">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                className="text-sm font-medium text-kai-cream-700 hover:text-kai-forest-500 transition-colors"
+              >
+                {link.name}
+              </a>
+            ))}
           </div>
 
-          {/* CTA Buttons */}
+          {/* CTA Button */}
           <div className="hidden md:block">
-            <div className="ml-4 flex items-center md:ml-6 space-x-4">
-              <button className="text-kai-text hover:text-white font-medium text-sm transition-colors">
-                Log In
-              </button>
-              <button className="bg-kai-pink text-white hover:scale-105 px-6 py-2.5 rounded-full text-sm font-black transition-all shadow-[0_0_20px_rgba(255,45,158,0.3)] tracking-wide">
-                Sign Up
-              </button>
-            </div>
+            <button className="bg-kai-forest-700 text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-kai-forest-600 transition-all active:scale-95 shadow-sm">
+              Iniciar avaliação
+            </button>
           </div>
 
           {/* Mobile menu button */}
-          <div className="-mr-2 flex md:hidden">
+          <div className="flex md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-kai-text hover:text-white hover:bg-kai-card focus:outline-none"
+              className="inline-flex items-center justify-center p-2 rounded-md text-kai-cream-700 hover:text-kai-forest-500 hover:bg-kai-cream-200 transition-colors focus:outline-none"
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -54,15 +53,22 @@ const Navbar: React.FC = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-kai-card border-b border-kai-muted/20">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <a href="#about" className="text-kai-text hover:text-kai-accent block px-3 py-2 rounded-md text-base font-medium">Sobre</a>
-            <a href="#features" className="text-kai-text hover:text-kai-accent block px-3 py-2 rounded-md text-base font-medium">Funcionalidades</a>
-            <a href="#pricing" className="text-kai-text hover:text-kai-accent block px-3 py-2 rounded-md text-base font-medium">Planos</a>
-            <a href="#contact" className="text-kai-text hover:text-kai-accent block px-3 py-2 rounded-md text-base font-medium" onClick={() => setIsOpen(false)}>Contato</a>
-            <div className="mt-4 pt-4 border-t border-kai-muted/20 flex flex-col space-y-3 px-3">
-               <button className="text-left text-kai-text hover:text-white font-medium">Log In</button>
-               <button className="w-full bg-kai-accent text-kai-black py-2 rounded-full font-bold">Sign Up</button>
+        <div className="md:hidden bg-white border-b border-kai-cream-300 animate-in slide-in-from-top duration-300">
+          <div className="px-4 pt-2 pb-6 space-y-2">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                className="block px-3 py-3 rounded-lg text-base font-medium text-kai-cream-700 hover:text-kai-forest-500 hover:bg-kai-cream-50 transition-all"
+                onClick={() => setIsOpen(false)}
+              >
+                {link.name}
+              </a>
+            ))}
+            <div className="mt-4 pt-4 border-t border-kai-cream-200 px-3">
+              <button className="w-full bg-kai-forest-700 text-white py-3 rounded-full font-semibold shadow-md active:scale-95 transition-transform">
+                Iniciar avaliação
+              </button>
             </div>
           </div>
         </div>

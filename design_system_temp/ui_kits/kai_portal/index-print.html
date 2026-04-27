@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kai Portal — Print</title>
+<link rel="stylesheet" href="../../colors_and_type.css">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  @font-face { font-family: 'Fraunces'; src: url('../../fonts/Fraunces-Variable.ttf') format('truetype'); font-weight: 100 900; font-style: normal; }
+  @font-face { font-family: 'Fraunces'; src: url('../../fonts/Fraunces-Italic-Variable.ttf') format('truetype'); font-weight: 100 900; font-style: italic; }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'DM Sans', sans-serif; background: #F4F0E7; color: #1A1813; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+  @media print {
+    @page { size: A4 portrait; margin: 0; }
+    body { background: #F4F0E7; }
+    .page-break { break-before: page; }
+  }
+
+  /* ── SHARED ── */
+  .eyebrow { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: #8A9C1F; margin-bottom: 16px; }
+  .btn-primary { display: inline-block; background: #265C4A; color: #fff; padding: 12px 28px; border-radius: 999px; font-size: 15px; font-weight: 600; font-family: 'DM Sans', sans-serif; }
+  .btn-outline { display: inline-block; border: 1.5px solid #265C4A; color: #265C4A; padding: 11px 26px; border-radius: 999px; font-size: 15px; font-weight: 600; font-family: 'DM Sans', sans-serif; background: transparent; }
+
+  /* ── NAV ── */
+  .nav { display: flex; align-items: center; justify-content: space-between; padding: 0 48px; height: 64px; background: #F4F0E7; border-bottom: 1px solid #DDD8CD; }
+  .nav img { height: 32px; }
+  .nav-links { display: flex; gap: 28px; }
+  .nav-link { font-size: 14px; color: #6B6557; font-weight: 500; }
+  .nav-cta { background: #1A3830; color: #fff; padding: 9px 20px; border-radius: 999px; font-size: 14px; font-weight: 600; font-family: 'DM Sans', sans-serif; }
+
+  /* ── PAGE 1: HERO ── */
+  .hero { padding: 64px 48px 56px; background: #F4F0E7; }
+  .hero h1 { font-family: 'Fraunces', serif; font-size: 64px; font-weight: 300; font-style: normal; font-variation-settings: 'opsz' 144, 'SOFT' 30; line-height: 1.05; letter-spacing: -0.02em; color: #1A1813; max-width: 640px; margin-bottom: 20px; }
+  .hero h1 em { font-style: italic; color: #265C4A; }
+  .hero p { font-size: 17px; line-height: 1.65; color: #6B6557; max-width: 460px; margin-bottom: 28px; }
+  .btn-row { display: flex; gap: 12px; margin-bottom: 48px; }
+  .stats { display: flex; gap: 48px; border-top: 1px solid #DDD8CD; padding-top: 32px; }
+  .stat-val { font-family: 'Fraunces', serif; font-size: 40px; font-weight: 700; color: #1A1813; line-height: 1; }
+  .stat-lbl { font-size: 12px; color: #ABA494; margin-top: 4px; }
+
+  /* ── PAGE 2: METHODOLOGY ── */
+  .method { padding: 56px 48px; background: #FAF8F4; border-top: 1px solid #DDD8CD; }
+  .method h2 { font-family: 'Fraunces', serif; font-size: 40px; font-weight: 600; letter-spacing: -0.02em; color: #1A1813; margin-bottom: 8px; }
+  .method p.sub { font-size: 15px; color: #6B6557; margin-bottom: 40px; max-width: 440px; }
+  .method-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .method-card { background: #fff; border-radius: 16px; padding: 24px; box-shadow: 0 4px 16px rgba(15,38,32,0.08); }
+  .method-card .step-lbl { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #8A9C1F; margin-bottom: 10px; }
+  .method-card h3 { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 600; color: #1A1813; margin-bottom: 8px; }
+  .method-card p { font-size: 13px; line-height: 1.65; color: #6B6557; }
+
+  /* ── PAGE 2: MATURITY ── */
+  .maturity { padding: 56px 48px; background: #F4F0E7; }
+  .maturity h2 { font-family: 'Fraunces', serif; font-size: 40px; font-weight: 600; letter-spacing: -0.02em; color: #1A1813; margin-bottom: 32px; }
+  .maturity-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+  .maturity-card { background: #1A3830; border-radius: 14px; padding: 20px 16px; }
+  .mat-lbl { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #B5C44E; margin-bottom: 6px; }
+  .mat-name { font-family: 'Fraunces', serif; font-size: 16px; font-weight: 600; color: #fff; margin-bottom: 8px; }
+  .mat-desc { font-size: 11px; line-height: 1.6; color: #93CCBA; }
+
+  /* ── PAGE 3: DELIVERABLES ── */
+  .deliver { padding: 56px 48px; background: #FAF8F4; border-top: 1px solid #DDD8CD; }
+  .deliver h2 { font-family: 'Fraunces', serif; font-size: 40px; font-weight: 600; letter-spacing: -0.02em; color: #1A1813; margin-bottom: 40px; }
+  .deliver-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .deliver-card { background: #fff; border-radius: 16px; padding: 22px; border: 1px solid #DDD8CD; }
+  .deliver-icon { font-size: 22px; margin-bottom: 10px; }
+  .deliver-card h3 { font-family: 'Fraunces', serif; font-size: 15px; font-weight: 600; color: #1A1813; margin-bottom: 6px; }
+  .deliver-card p { font-size: 12px; line-height: 1.6; color: #6B6557; }
+
+  /* ── CTA BAND ── */
+  .cta-band { background: #1A3830; padding: 56px 48px; text-align: center; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .cta-band .eyebrow { color: #B5C44E; }
+  .cta-band h2 { font-family: 'Fraunces', serif; font-size: 40px; font-weight: 300; color: #fff; margin-bottom: 16px; line-height: 1.15; max-width: 520px; margin-left: auto; margin-right: auto; }
+  .cta-band p { font-size: 15px; color: #93CCBA; margin-bottom: 28px; max-width: 440px; margin-left: auto; margin-right: auto; line-height: 1.65; }
+  .cta-band .btn-white { display: inline-block; background: #fff; color: #1A3830; padding: 14px 36px; border-radius: 999px; font-size: 15px; font-weight: 700; font-family: 'DM Sans', sans-serif; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <img src="../../assets/logoKaiAssist2.png" alt="kaiAssist">
+  <div class="nav-links">
+    <span class="nav-link">Features</span>
+    <span class="nav-link">Methodology</span>
+    <span class="nav-link">Pricing</span>
+  </div>
+  <span class="nav-cta">Start assessment</span>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="eyebrow">AI Maturity Platform</div>
+  <h1>Where does your company stand in the <em>AI era?</em></h1>
+  <p>We help companies diagnose their AI readiness, map a personalised roadmap, and implement intelligent automation — step by step.</p>
+  <div class="btn-row">
+    <span class="btn-primary">Start your assessment</span>
+    <span class="btn-outline">View sample report</span>
+  </div>
+  <div class="stats">
+    <div><div class="stat-val">5</div><div class="stat-lbl">AI Maturity Levels</div></div>
+    <div><div class="stat-val">40+</div><div class="stat-lbl">AI Dimensions</div></div>
+    <div><div class="stat-val">AI</div><div class="stat-lbl">Maturity Report</div></div>
+  </div>
+</section>
+
+<!-- METHODOLOGY -->
+<section class="method page-break">
+  <div class="eyebrow">Methodology</div>
+  <h2>Three steps from diagnosis<br>to intelligent automation</h2>
+  <p class="sub">A clear, structured path — no matter where you're starting from.</p>
+  <div class="method-grid">
+    <div class="method-card">
+      <div class="step-lbl">Step 01</div>
+      <h3>Diagnose</h3>
+      <p>Understand where your organisation stands across 40+ AI readiness dimensions with our structured assessment.</p>
+    </div>
+    <div class="method-card">
+      <div class="step-lbl">Step 02</div>
+      <h3>Map</h3>
+      <p>Receive a personalised roadmap tailored to your industry, size, and strategic goals.</p>
+    </div>
+    <div class="method-card">
+      <div class="step-lbl">Step 03</div>
+      <h3>Implement</h3>
+      <p>Execute your plan with AI playbooks, coaching sessions, and expert implementation support.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MATURITY LEVELS -->
+<section class="maturity">
+  <div class="eyebrow">Framework</div>
+  <h2>The five levels of AI maturity</h2>
+  <div class="maturity-grid">
+    <div class="maturity-card">
+      <div class="mat-lbl">Level 1</div>
+      <div class="mat-name">AI Adhan</div>
+      <p class="mat-desc">Beginning to explore AI with limited practical application. Processes remain entirely manual.</p>
+    </div>
+    <div class="maturity-card">
+      <div class="mat-lbl">Level 2</div>
+      <div class="mat-name">AI Aware</div>
+      <p class="mat-desc">Experimenting with AI tools in isolated workflows with no systematic approach.</p>
+    </div>
+    <div class="maturity-card">
+      <div class="mat-lbl">Level 3</div>
+      <div class="mat-name">AI Active</div>
+      <p class="mat-desc">AI deployed in multiple business functions with measurable ROI and early governance.</p>
+    </div>
+    <div class="maturity-card">
+      <div class="mat-lbl">Level 4</div>
+      <div class="mat-name">AI Advanced</div>
+      <p class="mat-desc">AI embedded across core processes with mature data strategy and talent programmes.</p>
+    </div>
+    <div class="maturity-card">
+      <div class="mat-lbl">Level 5</div>
+      <div class="mat-name">AI Native</div>
+      <p class="mat-desc">AI is fundamental to the business model. Autonomous processes and AI-first thinking are the norm.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DELIVERABLES -->
+<section class="deliver page-break">
+  <div class="eyebrow">What you get</div>
+  <h2>Four concrete deliverables</h2>
+  <div class="deliver-grid">
+    <div class="deliver-card">
+      <div class="deliver-icon">📊</div>
+      <h3>AI Maturity Report</h3>
+      <p>A detailed PDF report benchmarking your organisation across all 5 maturity dimensions.</p>
+    </div>
+    <div class="deliver-card">
+      <div class="deliver-icon">🗺️</div>
+      <h3>ROI Action Suite</h3>
+      <p>Prioritised action items ranked by business impact and implementation effort.</p>
+    </div>
+    <div class="deliver-card">
+      <div class="deliver-icon">📋</div>
+      <h3>Automation Dashboard</h3>
+      <p>A live dashboard tracking your AI initiatives, KPIs, and maturity progression.</p>
+    </div>
+    <div class="deliver-card">
+      <div class="deliver-icon">🧭</div>
+      <h3>Adoption Roadmap</h3>
+      <p>A 12-month implementation plan with milestones, resources, and coaching touchpoints.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band">
+  <div class="eyebrow">Get started</div>
+  <h2>Find out where your company stands — and what to do next</h2>
+  <p>Take the free 10-minute AI maturity assessment and receive your personalised report.</p>
+  <span class="btn-white">Take the free assessment →</span>
+</section>
+
+<script>
+  document.fonts.ready.then(function() {
+    setTimeout(function() { window.print(); }, 500);
+  });
+</script>
+</body>
+</html>

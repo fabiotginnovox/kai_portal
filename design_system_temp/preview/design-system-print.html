@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Kai Design System</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+@font-face { font-family: 'Fraunces'; src: url('../fonts/Fraunces-Variable.ttf') format('truetype'); font-weight: 100 900; font-style: normal; }
+@font-face { font-family: 'Fraunces'; src: url('../fonts/Fraunces-Italic-Variable.ttf') format('truetype'); font-weight: 100 900; font-style: italic; }
+
+/* ── RESET & BASE ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: #F4F0E7;
+  color: #1A1813;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── CSS VARS ── */
+:root {
+  --forest-900: #0F2620; --forest-800: #162F27; --forest-700: #1A3830;
+  --forest-600: #1F4538; --forest-500: #265C4A; --forest-400: #3D8C72;
+  --forest-300: #5BAD92; --forest-200: #93CCBA; --forest-100: #C9E5DD; --forest-50: #EAF4F0;
+  --olive-900: #4A530E; --olive-800: #606D12; --olive-700: #788918;
+  --olive-600: #8A9C1F; --olive-500: #9DAF2A; --olive-400: #B5C44E;
+  --olive-300: #CEDA7C; --olive-200: #E4EDAB; --olive-100: #F2F6D3; --olive-50: #F9FBE8;
+  --cream-950: #1A1813; --cream-800: #4A4538; --cream-700: #6B6557;
+  --cream-600: #8A8372; --cream-500: #ABA494; --cream-400: #C8C2B4;
+  --cream-300: #DDD8CD; --cream-200: #ECE8DF; --cream-100: #F4F0E7; --cream-50: #FAF8F4;
+  --white: #FFFFFF;
+}
+
+/* ── PRINT ── */
+@media print {
+  @page { size: A4 portrait; margin: 0; }
+  .page { break-before: page; }
+}
+
+/* ── PAGE LAYOUT ── */
+.page {
+  width: 210mm;
+  min-height: 297mm;
+  padding: 14mm 14mm 12mm;
+  background: #F4F0E7;
+  position: relative;
+  overflow: hidden;
+}
+.page.dark { background: #1A3830; }
+.page.surface { background: #FAF8F4; }
+
+/* ── PAGE HEADER ── */
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 8mm;
+  border-bottom: 0.5px solid #DDD8CD;
+  margin-bottom: 8mm;
+}
+.page-header.dark-h { border-color: rgba(255,255,255,0.12); }
+.page-logo { height: 22px; }
+.page-section { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: #8A9C1F; }
+.page-section.light { color: #B5C44E; }
+.page-num { font-size: 9px; color: #ABA494; font-weight: 500; }
+.page-num.light { color: #93CCBA; }
+
+/* ── SHARED COMPONENTS ── */
+.eyebrow { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.16em; color: #8A9C1F; margin-bottom: 4mm; }
+.eyebrow.lt { color: #B5C44E; }
+h1.ds { font-family: 'Fraunces', serif; font-size: 36pt; font-weight: 300; line-height: 1.05; letter-spacing: -0.02em; color: #1A1813; }
+h1.ds em { font-style: italic; color: #265C4A; }
+h2.ds { font-family: 'Fraunces', serif; font-size: 22pt; font-weight: 600; letter-spacing: -0.02em; color: #1A1813; margin-bottom: 4mm; }
+h2.ds.light { color: #fff; }
+h3.ds { font-family: 'Fraunces', serif; font-size: 14pt; font-weight: 600; color: #1A1813; margin-bottom: 2mm; }
+h3.ds.light { color: #fff; }
+.sect-label { font-size: 8px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #8A9C1F; margin-bottom: 3mm; margin-top: 6mm; }
+.sect-label:first-child { margin-top: 0; }
+.sect-label.lt { color: #B5C44E; }
+hr.ds { border: none; border-top: 0.5px solid #DDD8CD; margin: 3mm 0; }
+
+/* ── COVER ── */
+.cover-content { padding-top: 12mm; }
+.cover-tagline { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.16em; color: #8A9C1F; margin-bottom: 6mm; }
+.cover-title { font-family: 'Fraunces', serif; font-size: 48pt; font-weight: 300; line-height: 1.0; letter-spacing: -0.02em; color: #1A1813; margin-bottom: 6mm; }
+.cover-title em { font-style: italic; color: #265C4A; }
+.cover-sub { font-size: 13px; color: #6B6557; line-height: 1.6; max-width: 120mm; margin-bottom: 10mm; }
+.cover-divider { height: 2px; width: 20mm; background: #265C4A; border-radius: 2px; margin-bottom: 10mm; }
+.cover-meta { display: flex; gap: 12mm; }
+.cover-meta-item dt { font-size: 8px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #ABA494; margin-bottom: 1mm; }
+.cover-meta-item dd { font-size: 11px; font-weight: 600; color: #1A1813; }
+.cover-footer { position: absolute; bottom: 12mm; left: 14mm; right: 14mm; display: flex; align-items: flex-end; justify-content: space-between; }
+.cover-portal-preview { background: #1A3830; border-radius: 12px; padding: 14px 18px; width: 94mm; }
+.cover-portal-nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+.cover-portal-logo { height: 16px; }
+.cover-portal-cta { background: #265C4A; color: #fff; font-size: 9px; font-weight: 600; padding: 4px 10px; border-radius: 99px; }
+.cover-portal-hero { font-family: 'Fraunces', serif; font-size: 15px; font-weight: 300; color: #fff; line-height: 1.2; margin-bottom: 8px; }
+.cover-portal-hero em { font-style: italic; color: #5BAD92; }
+.cover-portal-btns { display: flex; gap: 6px; }
+.cover-portal-btn1 { background: #265C4A; color: #fff; font-size: 8px; font-weight: 600; padding: 4px 10px; border-radius: 99px; }
+.cover-portal-btn2 { border: 1px solid #3D8C72; color: #5BAD92; font-size: 8px; font-weight: 600; padding: 4px 10px; border-radius: 99px; }
+
+/* ── COLORS ── */
+.swatch-row { display: flex; gap: 3px; margin-bottom: 5px; }
+.swatch { flex: 1; height: 32px; border-radius: 5px; }
+.swatch.sm { height: 22px; }
+.swatch-bordered { border: 0.5px solid #DDD8CD; }
+.color-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 4px; }
+.color-tile { border-radius: 6px; padding: 8px 7px 6px; }
+.color-tile-name { font-size: 8px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; }
+.color-tile-var  { font-size: 7px; opacity: 0.55; margin-top: 1px; font-family: monospace; }
+
+/* ── TYPE ── */
+.type-specimen { margin-bottom: 5mm; }
+.type-label { font-size: 8px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #8A9C1F; margin-bottom: 1.5mm; }
+.type-row { display: flex; align-items: baseline; gap: 8mm; margin-bottom: 2.5mm; }
+.type-tag { font-size: 8px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #8A9C1F; min-width: 22mm; flex-shrink: 0; }
+.t-hero { font-family: 'Fraunces', serif; font-size: 38pt; font-weight: 300; font-style: normal; font-variation-settings: 'opsz' 144, 'SOFT' 30; line-height: 1.05; letter-spacing: -0.03em; color: #1A1813; }
+.t-hero em { font-style: italic; color: #265C4A; }
+.t-h1 { font-family: 'Fraunces', serif; font-size: 26pt; font-weight: 600; letter-spacing: -0.02em; color: #1A1813; }
+.t-h2 { font-family: 'Fraunces', serif; font-size: 20pt; font-weight: 600; letter-spacing: -0.02em; color: #1A1813; }
+.t-h3 { font-family: 'Fraunces', serif; font-size: 15pt; font-weight: 500; color: #1A1813; }
+.t-body-lg { font-size: 13px; line-height: 1.6; color: #6B6557; }
+.t-body-md { font-size: 11px; line-height: 1.65; color: #6B6557; }
+.t-body-sm { font-size: 10px; line-height: 1.6; color: #6B6557; }
+.t-caption  { font-size: 9px; color: #ABA494; }
+.t-label    { font-size: 8px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: #8A9C1F; }
+.t-link     { font-size: 11px; color: #265C4A; text-decoration: underline; text-underline-offset: 2px; }
+
+/* ── SPACING ── */
+.spacing-row { display: flex; gap: 5px; align-items: flex-end; margin-bottom: 3mm; }
+.spacing-block { display: flex; flex-direction: column; align-items: center; gap: 3px; }
+.spacing-bar { background: #265C4A; border-radius: 2px; width: 100%; }
+.spacing-lbl { font-size: 7px; font-weight: 700; color: #ABA494; }
+.radius-row { display: flex; gap: 8px; align-items: flex-end; flex-wrap: wrap; margin-bottom: 3mm; }
+.radius-box { background: #EAF4F0; border: 1.5px solid #265C4A; display: flex; align-items: center; justify-content: center; width: 36px; height: 28px; font-size: 7px; font-weight: 700; color: #265C4A; }
+.shadow-row { display: flex; gap: 10px; }
+.shadow-box { background: #FAF8F4; border-radius: 8px; width: 52px; height: 36px; display: flex; align-items: center; justify-content: center; font-size: 8px; font-weight: 700; color: #ABA494; }
+
+/* ── BUTTONS ── */
+.btn-row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-bottom: 3mm; }
+.btn { display: inline-flex; align-items: center; font-family: 'DM Sans', sans-serif; font-weight: 600; border: none; border-radius: 999px; cursor: default; }
+.btn-primary { background: #265C4A; color: #fff; padding: 7px 16px; font-size: 11px; }
+.btn-outline  { background: transparent; color: #265C4A; border: 1.5px solid #265C4A; padding: 6px 14px; font-size: 11px; }
+.btn-ghost    { background: transparent; color: #1A1813; border: 1.5px solid #DDD8CD; padding: 6px 14px; font-size: 11px; }
+.btn-olive    { background: #8A9C1F; color: #fff; padding: 7px 16px; font-size: 11px; }
+.btn-dark     { background: #1A3830; color: #FAF8F4; padding: 7px 16px; font-size: 11px; }
+.btn-sm { padding: 4px 10px; font-size: 9px; }
+.btn-lg { padding: 10px 22px; font-size: 14px; }
+
+/* ── CARDS ── */
+.card-row { display: flex; gap: 8px; margin-bottom: 4mm; }
+.card { background: #fff; border-radius: 12px; padding: 14px; box-shadow: 0 4px 12px rgba(15,38,32,0.08); flex: 1; }
+.card.dark { background: #1A3830; }
+.card.bordered { background: #FAF8F4; border: 1.5px solid #DDD8CD; box-shadow: none; }
+.card-eyebrow { font-size: 8px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #8A9C1F; margin-bottom: 5px; }
+.card-eyebrow.lt { color: #B5C44E; }
+.card-title { font-family: 'Fraunces', serif; font-size: 14px; font-weight: 600; color: #1A1813; margin-bottom: 4px; }
+.card-title.lt { color: #fff; }
+.card-body { font-size: 10px; line-height: 1.6; color: #6B6557; }
+.card-body.lt { color: #93CCBA; }
+.card-num { font-family: 'Fraunces', serif; font-size: 26px; font-weight: 700; color: #265C4A; margin-bottom: 2px; }
+
+/* ── NAV & BADGES ── */
+.mini-nav { display: flex; align-items: center; justify-content: space-between; background: #FAF8F4; padding: 8px 14px; border-radius: 8px; border: 0.5px solid #DDD8CD; margin-bottom: 4mm; }
+.mini-nav-logo { display: flex; align-items: center; gap: 5px; }
+.mini-nav-dot { width: 8px; height: 8px; border-radius: 50%; background: #8A9C1F; }
+.mini-nav-name { font-size: 11px; font-weight: 700; color: #1A1813; }
+.mini-nav-links { display: flex; gap: 14px; }
+.mini-nav-link { font-size: 10px; color: #6B6557; }
+.mini-nav-cta { background: #1A3830; color: #fff; font-size: 9px; font-weight: 600; padding: 5px 12px; border-radius: 99px; }
+.badge-row { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 4mm; }
+.badge { display: inline-block; font-size: 9px; font-weight: 600; padding: 2px 8px; border-radius: 999px; }
+.badge-olive  { background: #F2F6D3; color: #606D12; }
+.badge-forest { background: #EAF4F0; color: #1A3830; }
+.badge-dark   { background: #1A3830; color: #FAF8F4; }
+.badge-neutral{ background: #ECE8DF; color: #6B6557; border: 0.5px solid #DDD8CD; }
+.step-row { display: flex; gap: 3px; align-items: center; margin-bottom: 4mm; }
+.step-c { width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 700; }
+.step-active   { background: #265C4A; color: #fff; }
+.step-done     { background: #C9E5DD; color: #265C4A; }
+.step-inactive { background: #ECE8DF; color: #ABA494; border: 1px solid #DDD8CD; }
+.step-line     { flex: 1; height: 1.5px; background: #DDD8CD; max-width: 24px; }
+.step-line-done{ background: #5BAD92; }
+.progress-wrap { background: #ECE8DF; border-radius: 999px; height: 6px; overflow: hidden; width: 160px; }
+.progress-fill { height: 100%; background: #265C4A; border-radius: 999px; }
+
+/* ── SECTION PATTERNS ── */
+.section-demo { border-radius: 12px; overflow: hidden; margin-bottom: 4mm; }
+.section-hero { background: #F4F0E7; padding: 18px 20px; }
+.section-hero h2 { font-family: 'Fraunces', serif; font-size: 20pt; font-weight: 300; line-height: 1.1; letter-spacing: -0.02em; color: #1A1813; margin-bottom: 6px; }
+.section-hero h2 em { font-style: italic; color: #265C4A; }
+.section-hero p { font-size: 10px; color: #6B6557; line-height: 1.6; margin-bottom: 10px; max-width: 90mm; }
+.section-hero .btn-row { margin-bottom: 10px; }
+.section-hero .stats { display: flex; gap: 20px; padding-top: 10px; border-top: 0.5px solid #DDD8CD; }
+.section-hero .stat-val { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 700; color: #1A1813; }
+.section-hero .stat-lbl { font-size: 8px; color: #ABA494; margin-top: 1px; }
+.section-dark { background: #1A3830; padding: 16px 20px; }
+.section-dark .eyebrow { color: #B5C44E; }
+.section-dark h2 { font-family: 'Fraunces', serif; font-size: 15pt; font-weight: 600; color: #fff; margin-bottom: 6px; line-height: 1.2; }
+.section-dark p { font-size: 10px; color: #93CCBA; line-height: 1.6; max-width: 100mm; }
+
+/* ── BRAND ── */
+.logo-row { display: flex; gap: 6mm; flex-wrap: wrap; margin-bottom: 5mm; }
+.logo-block { display: flex; flex-direction: column; gap: 2mm; }
+.logo-block-lbl { font-size: 8px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #8A9C1F; }
+.logo-bg { border-radius: 8px; padding: 12px 18px; display: flex; align-items: center; }
+.logo-bg.cream { background: #F4F0E7; border: 0.5px solid #DDD8CD; }
+.logo-bg.white { background: #fff; border: 0.5px solid #DDD8CD; }
+.logo-bg.dark  { background: #1A3830; }
+.logo-img { height: 36px; }
+.palette-desc { font-size: 10px; line-height: 1.65; color: #6B6557; max-width: 140mm; }
+
+/* ── UI KIT ── */
+.uikit-page { background: #F4F0E7; }
+.uikit-nav { display: flex; align-items: center; justify-content: space-between; padding: 10px 0; margin-bottom: 6mm; border-bottom: 0.5px solid #DDD8CD; }
+.uikit-nav img { height: 20px; }
+.uikit-nav-links { display: flex; gap: 14px; }
+.uikit-nav-link { font-size: 10px; color: #6B6557; font-weight: 500; }
+.uikit-nav-cta { background: #1A3830; color: #fff; font-size: 9px; font-weight: 600; padding: 5px 12px; border-radius: 99px; }
+.uikit-hero { margin-bottom: 6mm; }
+.uikit-hero .eyebrow { color: #8A9C1F; font-size: 8px; margin-bottom: 3mm; }
+.uikit-hero h1 { font-family: 'Fraunces', serif; font-size: 30pt; font-weight: 300; line-height: 1.05; letter-spacing: -0.02em; color: #1A1813; margin-bottom: 3mm; }
+.uikit-hero h1 em { font-style: italic; color: #265C4A; }
+.uikit-hero p { font-size: 11px; color: #6B6557; line-height: 1.6; max-width: 110mm; margin-bottom: 4mm; }
+.uikit-hero .btn-row { margin-bottom: 5mm; }
+.uikit-stats { display: flex; gap: 24px; border-top: 0.5px solid #DDD8CD; padding-top: 4mm; margin-bottom: 6mm; }
+.uikit-stat-val { font-family: 'Fraunces', serif; font-size: 28px; font-weight: 700; color: #1A1813; }
+.uikit-stat-lbl { font-size: 9px; color: #ABA494; margin-top: 1px; }
+.uikit-steps-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; margin-bottom: 6mm; }
+.uikit-step-card { background: #fff; border-radius: 10px; padding: 12px; box-shadow: 0 3px 10px rgba(15,38,32,0.08); }
+.uikit-step-card .step-lbl { font-size: 8px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #8A9C1F; margin-bottom: 5px; }
+.uikit-step-card h3 { font-family: 'Fraunces', serif; font-size: 13px; font-weight: 600; color: #1A1813; margin-bottom: 4px; }
+.uikit-step-card p { font-size: 9px; color: #6B6557; line-height: 1.55; }
+.uikit-cta { background: #1A3830; border-radius: 10px; padding: 14px 18px; display: flex; justify-content: space-between; align-items: center; }
+.uikit-cta h3 { font-family: 'Fraunces', serif; font-size: 14px; font-weight: 300; color: #fff; margin-bottom: 3px; }
+.uikit-cta p { font-size: 9px; color: #93CCBA; }
+.uikit-cta-btn { background: #fff; color: #1A3830; font-size: 9px; font-weight: 700; padding: 8px 14px; border-radius: 99px; white-space: nowrap; font-family: 'DM Sans', sans-serif; }
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════
+     PAGE 1 — COVER
+════════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <img class="page-logo" src="../assets/logoKaiAssist2.png" alt="kaiAssist">
+    <span class="page-num">Kai Design System · 2026</span>
+  </div>
+
+  <div class="cover-content">
+    <div class="cover-tagline">Design System</div>
+    <div class="cover-title">Kai<br><em>Design System</em></div>
+    <p class="cover-sub">Visual foundations, component library, and UI kit for the kaiAssist AI Maturity Platform.</p>
+    <div class="cover-divider"></div>
+    <dl class="cover-meta">
+      <div class="cover-meta-item"><dt>Product</dt><dd>kaiAssist Portal</dd></div>
+      <div class="cover-meta-item"><dt>Version</dt><dd>2.0</dd></div>
+      <div class="cover-meta-item"><dt>Updated</dt><dd>April 2026</dd></div>
+      <div class="cover-meta-item"><dt>Display Font</dt><dd>Fraunces Variable</dd></div>
+    </dl>
+  </div>
+
+  <div class="cover-footer">
+    <div style="font-size:9px;color:#ABA494;line-height:1.8">
+      <strong style="color:#6B6557">Contents</strong><br>
+      01 — Brand &amp; Logo<br>
+      02 — Color System<br>
+      03 — Typography<br>
+      04 — Spacing &amp; Tokens<br>
+      05 — Components<br>
+      06 — UI Kit — Kai Portal
+    </div>
+    <div class="cover-portal-preview">
+      <div class="cover-portal-nav">
+        <img class="cover-portal-logo" src="../assets/logoKaiAssist2.png" alt="">
+        <span class="cover-portal-cta">Start assessment</span>
+      </div>
+      <div class="cover-portal-hero">Where does your company<br>stand in the <em>AI era?</em></div>
+      <div class="cover-portal-btns">
+        <span class="cover-portal-btn1">Start your assessment</span>
+        <span class="cover-portal-btn2">Learn more</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     PAGE 2 — BRAND & LOGO
+════════════════════════════════════════════ -->
+<div class="page page">
+  <div class="page-header">
+    <img class="page-logo" src="../assets/logoKaiAssist2.png" alt="kaiAssist">
+    <span class="page-section">01 — Brand</span>
+    <span class="page-num">2 / 6</span>
+  </div>
+
+  <div class="eyebrow">Logo</div>
+  <div class="logo-row">
+    <div class="logo-block">
+      <div class="logo-block-lbl">On cream</div>
+      <div class="logo-bg cream"><img class="logo-img" src="../assets/logoKaiAssist2.png" alt="kaiAssist"></div>
+    </div>
+    <div class="logo-block">
+      <div class="logo-block-lbl">On white</div>
+      <div class="logo-bg white"><img class="logo-img" src="../assets/logoKaiAssist2.png" alt="kaiAssist"></div>
+    </div>
+    <div class="logo-block">
+      <div class="logo-block-lbl">On dark</div>
+      <div class="logo-bg dark"><img class="logo-img" src="../assets/logoKaiAssist2.png" alt="kaiAssist"></div>
+    </div>
+    <div class="logo-block">
+      <div class="logo-block-lbl">Sizes</div>
+      <div class="logo-bg cream" style="gap:14px;align-items:center">
+        <img src="../assets/logoKaiAssist2.png" style="height:44px" alt="">
+        <img src="../assets/logoKaiAssist2.png" style="height:28px" alt="">
+        <img src="../assets/logoKaiAssist2.png" style="height:18px" alt="">
+      </div>
+    </div>
+  </div>
+
+  <hr class="ds">
+
+  <div class="eyebrow" style="margin-top:5mm">Brand Palette</div>
+  <div class="sect-label">Forest — Primary</div>
+  <div class="swatch-row">
+    <div class="swatch" style="background:#0F2620"></div>
+    <div class="swatch" style="background:#162F27"></div>
+    <div class="swatch" style="background:#1A3830"></div>
+    <div class="swatch" style="background:#1F4538"></div>
+    <div class="swatch" style="background:#265C4A;outline:2px solid #265C4A;outline-offset:2px"></div>
+    <div class="swatch" style="background:#3D8C72"></div>
+    <div class="swatch" style="background:#5BAD92"></div>
+    <div class="swatch" style="background:#93CCBA"></div>
+    <div class="swatch" style="background:#C9E5DD"></div>
+    <div class="swatch swatch-bordered" style="background:#EAF4F0"></div>
+  </div>
+
+  <div class="sect-label">Olive — Brand Accent</div>
+  <div class="swatch-row">
+    <div class="swatch" style="background:#4A530E"></div>
+    <div class="swatch" style="background:#606D12"></div>
+    <div class="swatch" style="background:#788918"></div>
+    <div class="swatch" style="background:#8A9C1F;outline:2px solid #8A9C1F;outline-offset:2px"></div>
+    <div class="swatch" style="background:#9DAF2A"></div>
+    <div class="swatch" style="background:#B5C44E"></div>
+    <div class="swatch" style="background:#CEDA7C"></div>
+    <div class="swatch" style="background:#E4EDAB"></div>
+    <div class="swatch" style="background:#F2F6D3"></div>
+    <div class="swatch swatch-bordered" style="background:#F9FBE8"></div>
+  </div>
+
+  <div class="sect-label">Cream — Neutral</div>
+  <div class="swatch-row">
+    <div class="swatch" style="background:#1A1813"></div>
+    <div class="swatch" style="background:#4A4538"></div>
+    <div class="swatch" style="background:#6B6557"></div>
+    <div class="swatch" style="background:#8A8372"></div>
+    <div class="swatch" style="background:#ABA494"></div>
+    <div class="swatch" style="background:#C8C2B4"></div>
+    <div class="swatch" style="background:#DDD8CD"></div>
+    <div class="swatch" style="background:#ECE8DF"></div>
+    <div class="swatch" style="background:#F4F0E7;outline:2px solid #265C4A;outline-offset:2px"></div>
+    <div class="swatch swatch-bordered" style="background:#FAF8F4"></div>
+  </div>
+
+  <hr class="ds" style="margin-top:5mm">
+
+  <div class="eyebrow" style="margin-top:5mm">Semantic Tokens</div>
+  <div class="color-grid">
+    <div class="color-tile" style="background:#F4F0E7;border:0.5px solid #DDD8CD">
+      <div class="color-tile-name" style="color:#1A1813">bg-page</div>
+      <div class="color-tile-var" style="color:#6B6557">--bg-page · #F4F0E7</div>
+    </div>
+    <div class="color-tile" style="background:#FAF8F4;border:0.5px solid #DDD8CD">
+      <div class="color-tile-name" style="color:#1A1813">bg-surface</div>
+      <div class="color-tile-var" style="color:#6B6557">--bg-surface · #FAF8F4</div>
+    </div>
+    <div class="color-tile" style="background:#1A3830">
+      <div class="color-tile-name" style="color:#FAF8F4">bg-dark</div>
+      <div class="color-tile-var" style="color:#93CCBA">--bg-dark · #1A3830</div>
+    </div>
+    <div class="color-tile" style="background:#265C4A">
+      <div class="color-tile-name" style="color:#fff">accent-primary</div>
+      <div class="color-tile-var" style="color:rgba(255,255,255,0.5)">--accent-primary · #265C4A</div>
+    </div>
+    <div class="color-tile" style="background:#8A9C1F">
+      <div class="color-tile-name" style="color:#fff">brand-olive</div>
+      <div class="color-tile-var" style="color:rgba(255,255,255,0.5)">--brand-olive · #8A9C1F</div>
+    </div>
+    <div class="color-tile" style="background:#F2F6D3;border:0.5px solid #DDD8CD">
+      <div class="color-tile-name" style="color:#606D12">brand-olive-lt</div>
+      <div class="color-tile-var" style="color:#8A9C1F">--brand-olive-lt</div>
+    </div>
+    <div class="color-tile" style="background:#3D8C72">
+      <div class="color-tile-name" style="color:#fff">status-success</div>
+      <div class="color-tile-var" style="color:rgba(255,255,255,0.6)">#3D8C72</div>
+    </div>
+    <div class="color-tile" style="background:#C47D1A">
+      <div class="color-tile-name" style="color:#fff">status-warning</div>
+      <div class="color-tile-var" style="color:rgba(255,255,255,0.6)">#C47D1A</div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     PAGE 3 — TYPOGRAPHY
+════════════════════════════════════════════ -->
+<div class="page page">
+  <div class="page-header">
+    <img class="page-logo" src="../assets/logoKaiAssist2.png" alt="kaiAssist">
+    <span class="page-section">02 — Typography</span>
+    <span class="page-num">3 / 6</span>
+  </div>
+
+  <div class="eyebrow">Display — Fraunces Variable</div>
+  <div class="type-specimen">
+    <div class="type-label">Hero · weight 300 · opsz 144 · SOFT 30</div>
+    <div class="t-hero">Where does your company<br>stand in the <em>AI era?</em></div>
+  </div>
+  <hr class="ds">
+  <div class="type-specimen">
+    <div class="type-label">H1 · weight 600</div>
+    <div class="t-h1">Three steps from diagnosis to intelligent automation</div>
+  </div>
+  <hr class="ds">
+  <div class="type-specimen">
+    <div class="type-label">H2 · weight 600</div>
+    <div class="t-h2">The five levels of AI maturity</div>
+  </div>
+  <hr class="ds">
+  <div class="type-specimen">
+    <div class="type-label">H3 · weight 500</div>
+    <div class="t-h3">Four concrete deliverables</div>
+  </div>
+
+  <hr class="ds" style="margin-top:5mm">
+
+  <div class="eyebrow" style="margin-top:5mm">Body — DM Sans</div>
+  <div class="type-row">
+    <span class="type-tag">Body LG</span>
+    <span class="t-body-lg">AI empowers organisations to work smarter, not harder.</span>
+  </div>
+  <hr class="ds">
+  <div class="type-row">
+    <span class="type-tag">Body MD</span>
+    <span class="t-body-md">We help companies diagnose where they stand and what to do next.</span>
+  </div>
+  <hr class="ds">
+  <div class="type-row">
+    <span class="type-tag">Body SM</span>
+    <span class="t-body-sm">Discover your AI maturity level and get a personalised roadmap.</span>
+  </div>
+  <hr class="ds">
+  <div class="type-row">
+    <span class="type-tag">Caption</span>
+    <span class="t-caption">Updated April 2026 · 3 min read</span>
+  </div>
+  <hr class="ds">
+  <div class="type-row">
+    <span class="type-tag">Label</span>
+    <span class="t-label">AI Maturity Assessment</span>
+  </div>
+  <hr class="ds">
+  <div class="type-row">
+    <span class="type-tag">Link</span>
+    <span class="t-link">Learn more about our methodology</span>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     PAGE 4 — SPACING & COMPONENTS
+════════════════════════════════════════════ -->
+<div class="page surface page">
+  <div class="page-header">
+    <img class="page-logo" src="../assets/logoKaiAssist2.png" alt="kaiAssist">
+    <span class="page-section">03 — Spacing &amp; Components</span>
+    <span class="page-num">4 / 6</span>
+  </div>
+
+  <div class="eyebrow">Spacing Scale (base 4px)</div>
+  <div class="spacing-row">
+    <div class="spacing-block"><div class="spacing-bar" style="width:16px;height:4px"></div><div class="spacing-lbl">4</div></div>
+    <div class="spacing-block"><div class="spacing-bar" style="width:16px;height:8px"></div><div class="spacing-lbl">8</div></div>
+    <div class="spacing-block"><div class="spacing-bar" style="width:16px;height:12px"></div><div class="spacing-lbl">12</div></div>
+    <div class="spacing-block"><div class="spacing-bar" style="width:16px;height:16px"></div><div class="spacing-lbl">16</div></div>
+    <div class="spacing-block"><div class="spacing-bar" style="width:16px;height:24px"></div><div class="spacing-lbl">24</div></div>
+    <div class="spacing-block"><div class="spacing-bar" style="width:16px;height:32px"></div><div class="spacing-lbl">32</div></div>
+    <div class="spacing-block"><div class="spacing-bar" style="width:16px;height:48px"></div><div class="spacing-lbl">48</div></div>
+    <div class="spacing-block"><div class="spacing-bar" style="width:16px;height:64px;background:#C9E5DD"></div><div class="spacing-lbl">64+</div></div>
+  </div>
+
+  <div class="sect-label">Border Radius</div>
+  <div class="radius-row">
+    <div class="radius-box" style="border-radius:4px">sm·4</div>
+    <div class="radius-box" style="border-radius:8px">md·8</div>
+    <div class="radius-box" style="border-radius:12px">lg·12</div>
+    <div class="radius-box" style="border-radius:16px">xl·16</div>
+    <div class="radius-box" style="border-radius:24px">2xl·24</div>
+    <div class="radius-box" style="border-radius:999px;width:52px">pill</div>
+  </div>
+
+  <div class="sect-label">Shadows / Elevation</div>
+  <div class="shadow-row" style="margin-bottom:5mm">
+    <div class="shadow-box" style="box-shadow:0 1px 2px rgba(15,38,32,0.06)">xs</div>
+    <div class="shadow-box" style="box-shadow:0 2px 6px rgba(15,38,32,0.08)">sm</div>
+    <div class="shadow-box" style="box-shadow:0 4px 16px rgba(15,38,32,0.10)">md</div>
+    <div class="shadow-box" style="box-shadow:0 8px 32px rgba(15,38,32,0.12)">lg</div>
+    <div class="shadow-box" style="box-shadow:0 16px 48px rgba(15,38,32,0.16)">xl</div>
+  </div>
+
+  <hr class="ds">
+
+  <div class="eyebrow" style="margin-top:4mm">Buttons</div>
+  <div class="sect-label">Variants</div>
+  <div class="btn-row">
+    <span class="btn btn-primary">Get started</span>
+    <span class="btn btn-outline">Learn more</span>
+    <span class="btn btn-ghost">Cancel</span>
+    <span class="btn btn-dark">Find out more</span>
+    <span class="btn btn-olive">AI Report</span>
+  </div>
+  <div class="sect-label">Sizes</div>
+  <div class="btn-row" style="margin-bottom:5mm">
+    <span class="btn btn-primary btn-sm">Small</span>
+    <span class="btn btn-primary">Default</span>
+    <span class="btn btn-primary btn-lg">Large</span>
+  </div>
+
+  <hr class="ds">
+
+  <div class="eyebrow" style="margin-top:4mm">Cards</div>
+  <div class="card-row">
+    <div class="card">
+      <div class="card-eyebrow">Step 1</div>
+      <div class="card-title">Diagnose</div>
+      <p class="card-body">Understand where your organisation stands across 40+ AI readiness dimensions.</p>
+    </div>
+    <div class="card">
+      <div class="card-eyebrow">Step 2</div>
+      <div class="card-title">Map</div>
+      <p class="card-body">Get a personalised roadmap aligned to your industry and goals.</p>
+    </div>
+    <div class="card bordered">
+      <div class="card-num">40+</div>
+      <div class="card-title">AI Dimensions</div>
+      <p class="card-body">Assessed across your entire organisation.</p>
+    </div>
+  </div>
+  <div class="card-row">
+    <div class="card dark">
+      <div class="card-eyebrow lt">Level 1</div>
+      <div class="card-title lt">AI Adhan</div>
+      <p class="card-body lt">Early stage organisations beginning to explore AI possibilities.</p>
+    </div>
+    <div class="card dark">
+      <div class="card-eyebrow lt">Level 2</div>
+      <div class="card-title lt">AI Aware</div>
+      <p class="card-body lt">Teams experimenting with AI tools in isolated workflows.</p>
+    </div>
+    <div class="card dark">
+      <div class="card-eyebrow lt">Level 3</div>
+      <div class="card-title lt">AI Active</div>
+      <p class="card-body lt">AI deployed across functions with measurable ROI and governance.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     PAGE 5 — MORE COMPONENTS
+════════════════════════════════════════════ -->
+<div class="page page">
+  <div class="page-header">
+    <img class="page-logo" src="../assets/logoKaiAssist2.png" alt="kaiAssist">
+    <span class="page-section">04 — Components</span>
+    <span class="page-num">5 / 6</span>
+  </div>
+
+  <div class="eyebrow">Navigation</div>
+  <div class="mini-nav">
+    <div class="mini-nav-logo">
+      <img src="../assets/logoKaiAssist2.png" style="height:18px" alt="">
+    </div>
+    <div class="mini-nav-links">
+      <span class="mini-nav-link">Features</span>
+      <span class="mini-nav-link">Methodology</span>
+      <span class="mini-nav-link">Pricing</span>
+    </div>
+    <span class="mini-nav-cta">Get started</span>
+  </div>
+
+  <div class="sect-label" style="margin-top:5mm">Badges / Tags</div>
+  <div class="badge-row">
+    <span class="badge badge-olive">AI Maturity</span>
+    <span class="badge badge-forest">New</span>
+    <span class="badge badge-dark">Level 3</span>
+    <span class="badge badge-neutral">In progress</span>
+  </div>
+
+  <div class="sect-label" style="margin-top:4mm">Step Indicator</div>
+  <div class="step-row">
+    <div class="step-c step-done">✓</div>
+    <div class="step-line step-line-done"></div>
+    <div class="step-c step-active">2</div>
+    <div class="step-line"></div>
+    <div class="step-c step-inactive">3</div>
+    <div class="step-line"></div>
+    <div class="step-c step-inactive">4</div>
+  </div>
+
+  <div class="sect-label">Progress Bar</div>
+  <div class="progress-wrap" style="margin-bottom:5mm">
+    <div class="progress-fill" style="width:60%"></div>
+  </div>
+
+  <hr class="ds">
+
+  <div class="eyebrow" style="margin-top:5mm">Section Patterns</div>
+  <div class="section-demo">
+    <div class="section-hero">
+      <div class="eyebrow" style="margin-bottom:3mm">AI Maturity Platform</div>
+      <h2>Where does your company stand in the <em>AI era?</em></h2>
+      <p>We help companies diagnose their AI readiness, map a personalised roadmap, and implement intelligent automation — step by step.</p>
+      <div class="btn-row">
+        <span class="btn btn-primary">Start your assessment</span>
+        <span class="btn btn-outline">Learn more</span>
+      </div>
+      <div class="stats">
+        <div><div class="stat-val">5</div><div class="stat-lbl">AI Maturity Levels</div></div>
+        <div><div class="stat-val">40+</div><div class="stat-lbl">AI Dimensions</div></div>
+        <div><div class="stat-val">AI</div><div class="stat-lbl">Maturity Report</div></div>
+      </div>
+    </div>
+    <div class="section-dark">
+      <div class="eyebrow lt" style="margin-bottom:3mm">Get started</div>
+      <h2 style="font-family:'Fraunces',serif;font-size:16pt;font-weight:600;color:#fff;margin-bottom:6px;line-height:1.2">Find out where your company stands — and what to do next</h2>
+      <p style="font-size:10px;color:#93CCBA;line-height:1.6">From stagnation begins the AI era conversation — where to start, how to accelerate, and how to sustain momentum.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     PAGE 6 — UI KIT PORTAL
+════════════════════════════════════════════ -->
+<div class="page uikit-page page">
+  <div class="page-header">
+    <img class="page-logo" src="../assets/logoKaiAssist2.png" alt="kaiAssist">
+    <span class="page-section">05 — UI Kit — Kai Portal</span>
+    <span class="page-num">6 / 6</span>
+  </div>
+
+  <nav class="uikit-nav">
+    <img src="../assets/logoKaiAssist2.png" alt="kaiAssist">
+    <div class="uikit-nav-links">
+      <span class="uikit-nav-link">Features</span>
+      <span class="uikit-nav-link">Methodology</span>
+      <span class="uikit-nav-link">Pricing</span>
+    </div>
+    <span class="uikit-nav-cta">Start assessment</span>
+  </nav>
+
+  <div class="uikit-hero">
+    <div class="eyebrow" style="font-size:8px;color:#8A9C1F;margin-bottom:3mm">AI Maturity Platform</div>
+    <h1 style="font-family:'Fraunces',serif;font-size:30pt;font-weight:300;line-height:1.05;letter-spacing:-0.02em;color:#1A1813;margin-bottom:3mm">Where does your company stand in the <em style="font-style:italic;color:#265C4A">AI era?</em></h1>
+    <p style="font-size:11px;color:#6B6557;line-height:1.6;max-width:110mm;margin-bottom:4mm">We help companies diagnose their AI readiness, map a personalised roadmap, and implement intelligent automation — step by step.</p>
+    <div class="btn-row" style="margin-bottom:0">
+      <span class="btn btn-primary">Start your assessment</span>
+      <span class="btn btn-outline">View sample report</span>
+    </div>
+  </div>
+
+  <div class="uikit-stats">
+    <div><div class="uikit-stat-val">5</div><div class="uikit-stat-lbl">AI Maturity Levels</div></div>
+    <div><div class="uikit-stat-val">40+</div><div class="uikit-stat-lbl">AI Dimensions</div></div>
+    <div><div class="uikit-stat-val">AI</div><div class="uikit-stat-lbl">Maturity Report</div></div>
+  </div>
+
+  <div class="sect-label">Methodology — Three Steps</div>
+  <div class="uikit-steps-grid">
+    <div class="uikit-step-card">
+      <div class="step-lbl">Step 01</div>
+      <h3>Diagnose</h3>
+      <p>Understand where your organisation stands across 40+ AI readiness dimensions.</p>
+    </div>
+    <div class="uikit-step-card">
+      <div class="step-lbl">Step 02</div>
+      <h3>Map</h3>
+      <p>A personalised roadmap tailored to your industry, size, and strategic goals.</p>
+    </div>
+    <div class="uikit-step-card">
+      <div class="step-lbl">Step 03</div>
+      <h3>Implement</h3>
+      <p>Execute with AI playbooks, coaching sessions, and expert support.</p>
+    </div>
+  </div>
+
+  <div class="uikit-cta">
+    <div>
+      <h3>Find out where your company stands — and what to do next</h3>
+      <p>Take the free 10-minute AI maturity assessment.</p>
+    </div>
+    <span class="uikit-cta-btn">Take the free assessment →</span>
+  </div>
+</div>
+
+<script>
+  document.fonts.ready.then(function() {
+    setTimeout(function() { window.print(); }, 500);
+  });
+</script>
+</body>
+</html>

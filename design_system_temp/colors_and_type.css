@@ -1,0 +1,300 @@
+/* ============================================================
+   KAI DESIGN SYSTEM — Colors & Typography
+   Source: kaiAssist logo, kai-portal screenshot, Fraunces variable font
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   WEB FONTS
+   ------------------------------------------------------------ */
+@font-face {
+  font-family: 'Fraunces';
+  src: url('./fonts/Fraunces-Variable.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Fraunces';
+  src: url('./fonts/Fraunces-Italic-Variable.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ------------------------------------------------------------
+   COLOR PRIMITIVES
+   ------------------------------------------------------------ */
+:root {
+  /* Forest / Teal — primary brand color */
+  --kai-forest-900: #0F2620;
+  --kai-forest-800: #162F27;
+  --kai-forest-700: #1A3830;
+  --kai-forest-600: #1F4538;
+  --kai-forest-500: #265C4A;   /* primary interactive */
+  --kai-forest-400: #3D8C72;
+  --kai-forest-300: #5BAD92;
+  --kai-forest-200: #93CCBA;
+  --kai-forest-100: #C9E5DD;
+  --kai-forest-50:  #EAF4F0;
+
+  /* Olive / Brand Green — logo "kai" color */
+  --kai-olive-900: #4A530E;
+  --kai-olive-800: #606D12;
+  --kai-olive-700: #788918;
+  --kai-olive-600: #8A9C1F;    /* logo primary */
+  --kai-olive-500: #9DAF2A;
+  --kai-olive-400: #B5C44E;
+  --kai-olive-300: #CEDA7C;
+  --kai-olive-200: #E4EDAB;
+  --kai-olive-100: #F2F6D3;
+  --kai-olive-50:  #F9FBE8;
+
+  /* Cream / Warm Neutral — page backgrounds */
+  --kai-cream-950: #1A1813;
+  --kai-cream-900: #2E2B22;
+  --kai-cream-800: #4A4538;
+  --kai-cream-700: #6B6557;
+  --kai-cream-600: #8A8372;
+  --kai-cream-500: #ABA494;
+  --kai-cream-400: #C8C2B4;
+  --kai-cream-300: #DDD8CD;
+  --kai-cream-200: #ECE8DF;
+  --kai-cream-100: #F4F0E7;    /* page background */
+  --kai-cream-50:  #FAF8F4;    /* card background */
+
+  /* Absolute */
+  --kai-white: #FFFFFF;
+  --kai-black: #0C0B09;
+}
+
+/* ------------------------------------------------------------
+   SEMANTIC COLOR TOKENS
+   ------------------------------------------------------------ */
+:root {
+  /* Backgrounds */
+  --bg-page:        var(--kai-cream-100);   /* warm off-white */
+  --bg-surface:     var(--kai-cream-50);    /* cards, panels */
+  --bg-sunken:      var(--kai-cream-200);   /* inputs, wells */
+  --bg-dark:        var(--kai-forest-700);  /* dark sections, footer */
+  --bg-dark-deeper: var(--kai-forest-800);  /* deeper dark footer */
+
+  /* Foreground / Text */
+  --fg-primary:     var(--kai-cream-950);   /* body text on light */
+  --fg-secondary:   var(--kai-cream-700);   /* muted / captions */
+  --fg-tertiary:    var(--kai-cream-500);   /* placeholders */
+  --fg-on-dark:     var(--kai-cream-100);   /* text on dark bg */
+  --fg-on-dark-muted: var(--kai-forest-200);
+
+  /* Brand / Interactive */
+  --accent-primary: var(--kai-forest-500);  /* buttons, links */
+  --accent-hover:   var(--kai-forest-600);
+  --accent-pressed: var(--kai-forest-700);
+  --accent-muted:   var(--kai-forest-100);  /* subtle tints */
+
+  --brand-olive:    var(--kai-olive-600);   /* logo, highlights */
+  --brand-olive-lt: var(--kai-olive-100);
+
+  /* Borders */
+  --border-default: var(--kai-cream-300);
+  --border-strong:  var(--kai-cream-400);
+  --border-focus:   var(--kai-forest-400);
+
+  /* Status */
+  --status-success: #3D8C72;
+  --status-warning: #C47D1A;
+  --status-error:   #B03A2A;
+  --status-info:    var(--kai-forest-400);
+}
+
+/* ------------------------------------------------------------
+   TYPOGRAPHY SCALE — Base Variables
+   ------------------------------------------------------------ */
+:root {
+  /* Font Families */
+  --font-display:  'Fraunces', Georgia, serif;
+  --font-body:     'DM Sans', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono:     'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Font Sizes (fluid-ready) */
+  --text-xs:   0.75rem;    /* 12px */
+  --text-sm:   0.875rem;   /* 14px */
+  --text-base: 1rem;       /* 16px */
+  --text-md:   1.125rem;   /* 18px */
+  --text-lg:   1.25rem;    /* 20px */
+  --text-xl:   1.5rem;     /* 24px */
+  --text-2xl:  2rem;       /* 32px */
+  --text-3xl:  2.5rem;     /* 40px */
+  --text-4xl:  3.25rem;    /* 52px */
+  --text-5xl:  4rem;       /* 64px */
+  --text-6xl:  5rem;       /* 80px */
+
+  /* Font Weights */
+  --weight-regular: 400;
+  --weight-medium:  500;
+  --weight-semibold: 600;
+  --weight-bold:    700;
+
+  /* Line Heights */
+  --leading-tight:   1.1;
+  --leading-snug:    1.25;
+  --leading-normal:  1.5;
+  --leading-relaxed: 1.65;
+
+  /* Letter Spacing */
+  --tracking-tight:  -0.03em;
+  --tracking-normal: 0;
+  --tracking-wide:   0.05em;
+  --tracking-wider:  0.1em;
+  --tracking-widest: 0.15em;
+
+  /* Fraunces optical size (SOFT axis = softness, opsz = optical size) */
+  --fraunces-display: 'SOFT' 0, 'WONK' 0, 'opsz' 144;
+  --fraunces-text:    'SOFT' 50, 'WONK' 0, 'opsz' 12;
+}
+
+/* ------------------------------------------------------------
+   SEMANTIC TYPOGRAPHY TOKENS
+   ------------------------------------------------------------ */
+:root {
+  /* Display / Hero — Fraunces italic, large optical size */
+  --t-hero-size:    var(--text-5xl);
+  --t-hero-weight:  var(--weight-regular);
+  --t-hero-leading: var(--leading-tight);
+  --t-hero-family:  var(--font-display);
+  --t-hero-style:   italic;
+
+  /* H1 — Fraunces regular */
+  --t-h1-size:    var(--text-4xl);
+  --t-h1-weight:  var(--weight-semibold);
+  --t-h1-leading: var(--leading-snug);
+  --t-h1-family:  var(--font-display);
+
+  /* H2 */
+  --t-h2-size:    var(--text-3xl);
+  --t-h2-weight:  var(--weight-semibold);
+  --t-h2-leading: var(--leading-snug);
+  --t-h2-family:  var(--font-display);
+
+  /* H3 */
+  --t-h3-size:    var(--text-2xl);
+  --t-h3-weight:  var(--weight-medium);
+  --t-h3-leading: var(--leading-snug);
+  --t-h3-family:  var(--font-display);
+
+  /* H4 */
+  --t-h4-size:    var(--text-xl);
+  --t-h4-weight:  var(--weight-medium);
+  --t-h4-leading: var(--leading-normal);
+  --t-h4-family:  var(--font-body);
+
+  /* Body */
+  --t-body-size:    var(--text-base);
+  --t-body-weight:  var(--weight-regular);
+  --t-body-leading: var(--leading-relaxed);
+  --t-body-family:  var(--font-body);
+
+  /* Small / Caption */
+  --t-small-size:   var(--text-sm);
+  --t-small-weight: var(--weight-regular);
+  --t-small-family: var(--font-body);
+
+  /* Label / Overline */
+  --t-label-size:    var(--text-xs);
+  --t-label-weight:  var(--weight-semibold);
+  --t-label-tracking: var(--tracking-widest);
+  --t-label-family:  var(--font-body);
+  --t-label-transform: uppercase;
+}
+
+/* ------------------------------------------------------------
+   SPACING SCALE
+   ------------------------------------------------------------ */
+:root {
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+  --space-32: 128px;
+}
+
+/* ------------------------------------------------------------
+   BORDER RADIUS
+   ------------------------------------------------------------ */
+:root {
+  --radius-sm:   4px;
+  --radius-md:   8px;
+  --radius-lg:   12px;
+  --radius-xl:   16px;
+  --radius-2xl:  24px;
+  --radius-pill: 9999px;
+}
+
+/* ------------------------------------------------------------
+   SHADOWS / ELEVATION
+   ------------------------------------------------------------ */
+:root {
+  --shadow-xs:  0 1px 2px rgba(15, 38, 32, 0.06);
+  --shadow-sm:  0 2px 6px rgba(15, 38, 32, 0.08);
+  --shadow-md:  0 4px 16px rgba(15, 38, 32, 0.10);
+  --shadow-lg:  0 8px 32px rgba(15, 38, 32, 0.12);
+  --shadow-xl:  0 16px 48px rgba(15, 38, 32, 0.16);
+}
+
+/* ------------------------------------------------------------
+   BASE ELEMENT STYLES (opt-in via class="kai-base")
+   ------------------------------------------------------------ */
+.kai-base, .kai-base * { box-sizing: border-box; }
+.kai-base {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  color: var(--fg-primary);
+  background: var(--bg-page);
+}
+
+.kai-base h1 {
+  font-family: var(--font-display);
+  font-size: var(--t-h1-size);
+  font-weight: var(--t-h1-weight);
+  line-height: var(--leading-snug);
+  color: var(--fg-primary);
+  letter-spacing: var(--tracking-tight);
+}
+.kai-base h2 {
+  font-family: var(--font-display);
+  font-size: var(--t-h2-size);
+  font-weight: var(--t-h2-weight);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-tight);
+}
+.kai-base h3 {
+  font-family: var(--font-display);
+  font-size: var(--t-h3-size);
+  font-weight: var(--t-h3-weight);
+  line-height: var(--leading-snug);
+}
+.kai-base h4 {
+  font-family: var(--font-body);
+  font-size: var(--t-h4-size);
+  font-weight: var(--t-h4-weight);
+}
+.kai-base p {
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  color: var(--fg-secondary);
+}
+.kai-base .label, .kai-base label {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--brand-olive);
+}

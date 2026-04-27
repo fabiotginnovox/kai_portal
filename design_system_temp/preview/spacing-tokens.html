@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 20px; background: var(--bg-page); font-family: 'DM Sans', sans-serif; }
+  .tokens { display: grid; grid-template-columns: repeat(8, 1fr); gap: 6px; margin-bottom: 16px; }
+  .token-box { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+  .token-swatch { border-radius: var(--radius-sm); border: 1px solid var(--border-default); }
+  .token-label { font-size: 9px; color: var(--fg-tertiary); text-align: center; font-weight: 600; }
+  .label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--brand-olive); margin-bottom: 10px; }
+  .shadow-row { display: flex; gap: 16px; flex-wrap: wrap; }
+  .shadow-box { background: var(--bg-surface); border-radius: var(--radius-lg); width: 80px; height: 56px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; color: var(--fg-tertiary); }
+  hr { border: none; border-top: 1px solid var(--border-default); margin: 12px 0; }
+
+  .radius-row { display: flex; gap: 12px; flex-wrap: wrap; align-items: flex-end; }
+  .radius-box { background: var(--accent-muted); border: 1.5px solid var(--accent-primary); display: flex; align-items: center; justify-content: center; width: 56px; height: 40px; font-size: 9px; font-weight: 700; color: var(--accent-primary); }
+</style>
+</head><body>
+  <div class="label">Spacing Scale</div>
+  <div class="tokens">
+    <div class="token-box"><div class="token-swatch" style="width:4px;height:24px;background:var(--accent-primary)"></div><div class="token-label">4</div></div>
+    <div class="token-box"><div class="token-swatch" style="width:8px;height:24px;background:var(--accent-primary)"></div><div class="token-label">8</div></div>
+    <div class="token-box"><div class="token-swatch" style="width:12px;height:24px;background:var(--accent-primary)"></div><div class="token-label">12</div></div>
+    <div class="token-box"><div class="token-swatch" style="width:16px;height:24px;background:var(--accent-primary)"></div><div class="token-label">16</div></div>
+    <div class="token-box"><div class="token-swatch" style="width:24px;height:24px;background:var(--accent-primary)"></div><div class="token-label">24</div></div>
+    <div class="token-box"><div class="token-swatch" style="width:32px;height:24px;background:var(--accent-primary)"></div><div class="token-label">32</div></div>
+    <div class="token-box"><div class="token-swatch" style="width:48px;height:24px;background:var(--accent-primary)"></div><div class="token-label">48</div></div>
+    <div class="token-box"><div class="token-swatch" style="width:56px;height:24px;background:var(--kai-forest-200)"></div><div class="token-label">64+</div></div>
+  </div>
+  <hr>
+  <div class="label">Border Radius</div>
+  <div class="radius-row">
+    <div class="radius-box" style="border-radius:4px">sm 4</div>
+    <div class="radius-box" style="border-radius:8px">md 8</div>
+    <div class="radius-box" style="border-radius:12px">lg 12</div>
+    <div class="radius-box" style="border-radius:16px">xl 16</div>
+    <div class="radius-box" style="border-radius:24px">2xl 24</div>
+    <div class="radius-box" style="border-radius:9999px;width:72px">pill</div>
+  </div>
+  <hr>
+  <div class="label">Shadows / Elevation</div>
+  <div class="shadow-row">
+    <div class="shadow-box" style="box-shadow:var(--shadow-xs)">xs</div>
+    <div class="shadow-box" style="box-shadow:var(--shadow-sm)">sm</div>
+    <div class="shadow-box" style="box-shadow:var(--shadow-md)">md</div>
+    <div class="shadow-box" style="box-shadow:var(--shadow-lg)">lg</div>
+    <div class="shadow-box" style="box-shadow:var(--shadow-xl)">xl</div>
+  </div>
+</body></html>

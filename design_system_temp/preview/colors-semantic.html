@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 20px; background: var(--bg-page); font-family: var(--font-body,'DM Sans',sans-serif); }
+  .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  .tile { border-radius: var(--radius-md); padding: 12px 10px 8px; }
+  .tile-name { font-size: 10px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.7; }
+  .tile-var  { font-size: 9px; opacity: 0.5; margin-top: 2px; font-family: monospace; }
+</style>
+</head><body>
+<div class="grid">
+  <div class="tile" style="background:var(--bg-page);border:1px solid var(--border-default)">
+    <div class="tile-name" style="color:var(--fg-primary)">bg-page</div>
+    <div class="tile-var" style="color:var(--fg-secondary)">--bg-page</div>
+  </div>
+  <div class="tile" style="background:var(--bg-surface);border:1px solid var(--border-default)">
+    <div class="tile-name" style="color:var(--fg-primary)">bg-surface</div>
+    <div class="tile-var" style="color:var(--fg-secondary)">--bg-surface</div>
+  </div>
+  <div class="tile" style="background:var(--bg-dark)">
+    <div class="tile-name" style="color:var(--fg-on-dark)">bg-dark</div>
+    <div class="tile-var" style="color:var(--fg-on-dark-muted)">--bg-dark</div>
+  </div>
+  <div class="tile" style="background:var(--bg-dark-deeper)">
+    <div class="tile-name" style="color:var(--fg-on-dark)">bg-dark-deeper</div>
+    <div class="tile-var" style="color:var(--fg-on-dark-muted)">--bg-dark-deeper</div>
+  </div>
+  <div class="tile" style="background:var(--accent-primary)">
+    <div class="tile-name" style="color:#fff">accent-primary</div>
+    <div class="tile-var" style="color:rgba(255,255,255,0.5)">--accent-primary</div>
+  </div>
+  <div class="tile" style="background:var(--accent-muted);border:1px solid var(--border-default)">
+    <div class="tile-name" style="color:var(--accent-primary)">accent-muted</div>
+    <div class="tile-var" style="color:var(--fg-secondary)">--accent-muted</div>
+  </div>
+  <div class="tile" style="background:var(--brand-olive)">
+    <div class="tile-name" style="color:#fff">brand-olive</div>
+    <div class="tile-var" style="color:rgba(255,255,255,0.6)">--brand-olive</div>
+  </div>
+  <div class="tile" style="background:var(--brand-olive-lt);border:1px solid var(--border-default)">
+    <div class="tile-name" style="color:var(--brand-olive)">brand-olive-lt</div>
+    <div class="tile-var" style="color:var(--fg-secondary)">--brand-olive-lt</div>
+  </div>
+  <div class="tile" style="background:var(--status-success)">
+    <div class="tile-name" style="color:#fff">success</div></div>
+  <div class="tile" style="background:var(--status-warning)">
+    <div class="tile-name" style="color:#fff">warning</div></div>
+  <div class="tile" style="background:var(--status-error)">
+    <div class="tile-name" style="color:#fff">error</div></div>
+  <div class="tile" style="background:var(--status-info)">
+    <div class="tile-name" style="color:#fff">info</div></div>
+</div>
+</body></html>

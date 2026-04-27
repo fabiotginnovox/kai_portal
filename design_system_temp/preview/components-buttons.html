@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 20px; background: var(--bg-page); font-family: 'DM Sans', sans-serif; }
+  .row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 16px; align-items: center; }
+  .label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--brand-olive); margin-bottom: 8px; }
+
+  /* Buttons */
+  .btn { display: inline-flex; align-items: center; gap: 6px; border: none; cursor: pointer; font-family: 'DM Sans', sans-serif; font-weight: 600; transition: background 0.15s, transform 0.1s; }
+  .btn:active { transform: scale(0.98); }
+
+  .btn-primary { background: var(--accent-primary); color: #fff; padding: 10px 22px; border-radius: var(--radius-pill); font-size: 15px; }
+  .btn-primary:hover { background: var(--accent-hover); }
+
+  .btn-outline { background: transparent; color: var(--accent-primary); padding: 9px 21px; border-radius: var(--radius-pill); font-size: 15px; border: 1.5px solid var(--accent-primary); }
+  .btn-outline:hover { background: var(--accent-muted); }
+
+  .btn-ghost { background: transparent; color: var(--fg-primary); padding: 9px 18px; border-radius: var(--radius-pill); font-size: 15px; border: 1.5px solid var(--border-default); }
+  .btn-ghost:hover { background: var(--bg-sunken); }
+
+  .btn-olive { background: var(--brand-olive); color: #fff; padding: 10px 22px; border-radius: var(--radius-pill); font-size: 15px; }
+
+  .btn-dark { background: var(--bg-dark); color: var(--fg-on-dark); padding: 10px 22px; border-radius: var(--radius-pill); font-size: 15px; }
+
+  .btn-sm { padding: 6px 14px; font-size: 13px; }
+  .btn-lg { padding: 14px 32px; font-size: 17px; }
+
+  hr { border: none; border-top: 1px solid var(--border-default); margin: 4px 0 12px; }
+</style>
+</head><body>
+  <div class="label">Primary</div>
+  <div class="row">
+    <button class="btn btn-primary">Get started</button>
+    <button class="btn btn-primary btn-sm">Get started</button>
+    <button class="btn btn-primary btn-lg">Get started</button>
+  </div>
+  <hr>
+  <div class="label">Outline</div>
+  <div class="row">
+    <button class="btn btn-outline">Learn more</button>
+    <button class="btn btn-ghost">Cancel</button>
+  </div>
+  <hr>
+  <div class="label">Dark / Olive</div>
+  <div class="row">
+    <button class="btn btn-dark">Find out more</button>
+    <button class="btn btn-olive">AI Maturity Report</button>
+  </div>
+</body></html>

@@ -3,27 +3,93 @@
 @tailwind utilities;
 
 @layer base {
+  /* ------------------------------------------------------------
+     KAI DESIGN SYSTEM — Colors & Typography Primitives
+     ------------------------------------------------------------ */
   :root {
-    --background: 130 10% 2%;
-    --foreground: 130 10% 98%;
-    --card: 130 10% 4%;
-    --card-foreground: 130 10% 98%;
-    --popover: 130 10% 4%;
-    --popover-foreground: 130 10% 98%;
-    --primary: 76 56% 52%;
-    --primary-foreground: 130 10% 5%;
-    --secondary: 130 10% 10%;
-    --secondary-foreground: 130 10% 98%;
-    --muted: 130 5% 15%;
-    --muted-foreground: 130 5% 65%;
-    --accent: 76 56% 52%;
-    --accent-foreground: 130 10% 5%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 130 10% 98%;
-    --border: 130 10% 12%;
-    --input: 130 10% 12%;
-    --ring: 76 56% 52%;
-    --radius: 0.75rem;
+    /* Forest / Teal — primary brand color */
+    --kai-forest-900: #0F2620;
+    --kai-forest-800: #162F27;
+    --kai-forest-700: #1A3830;
+    --kai-forest-600: #1F4538;
+    --kai-forest-500: #265C4A;   /* primary interactive */
+    --kai-forest-400: #3D8C72;
+    --kai-forest-300: #5BAD92;
+    --kai-forest-200: #93CCBA;
+    --kai-forest-100: #C9E5DD;
+    --kai-forest-50:  #EAF4F0;
+
+    /* Olive / Brand Green — logo "kai" color */
+    --kai-olive-900: #4A530E;
+    --kai-olive-800: #606D12;
+    --kai-olive-700: #788918;
+    --kai-olive-600: #8A9C1F;    /* logo primary */
+    --kai-olive-500: #9DAF2A;
+    --kai-olive-400: #B5C44E;
+    --kai-olive-300: #CEDA7C;
+    --kai-olive-200: #E4EDAB;
+    --kai-olive-100: #F2F6D3;
+    --kai-olive-50:  #F9FBE8;
+
+    /* Cream / Warm Neutral — page backgrounds */
+    --kai-cream-950: #1A1813;
+    --kai-cream-900: #2E2B22;
+    --kai-cream-800: #4A4538;
+    --kai-cream-700: #6B6557;
+    --kai-cream-600: #8A8372;
+    --kai-cream-500: #ABA494;
+    --kai-cream-400: #C8C2B4;
+    --kai-cream-300: #DDD8CD;
+    --kai-cream-200: #ECE8DF;
+    --kai-cream-100: #F4F0E7;    /* page background */
+    --kai-cream-50:  #FAF8F4;    /* card background */
+
+    /* Absolute */
+    --kai-white: #FFFFFF;
+    --kai-black: #0C0B09;
+
+    /* Semantic Color Tokens */
+    --bg-page:        var(--kai-cream-100);
+    --bg-surface:     var(--kai-cream-50);
+    --bg-sunken:      var(--kai-cream-200);
+    --bg-dark:        var(--kai-forest-700);
+    --bg-dark-deeper: var(--kai-forest-800);
+
+    --fg-primary:     var(--kai-cream-950);
+    --fg-secondary:   var(--kai-cream-700);
+    --fg-tertiary:    var(--kai-cream-500);
+    --fg-on-dark:     var(--kai-cream-100);
+    --fg-on-dark-muted: var(--kai-forest-200);
+
+    --accent-primary: var(--kai-forest-500);
+    --accent-hover:   var(--kai-forest-600);
+    --accent-pressed: var(--kai-forest-700);
+    --accent-muted:   var(--kai-forest-100);
+
+    --brand-olive:    var(--kai-olive-600);
+    --brand-olive-lt: var(--kai-olive-100);
+
+    --border-default: var(--kai-cream-300);
+    --border-strong:  var(--kai-cream-400);
+    --border-focus:   var(--kai-forest-400);
+
+    /* Spacing & Radius */
+    --radius-pill: 9999px;
+    --radius-lg: 12px;
+    --radius-md: 8px;
+    --radius-sm: 4px;
+
+    /* Typography */
+    --font-display:  'Fraunces', Georgia, serif;
+    --font-body:     'DM Sans', 'Helvetica Neue', Arial, sans-serif;
+    
+    /* Legacy Shadcn-like variables (mapping to new ones where possible) */
+    --background: 40 23% 93%; /* Mapping to cream-100 approx */
+    --foreground: 45 17% 9%;   /* Mapping to cream-950 approx */
+    --primary: 161 41% 26%;   /* Mapping to forest-500 approx */
+    --primary-foreground: 40 23% 93%;
+    --card: 45 33% 97%;       /* Mapping to cream-50 approx */
+    --border: 45 16% 83%;     /* Mapping to cream-300 approx */
   }
 }
 

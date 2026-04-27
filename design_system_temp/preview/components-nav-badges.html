@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 20px 24px; background: var(--bg-page); font-family: 'DM Sans', sans-serif; }
+  .label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--brand-olive); margin-bottom: 10px; margin-top: 16px; }
+  .label:first-child { margin-top: 0; }
+
+  /* Nav */
+  nav { display: flex; align-items: center; justify-content: space-between; background: var(--bg-page); padding: 12px 20px; border-bottom: 1px solid var(--border-default); border-radius: var(--radius-lg); margin-bottom: 6px; }
+  .nav-logo { display: flex; align-items: center; gap: 6px; }
+  .nav-logo-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--brand-olive); }
+  .nav-logo-text { font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 14px; color: var(--fg-primary); }
+  .nav-links { display: flex; gap: 20px; }
+  .nav-link { font-size: 13px; color: var(--fg-secondary); text-decoration: none; }
+  .nav-cta { background: var(--bg-dark); color: #fff; font-size: 13px; font-weight: 600; padding: 7px 16px; border-radius: var(--radius-pill); border: none; cursor: pointer; font-family: 'DM Sans', sans-serif; }
+
+  /* Badge / Tag */
+  .badges { display: flex; gap: 8px; flex-wrap: wrap; }
+  .badge { display: inline-block; font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: var(--radius-pill); }
+  .badge-olive { background: var(--brand-olive-lt); color: var(--kai-olive-800); }
+  .badge-forest { background: var(--accent-muted); color: var(--kai-forest-700); }
+  .badge-dark { background: var(--bg-dark); color: var(--fg-on-dark); }
+  .badge-neutral { background: var(--bg-sunken); color: var(--fg-secondary); border: 1px solid var(--border-default); }
+
+  /* Step indicator */
+  .steps { display: flex; gap: 4px; align-items: center; }
+  .step { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; }
+  .step-active { background: var(--accent-primary); color: #fff; }
+  .step-done { background: var(--kai-forest-200); color: var(--kai-forest-700); }
+  .step-inactive { background: var(--bg-sunken); color: var(--fg-tertiary); border: 1.5px solid var(--border-default); }
+  .step-line { flex: 1; height: 2px; background: var(--border-default); max-width: 32px; }
+  .step-line-done { background: var(--kai-forest-300); }
+
+  /* Progress bar */
+  .progress-wrap { background: var(--bg-sunken); border-radius: var(--radius-pill); height: 8px; overflow: hidden; width: 240px; }
+  .progress-bar { height: 100%; background: var(--accent-primary); border-radius: var(--radius-pill); }
+</style>
+</head><body>
+  <div class="label">Navigation</div>
+  <nav>
+    <div class="nav-logo">
+      <div class="nav-logo-dot"></div>
+      <span class="nav-logo-text">kaiAssist</span>
+    </div>
+    <div class="nav-links">
+      <a class="nav-link" href="#">Features</a>
+      <a class="nav-link" href="#">Methodology</a>
+      <a class="nav-link" href="#">Pricing</a>
+    </div>
+    <button class="nav-cta">Get started</button>
+  </nav>
+
+  <div class="label">Badges / Tags</div>
+  <div class="badges">
+    <span class="badge badge-olive">AI Maturity</span>
+    <span class="badge badge-forest">New</span>
+    <span class="badge badge-dark">Level 3</span>
+    <span class="badge badge-neutral">In progress</span>
+  </div>
+
+  <div class="label">Step Indicator</div>
+  <div class="steps">
+    <div class="step step-done">✓</div>
+    <div class="step-line step-line-done"></div>
+    <div class="step step-active">2</div>
+    <div class="step-line"></div>
+    <div class="step step-inactive">3</div>
+    <div class="step-line"></div>
+    <div class="step step-inactive">4</div>
+  </div>
+
+  <div class="label">Progress Bar</div>
+  <div class="progress-wrap">
+    <div class="progress-bar" style="width:60%"></div>
+  </div>
+</body></html>

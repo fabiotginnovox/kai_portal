@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 0; background: var(--bg-page); font-family: 'DM Sans', sans-serif; }
+  @font-face { font-family: 'Fraunces'; src: url('../fonts/Fraunces-Variable.ttf') format('truetype'); font-weight: 100 900; font-style: normal; }
+  @font-face { font-family: 'Fraunces'; src: url('../fonts/Fraunces-Italic-Variable.ttf') format('truetype'); font-weight: 100 900; font-style: italic; }
+
+  /* Hero section preview */
+  .hero-section { padding: 48px 40px 40px; background: var(--bg-page); }
+  .eyebrow { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: var(--brand-olive); margin-bottom: 16px; }
+  .hero-headline { font-family: 'Fraunces', serif; font-size: 48px; font-weight: 300; font-style: italic; font-variation-settings: 'opsz' 144, 'SOFT' 30; line-height: 1.1; letter-spacing: -0.02em; color: var(--fg-primary); max-width: 520px; margin: 0 0 20px; }
+  .hero-headline em { font-style: italic; color: var(--accent-primary); }
+  .hero-body { font-size: 16px; line-height: 1.65; color: var(--fg-secondary); max-width: 400px; margin: 0 0 24px; }
+  .btn-row { display: flex; gap: 12px; align-items: center; }
+  .btn-primary { background: var(--accent-primary); color: #fff; padding: 12px 26px; border-radius: var(--radius-pill); font-size: 15px; font-weight: 600; border: none; cursor: pointer; font-family: inherit; }
+  .btn-outline { background: transparent; color: var(--accent-primary); padding: 11px 24px; border-radius: var(--radius-pill); font-size: 15px; font-weight: 600; border: 1.5px solid var(--accent-primary); cursor: pointer; font-family: inherit; }
+  .stats { display: flex; gap: 32px; margin-top: 32px; }
+  .stat-val { font-family: 'Fraunces', serif; font-size: 36px; font-weight: 700; color: var(--fg-primary); line-height: 1; }
+  .stat-lbl { font-size: 12px; color: var(--fg-tertiary); margin-top: 4px; }
+
+  /* Dark section preview */
+  .dark-section { background: var(--bg-dark); padding: 36px 40px; }
+  .dark-eyebrow { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: var(--kai-olive-400); margin-bottom: 12px; }
+  .dark-headline { font-family: 'Fraunces', serif; font-size: 32px; font-weight: 600; color: var(--fg-on-dark); line-height: 1.2; margin: 0 0 8px; }
+  .dark-body { font-size: 14px; line-height: 1.6; color: var(--fg-on-dark-muted); margin: 0; max-width: 400px; }
+</style>
+</head><body>
+  <div class="hero-section">
+    <div class="eyebrow">AI Maturity Platform</div>
+    <h1 class="hero-headline">Where does your company<br>stand in the <em>AI era?</em></h1>
+    <p class="hero-body">We help companies diagnose where they stand, map a personalised roadmap, and implement intelligent automation — step by step.</p>
+    <div class="btn-row">
+      <button class="btn-primary">Start your assessment</button>
+      <button class="btn-outline">Learn more</button>
+    </div>
+    <div class="stats">
+      <div><div class="stat-val">5</div><div class="stat-lbl">AI Maturity Levels</div></div>
+      <div><div class="stat-val">40+</div><div class="stat-lbl">AI Dimensions</div></div>
+      <div><div class="stat-val">AI</div><div class="stat-lbl">Maturity Report</div></div>
+    </div>
+  </div>
+  <div class="dark-section">
+    <div class="dark-eyebrow">Methodology</div>
+    <div class="dark-headline">Find out where your company stands — and what to do next</div>
+    <p class="dark-body">From stagnation begins the AI era conversation — where to start, how to accelerate, and how to sustain momentum.</p>
+  </div>
+</body></html>

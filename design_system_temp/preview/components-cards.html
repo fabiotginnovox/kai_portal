@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 20px; background: var(--bg-page); font-family: 'DM Sans', sans-serif; }
+  .row { display: flex; gap: 12px; flex-wrap: wrap; }
+  .label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--brand-olive); margin-bottom: 10px; margin-top: 14px; }
+
+  .card { background: var(--bg-surface); border-radius: var(--radius-xl); padding: 20px; box-shadow: var(--shadow-md); flex: 1; min-width: 180px; }
+  .card-dark { background: var(--bg-dark); border-radius: var(--radius-xl); padding: 20px; flex: 1; min-width: 180px; }
+  .card-bordered { background: var(--bg-surface); border: 1.5px solid var(--border-default); border-radius: var(--radius-xl); padding: 20px; flex: 1; min-width: 180px; }
+
+  .card-eyebrow { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--brand-olive); margin-bottom: 8px; }
+  .card-title { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 600; color: var(--fg-primary); margin: 0 0 6px; line-height: 1.25; }
+  .card-title-dark { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 600; color: var(--fg-on-dark); margin: 0 0 6px; }
+  .card-body { font-size: 13px; line-height: 1.6; color: var(--fg-secondary); margin: 0; }
+  .card-body-dark { font-size: 13px; line-height: 1.6; color: var(--fg-on-dark-muted); margin: 0; }
+  .card-num { font-family: 'Fraunces', serif; font-size: 36px; font-weight: 700; color: var(--accent-primary); margin-bottom: 4px; }
+
+  @font-face {
+    font-family: 'Fraunces';
+    src: url('../fonts/Fraunces-Variable.ttf') format('truetype');
+    font-weight: 100 900; font-style: normal;
+  }
+
+  /* Colored cards */
+  .card-colored { border-radius: var(--radius-xl); padding: 20px; flex: 1; min-width: 180px; }
+  .card-forest  { background: var(--kai-forest-500); }
+  .card-olive   { background: var(--kai-olive-600); }
+  .card-cream   { background: var(--kai-cream-200); border: 1.5px solid var(--kai-cream-400); }
+
+  .card-colored .card-eyebrow { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 8px; }
+  .card-forest  .card-eyebrow { color: var(--kai-forest-200); }
+  .card-olive   .card-eyebrow { color: var(--kai-olive-200); }
+  .card-cream   .card-eyebrow { color: var(--kai-olive-700); }
+
+  .card-colored .card-title { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 600; margin: 0 0 6px; line-height: 1.25; }
+  .card-forest  .card-title { color: #fff; }
+  .card-olive   .card-title { color: #fff; }
+  .card-cream   .card-title { color: var(--kai-cream-900); }
+
+  .card-colored .card-body { font-size: 13px; line-height: 1.6; margin: 0; }
+  .card-forest  .card-body { color: var(--kai-forest-100); }
+  .card-olive   .card-body { color: var(--kai-olive-100); }
+  .card-cream   .card-body { color: var(--kai-cream-700); }
+
+  .card-colored .card-num { font-family: 'Fraunces', serif; font-size: 36px; font-weight: 700; margin-bottom: 4px; }
+  .card-forest  .card-num { color: var(--kai-forest-200); }
+  .card-olive   .card-num { color: var(--kai-olive-200); }
+  .card-cream   .card-num { color: var(--kai-forest-500); }
+</style>
+</head><body>
+  <div class="label">Surface Cards</div>
+  <div class="row">
+    <div class="card">
+      <div class="card-eyebrow">Step 1</div>
+      <div class="card-title">Diagnose</div>
+      <p class="card-body">Understand where your organisation stands across 40+ AI readiness dimensions.</p>
+    </div>
+    <div class="card">
+      <div class="card-eyebrow">Step 2</div>
+      <div class="card-title">Map</div>
+      <p class="card-body">Get a personalised roadmap aligned to your industry and goals.</p>
+    </div>
+    <div class="card-bordered">
+      <div class="card-num">40+</div>
+      <div class="card-title">AI Dimensions</div>
+      <p class="card-body">Assessed across your entire organisation.</p>
+    </div>
+  </div>
+  <div class="label">Dark Cards</div>
+  <div class="row">
+    <div class="card-dark">
+      <div class="card-eyebrow" style="color:var(--kai-olive-400)">Level 1</div>
+      <div class="card-title-dark">AI Adhan</div>
+      <p class="card-body-dark">Early stage organisations beginning to explore AI possibilities.</p>
+    </div>
+    <div class="card-dark">
+      <div class="card-eyebrow" style="color:var(--kai-olive-400)">Level 2</div>
+      <div class="card-title-dark">AI Aware</div>
+      <p class="card-body-dark">Teams experimenting with AI tools in isolated workflows.</p>
+    </div>
+  </div>
+
+  <div class="label" style="margin-top:18px">Colored Cards</div>
+  <div class="row">
+    <div class="card-colored card-forest">
+      <div class="card-eyebrow">AI Maturity</div>
+      <div class="card-num">72%</div>
+      <div class="card-title">Strategy &amp; Vision</div>
+      <p class="card-body">Your organisation has a well-defined AI strategy with executive alignment and quarterly reviews.</p>
+    </div>
+    <div class="card-colored card-olive">
+      <div class="card-eyebrow">Dimension</div>
+      <div class="card-num">40+</div>
+      <div class="card-title">AI Dimensions</div>
+      <p class="card-body">Assessed across talent, data infrastructure, governance, technology stack, and culture.</p>
+    </div>
+    <div class="card-colored card-cream">
+      <div class="card-eyebrow">Next step</div>
+      <div class="card-num">Level 4</div>
+      <div class="card-title">AI Advanced</div>
+      <p class="card-body">Embed AI across core processes with mature data strategy and active AI talent programmes.</p>
+    </div>
+  </div>
+</body></html>

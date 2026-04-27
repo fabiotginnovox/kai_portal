@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kai Portal — UI Kit</title>
+<link rel="stylesheet" href="../../colors_and_type.css">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<style>
+  @font-face { font-family: 'Fraunces'; src: url('../../fonts/Fraunces-Variable.ttf') format('truetype'); font-weight: 100 900; font-style: normal; }
+  @font-face { font-family: 'Fraunces'; src: url('../../fonts/Fraunces-Italic-Variable.ttf') format('truetype'); font-weight: 100 900; font-style: italic; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body, #root { height: 100%; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--bg-page); color: var(--fg-primary); }
+  button { font-family: inherit; cursor: pointer; }
+  a { text-decoration: none; color: inherit; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+
+/* ── SHARED TOKENS ───────────────────────────────── */
+const C = {
+  forest900: '#0F2620', forest800: '#162F27', forest700: '#1A3830',
+  forest600: '#1F4538', forest500: '#265C4A', forest400: '#3D8C72',
+  forest200: '#93CCBA', forest100: '#C9E5DD', forest50: '#EAF4F0',
+  olive600: '#8A9C1F', olive400: '#B5C44E', olive100: '#F2F6D3',
+  cream950: '#1A1813', cream800: '#4A4538', cream700: '#6B6557',
+  cream500: '#ABA494', cream400: '#C8C2B4', cream300: '#DDD8CD',
+  cream200: '#ECE8DF', cream100: '#F4F0E7', cream50: '#FAF8F4',
+  white: '#FFFFFF',
+};
+
+/* ── NAV ─────────────────────────────────────────── */
+function Nav({ onNav, current }) {
+  const links = ['Features', 'Methodology', 'Pricing'];
+  return (
+    <nav style={{
+      display:'flex', alignItems:'center', justifyContent:'space-between',
+      padding:'0 40px', height:64, background:C.cream100,
+      borderBottom:`1px solid ${C.cream300}`, position:'sticky', top:0, zIndex:100,
+    }}>
+      <div style={{display:'flex',alignItems:'center',gap:8,cursor:'pointer'}} onClick={()=>onNav('home')}>
+        <img src="../../assets/logoKaiAssist2.png" alt="kaiAssist" style={{height:32}} />
+      </div>
+      <div style={{display:'flex',gap:28}}>
+        {links.map(l => (
+          <a key={l} href="#" style={{fontSize:14,color:C.cream700,fontWeight:500}}
+            onClick={e=>{e.preventDefault();}}>{l}</a>
+        ))}
+      </div>
+      <button onClick={()=>onNav('assessment')} style={{
+        background:C.forest700, color:'#fff', border:'none',
+        padding:'9px 20px', borderRadius:999, fontSize:14, fontWeight:600,
+      }}>Start assessment</button>
+    </nav>
+  );
+}
+
+/* ── HERO ────────────────────────────────────────── */
+function HeroSection({ onNav }) {
+  return (
+    <section style={{padding:'80px 40px 72px', maxWidth:1100, margin:'0 auto'}}>
+      <div style={{
+        fontSize:11, fontWeight:700, textTransform:'uppercase', letterSpacing:'0.15em',
+        color:C.olive600, marginBottom:20,
+      }}>AI Maturity Platform</div>
+      <h1 style={{
+        fontFamily:'Fraunces, serif', fontSize:72, fontWeight:300, fontStyle:'normal',
+        fontVariationSettings:"'opsz' 144, 'SOFT' 30",
+        lineHeight:1.05, letterSpacing:'-0.02em', color:C.cream950,
+        maxWidth:680, marginBottom:24,
+      }}>
+        Where does your company stand in the <span style={{color:C.forest500, fontStyle:'italic'}}>AI era?</span>
+      </h1>
+      <p style={{fontSize:18,lineHeight:1.65,color:C.cream700,maxWidth:480,marginBottom:32}}>
+        We help companies diagnose their AI readiness, map a personalised roadmap, and implement intelligent automation — step by step.
+      </p>
+      <div style={{display:'flex',gap:12,marginBottom:56}}>
+        <button onClick={()=>onNav('assessment')} style={{
+          background:C.forest500, color:'#fff', border:'none',
+          padding:'13px 28px', borderRadius:999, fontSize:15, fontWeight:600,
+        }}>Start your assessment</button>
+        <button onClick={()=>onNav('report')} style={{
+          background:'transparent', color:C.forest500,
+          border:`1.5px solid ${C.forest500}`,
+          padding:'12px 26px', borderRadius:999, fontSize:15, fontWeight:600,
+        }}>View sample report</button>
+      </div>
+      <div style={{display:'flex',gap:48,borderTop:`1px solid ${C.cream300}`,paddingTop:32}}>
+        {[['5','AI Maturity Levels'],['40+','AI Dimensions'],['AI','Maturity Report']].map(([v,l])=>(
+          <div key={l}>
+            <div style={{fontFamily:'Fraunces,serif',fontSize:40,fontWeight:700,color:C.cream950,lineHeight:1}}>{v}</div>
+            <div style={{fontSize:12,color:C.cream500,marginTop:4}}>{l}</div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+/* ── METHODOLOGY SECTION ─────────────────────────── */
+function MethodologySection() {
+  const steps = [
+    { num:'01', title:'Diagnose', body:'Understand where your organisation stands across 40+ AI readiness dimensions with our structured assessment.' },
+    { num:'02', title:'Map', body:'Receive a personalised roadmap tailored to your industry, size, and strategic goals.' },
+    { num:'03', title:'Implement', body:'Execute your plan with AI playbooks, coaching sessions, and expert implementation support.' },
+  ];
+  return (
+    <section style={{padding:'72px 40px', background:C.cream50, borderTop:`1px solid ${C.cream300}`}}>
+      <div style={{maxWidth:1100,margin:'0 auto'}}>
+        <div style={{fontSize:11,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.15em',color:C.olive600,marginBottom:12}}>
+          Methodology
+        </div>
+        <h2 style={{fontFamily:'Fraunces,serif',fontSize:44,fontWeight:600,letterSpacing:'-0.02em',color:C.cream950,marginBottom:8}}>
+          Three steps from diagnosis<br/>to intelligent automation
+        </h2>
+        <p style={{fontSize:16,color:C.cream700,marginBottom:48,maxWidth:480}}>
+          A clear, structured path — no matter where you're starting from.
+        </p>
+        <div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:20}}>
+          {steps.map(s=>(
+            <div key={s.num} style={{
+              background:C.white, borderRadius:16, padding:28,
+              boxShadow:`0 4px 16px rgba(15,38,32,0.10)`,
+            }}>
+              <div style={{fontSize:11,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.12em',color:C.olive600,marginBottom:12}}>
+                Step {s.num}
+              </div>
+              <div style={{fontFamily:'Fraunces,serif',fontSize:22,fontWeight:600,color:C.cream950,marginBottom:8}}>
+                {s.title}
+              </div>
+              <p style={{fontSize:14,lineHeight:1.65,color:C.cream700}}>{s.body}</p>
+              <button style={{
+                marginTop:20, background:'transparent', border:'none', padding:0,
+                fontSize:13, fontWeight:600, color:C.forest500,
+                display:'flex', alignItems:'center', gap:4,
+              }}>Learn more →</button>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ── MATURITY LEVELS ─────────────────────────────── */
+function MaturitySection() {
+  const [active, setActive] = React.useState(0);
+  const levels = [
+    { label:'Level 1', name:'AI Adhan', desc:'Organisations at this level are just beginning to explore AI. There is awareness of AI\'s potential but limited practical application. Processes remain entirely manual.' },
+    { label:'Level 2', name:'AI Aware', desc:'Teams are experimenting with AI tools in isolated workflows. Results are inconsistent and there is no systematic approach or governance framework in place.' },
+    { label:'Level 3', name:'AI Active', desc:'AI is being deployed in multiple business functions with measurable ROI. A centre of excellence exists and governance frameworks are in early stages.' },
+    { label:'Level 4', name:'AI Advanced', desc:'AI is embedded across core business processes. The organisation has a mature data strategy, strong governance, and active AI talent programmes.' },
+    { label:'Level 5', name:'AI Native', desc:'AI is fundamental to the business model and competitive advantage. Continuous learning systems, autonomous processes, and AI-first thinking are the norm.' },
+  ];
+  return (
+    <section style={{padding:'72px 40px', background:C.cream100}}>
+      <div style={{maxWidth:1100,margin:'0 auto'}}>
+        <div style={{fontSize:11,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.15em',color:C.olive600,marginBottom:12}}>
+          Framework
+        </div>
+        <h2 style={{fontFamily:'Fraunces,serif',fontSize:44,fontWeight:600,letterSpacing:'-0.02em',color:C.cream950,marginBottom:40}}>
+          The five levels of AI maturity
+        </h2>
+        <div style={{display:'flex',gap:8,marginBottom:24}}>
+          {levels.map((l,i)=>(
+            <button key={i} onClick={()=>setActive(i)} style={{
+              padding:'8px 16px', borderRadius:999, fontSize:13, fontWeight:600,
+              border:'none', cursor:'pointer',
+              background: i===active ? C.forest500 : C.cream200,
+              color: i===active ? '#fff' : C.cream700,
+              transition:'all 0.15s',
+            }}>{l.label}</button>
+          ))}
+        </div>
+        <div style={{
+          background:C.forest700, borderRadius:16, padding:32,
+          display:'flex', justifyContent:'space-between', alignItems:'flex-start',
+        }}>
+          <div>
+            <div style={{fontSize:11,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.15em',color:C.olive400,marginBottom:8}}>
+              {levels[active].label}
+            </div>
+            <div style={{fontFamily:'Fraunces,serif',fontSize:28,fontWeight:600,color:'#fff',marginBottom:12}}>
+              {levels[active].name}
+            </div>
+            <p style={{fontSize:15,lineHeight:1.65,color:C.forest200,maxWidth:520}}>{levels[active].desc}</p>
+          </div>
+          <div style={{display:'flex',gap:4,paddingTop:4}}>
+            {levels.map((_,i)=>(
+              <div key={i} style={{
+                width:8, height:8, borderRadius:'50%',
+                background: i<=active ? C.olive400 : C.forest500,
+                transition:'background 0.2s',
+              }}/>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ── DELIVERABLES ────────────────────────────────── */
+function DeliverablesSection() {
+  const items = [
+    { icon:'📊', title:'AI Maturity Report', body:'A detailed PDF report benchmarking your organisation across all 5 maturity dimensions.' },
+    { icon:'🗺️', title:'ROI Action Suite', body:'Prioritised action items ranked by business impact and implementation effort.' },
+    { icon:'📋', title:'Automation Dashboard', body:'A live dashboard tracking your AI initiatives, KPIs, and maturity progression.' },
+    { icon:'🧭', title:'Adoption Roadmap', body:'A 12-month implementation plan with milestones, resources, and coaching touchpoints.' },
+  ];
+  return (
+    <section style={{padding:'72px 40px', background:C.cream50, borderTop:`1px solid ${C.cream300}`}}>
+      <div style={{maxWidth:1100,margin:'0 auto'}}>
+        <div style={{fontSize:11,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.15em',color:C.olive600,marginBottom:12}}>
+          What you get
+        </div>
+        <h2 style={{fontFamily:'Fraunces,serif',fontSize:44,fontWeight:600,letterSpacing:'-0.02em',color:C.cream950,marginBottom:48}}>
+          Four concrete deliverables
+        </h2>
+        <div style={{display:'grid',gridTemplateColumns:'repeat(4,1fr)',gap:16}}>
+          {items.map(d=>(
+            <div key={d.title} style={{
+              background:C.white, borderRadius:16, padding:24,
+              border:`1px solid ${C.cream300}`,
+            }}>
+              <div style={{fontSize:24,marginBottom:12}}>{d.icon}</div>
+              <div style={{fontFamily:'Fraunces,serif',fontSize:16,fontWeight:600,color:C.cream950,marginBottom:8}}>{d.title}</div>
+              <p style={{fontSize:13,lineHeight:1.6,color:C.cream700}}>{d.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ── ASSESSMENT FLOW ─────────────────────────────── */
+const QUESTIONS = [
+  { id:1, q:'How would you describe your organisation\'s current use of AI?', opts:['We don\'t use AI at all','We\'ve tried a few AI tools','AI is used in specific teams','AI is used across the business','AI is central to how we operate'] },
+  { id:2, q:'Do you have a dedicated AI strategy or roadmap?', opts:['No, nothing formal','We\'re working on one','We have a draft strategy','Yes, a published strategy','Yes, and it\'s actively reviewed quarterly'] },
+  { id:3, q:'How mature is your data infrastructure?', opts:['Data is scattered and inconsistent','We have some data systems but they\'re siloed','We have centralised data but limited access','Strong data infrastructure with good governance','Best-in-class data platform with real-time access'] },
+  { id:4, q:'How do your teams feel about adopting AI?', opts:['Resistant or fearful','Sceptical but open','Curious and starting to experiment','Enthusiastic adopters','AI-first mindset is part of our culture'] },
+];
+
+function AssessmentScreen({ onNav }) {
+  const [step, setStep] = React.useState(0);
+  const [answers, setAnswers] = React.useState({});
+  const [done, setDone] = React.useState(false);
+
+  const q = QUESTIONS[step];
+  const total = QUESTIONS.length;
+  const pct = Math.round((step / total) * 100);
+
+  const handleAnswer = (opt) => {
+    const next = { ...answers, [q.id]: opt };
+    setAnswers(next);
+    if (step < total - 1) setTimeout(()=>setStep(s=>s+1), 280);
+    else setTimeout(()=>setDone(true), 280);
+  };
+
+  if (done) return (
+    <div style={{minHeight:'calc(100vh - 64px)', display:'flex', alignItems:'center', justifyContent:'center', background:C.cream100, padding:40}}>
+      <div style={{background:C.forest700, borderRadius:24, padding:48, maxWidth:520, textAlign:'center'}}>
+        <div style={{fontSize:11,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.15em',color:C.olive400,marginBottom:16}}>Assessment complete</div>
+        <div style={{fontFamily:'Fraunces,serif',fontSize:36,fontWeight:300,fontStyle:'italic',color:'#fff',marginBottom:16,lineHeight:1.2}}>
+          Your AI Maturity Report is ready
+        </div>
+        <p style={{fontSize:15,color:C.forest200,lineHeight:1.65,marginBottom:32}}>
+          Based on your responses, we've identified your AI maturity level and prepared a personalised roadmap for your organisation.
+        </p>
+        <button onClick={()=>onNav('report')} style={{
+          background:C.olive600, color:'#fff', border:'none',
+          padding:'14px 32px', borderRadius:999, fontSize:16, fontWeight:700,
+          width:'100%',
+        }}>View your report →</button>
+        <button onClick={()=>onNav('home')} style={{
+          background:'transparent', color:C.forest200, border:'none',
+          padding:'12px', fontSize:14, marginTop:8, display:'block', width:'100%',
+        }}>Back to home</button>
+      </div>
+    </div>
+  );
+
+  return (
+    <div style={{minHeight:'calc(100vh - 64px)', background:C.cream100, display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', padding:40}}>
+      {/* Progress */}
+      <div style={{width:'100%', maxWidth:600, marginBottom:40}}>
+        <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:8}}>
+          <span style={{fontSize:12,color:C.cream500,fontWeight:600}}>Question {step+1} of {total}</span>
+          <span style={{fontSize:12,color:C.cream500}}>{pct}% complete</span>
+        </div>
+        <div style={{height:4,background:C.cream300,borderRadius:999,overflow:'hidden'}}>
+          <div style={{height:'100%',width:`${((step+1)/total)*100}%`,background:C.forest500,borderRadius:999,transition:'width 0.3s'}}/>
+        </div>
+      </div>
+
+      <div style={{background:C.white, borderRadius:20, padding:'40px 48px', maxWidth:600, width:'100%', boxShadow:`0 8px 32px rgba(15,38,32,0.12)`}}>
+        <div style={{fontSize:11,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.15em',color:C.olive600,marginBottom:16}}>
+          AI Maturity Assessment
+        </div>
+        <h2 style={{fontFamily:'Fraunces,serif',fontSize:26,fontWeight:600,color:C.cream950,marginBottom:28,lineHeight:1.3}}>
+          {q.q}
+        </h2>
+        <div style={{display:'flex',flexDirection:'column',gap:10}}>
+          {q.opts.map((opt,i)=>{
+            const selected = answers[q.id] === opt;
+            return (
+              <button key={i} onClick={()=>handleAnswer(opt)} style={{
+                padding:'13px 18px', border:`1.5px solid ${selected ? C.forest500 : C.cream300}`,
+                borderRadius:10, background: selected ? C.forest50 : C.white,
+                textAlign:'left', fontSize:14, color: selected ? C.forest600 : C.cream700,
+                fontWeight: selected ? 600 : 400, cursor:'pointer',
+                transition:'all 0.12s',
+              }}>
+                <span style={{
+                  display:'inline-block', width:18, height:18, borderRadius:'50%',
+                  border:`2px solid ${selected ? C.forest500 : C.cream400}`,
+                  background: selected ? C.forest500 : 'transparent',
+                  marginRight:10, verticalAlign:'middle', position:'relative', top:-1,
+                }}/>
+                {opt}
+              </button>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ── SAMPLE REPORT ───────────────────────────────── */
+function ReportScreen({ onNav }) {
+  const dims = [
+    { label:'Strategy & Vision', pct:62 },
+    { label:'Data Infrastructure', pct:48 },
+    { label:'AI Talent & Culture', pct:71 },
+    { label:'Technology Stack', pct:55 },
+    { label:'Governance & Ethics', pct:39 },
+  ];
+  return (
+    <div style={{background:C.cream100, minHeight:'calc(100vh - 64px)', padding:'48px 40px'}}>
+      <div style={{maxWidth:820, margin:'0 auto'}}>
+        <div style={{display:'flex',gap:12,alignItems:'center',marginBottom:32}}>
+          <button onClick={()=>onNav('home')} style={{background:'transparent',border:'none',fontSize:14,color:C.cream600,cursor:'pointer',padding:'6px 0'}}>← Back</button>
+        </div>
+
+        {/* Header */}
+        <div style={{background:C.forest700, borderRadius:20, padding:'36px 40px', marginBottom:24}}>
+          <div style={{fontSize:11,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.15em',color:C.olive400,marginBottom:8}}>AI Maturity Report</div>
+          <h1 style={{fontFamily:'Fraunces,serif',fontSize:36,fontWeight:600,color:'#fff',marginBottom:8,lineHeight:1.2}}>Acme Corporation</h1>
+          <p style={{fontSize:14,color:C.forest200}}>Generated April 2026 · Level 3 — AI Active</p>
+          <div style={{marginTop:24, display:'flex', gap:24}}>
+            {[['3','Maturity Level'],['62%','Avg. Score'],['12','Recommendations']].map(([v,l])=>(
+              <div key={l}>
+                <div style={{fontFamily:'Fraunces,serif',fontSize:32,fontWeight:700,color:'#fff'}}>{v}</div>
+                <div style={{fontSize:11,color:C.forest200,marginTop:2}}>{l}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Dimension scores */}
+        <div style={{background:C.white, borderRadius:16, padding:28, boxShadow:`0 4px 16px rgba(15,38,32,0.08)`, marginBottom:20}}>
+          <div style={{fontFamily:'Fraunces,serif',fontSize:20,fontWeight:600,color:C.cream950,marginBottom:20}}>Dimension Breakdown</div>
+          <div style={{display:'flex',flexDirection:'column',gap:16}}>
+            {dims.map(d=>(
+              <div key={d.label}>
+                <div style={{display:'flex',justifyContent:'space-between',marginBottom:6}}>
+                  <span style={{fontSize:14,fontWeight:500,color:C.cream800}}>{d.label}</span>
+                  <span style={{fontSize:14,fontWeight:700,color:C.forest500}}>{d.pct}%</span>
+                </div>
+                <div style={{height:6,background:C.cream200,borderRadius:999,overflow:'hidden'}}>
+                  <div style={{height:'100%',width:`${d.pct}%`,background:C.forest500,borderRadius:999}}/>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* CTA */}
+        <div style={{background:C.cream50,border:`1.5px solid ${C.cream300}`,borderRadius:16,padding:28,display:'flex',alignItems:'center',justifyContent:'space-between'}}>
+          <div>
+            <div style={{fontFamily:'Fraunces,serif',fontSize:18,fontWeight:600,color:C.cream950,marginBottom:4}}>Ready to advance to Level 4?</div>
+            <p style={{fontSize:14,color:C.cream600}}>Book a strategy session with our AI experts.</p>
+          </div>
+          <button onClick={()=>onNav('assessment')} style={{
+            background:C.forest500,color:'#fff',border:'none',
+            padding:'12px 24px',borderRadius:999,fontSize:14,fontWeight:600,whiteSpace:'nowrap',
+          }}>Book a session →</button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ── FOOTER ──────────────────────────────────────── */
+function Footer({ onNav }) {
+  return (
+    <footer style={{background:C.forest800, padding:'48px 40px 32px'}}>
+      <div style={{maxWidth:1100, margin:'0 auto'}}>
+        <div style={{display:'flex', justifyContent:'space-between', alignItems:'flex-start', marginBottom:40}}>
+          <div>
+            <img src="../../assets/logoKaiAssist2.png" alt="kaiAssist" style={{height:32, marginBottom:16}} />
+            <p style={{fontSize:14,color:C.forest200,maxWidth:280,lineHeight:1.6}}>
+              Helping organisations navigate the AI era with confidence and clarity.
+            </p>
+          </div>
+          <div style={{display:'flex',gap:48}}>
+            {[['Product',['Features','Methodology','Pricing']],['Company',['About','Blog','Careers']]].map(([sec,items])=>(
+              <div key={sec}>
+                <div style={{fontSize:11,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.12em',color:C.olive400,marginBottom:12}}>{sec}</div>
+                <div style={{display:'flex',flexDirection:'column',gap:8}}>
+                  {items.map(i=><a key={i} href="#" style={{fontSize:13,color:C.forest200,opacity:0.8}}>{i}</a>)}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div style={{borderTop:`1px solid ${C.forest600}`,paddingTop:20,display:'flex',justifyContent:'space-between',alignItems:'center'}}>
+          <span style={{fontSize:12,color:C.forest400}}>© 2026 kaiAssist. All rights reserved.</span>
+          <button onClick={()=>onNav('assessment')} style={{
+            background:C.forest500,color:'#fff',border:'none',
+            padding:'10px 20px',borderRadius:999,fontSize:13,fontWeight:600,
+          }}>Start free assessment →</button>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+/* ── HOME ────────────────────────────────────────── */
+function HomeScreen({ onNav }) {
+  return (
+    <div>
+      <HeroSection onNav={onNav} />
+      <MethodologySection />
+      <MaturitySection />
+      <DeliverablesSection />
+      <section style={{background:C.forest700, padding:'64px 40px', textAlign:'center'}}>
+        <div style={{maxWidth:560, margin:'0 auto'}}>
+          <div style={{fontSize:11,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.15em',color:C.olive400,marginBottom:16}}>Get started</div>
+          <h2 style={{fontFamily:'Fraunces,serif',fontSize:44,fontWeight:300,fontStyle:'normal',fontVariationSettings:"'opsz' 72",color:'#fff',marginBottom:16,lineHeight:1.15}}>
+            Find out where your company stands — and what to do next
+          </h2>
+          <p style={{fontSize:16,color:C.forest200,marginBottom:32,lineHeight:1.65}}>
+            Take the free 10-minute AI maturity assessment and receive your personalised report.
+          </p>
+          <button onClick={()=>onNav('assessment')} style={{
+            background:C.white,color:C.forest700,border:'none',
+            padding:'15px 36px',borderRadius:999,fontSize:16,fontWeight:700,
+          }}>Take the free assessment →</button>
+        </div>
+      </section>
+      <Footer onNav={onNav} />
+    </div>
+  );
+}
+
+/* ── APP ─────────────────────────────────────────── */
+function App() {
+  const [screen, setScreen] = React.useState('home');
+  return (
+    <div>
+      <Nav onNav={setScreen} current={screen} />
+      {screen === 'home'       && <HomeScreen onNav={setScreen} />}
+      {screen === 'assessment' && <AssessmentScreen onNav={setScreen} />}
+      {screen === 'report'     && <ReportScreen onNav={setScreen} />}
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>

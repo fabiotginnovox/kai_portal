@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 24px; background: var(--bg-page); font-family: 'DM Sans', sans-serif; display: flex; gap: 20px; flex-wrap: wrap; align-items: flex-start; }
+  .logo-block { display: flex; flex-direction: column; gap: 8px; align-items: flex-start; }
+  .label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--brand-olive); margin-bottom: 4px; }
+  .logo-light { background: var(--bg-page); padding: 20px 28px; border-radius: var(--radius-lg); border: 1px solid var(--border-default); }
+  .logo-dark  { background: var(--bg-dark);  padding: 20px 28px; border-radius: var(--radius-lg); }
+  .logo-white { background: #fff; padding: 20px 28px; border-radius: var(--radius-lg); border: 1px solid var(--border-default); }
+  img { height: 200px; display: block; }
+  img.sm { height: 128px; }
+</style>
+</head><body>
+  <div class="logo-block">
+    <div class="label">On cream</div>
+    <div class="logo-light"><img src="../assets/logoKaiAssist2.png" alt="kaiAssist"></div>
+  </div>
+  <div class="logo-block">
+    <div class="label">On white</div>
+    <div class="logo-white"><img src="../assets/logoKaiAssist2.png" alt="kaiAssist"></div>
+  </div>
+  <div class="logo-block">
+    <div class="label">On dark</div>
+    <div class="logo-dark"><img src="../assets/logoKaiAssist2.png" alt="kaiAssist"></div>
+  </div>
+  <div class="logo-block">
+    <div class="label">Sizes</div>
+    <div class="logo-light" style="display:flex;gap:20px;align-items:center">
+      <img src="../assets/logoKaiAssist2.png" alt="kaiAssist" style="height:220px">
+      <img src="../assets/logoKaiAssist2.png" alt="kaiAssist" style="height:160px">
+      <img src="../assets/logoKaiAssist2.png" alt="kaiAssist" class="sm">
+    </div>
+  </div>
+</body></html>

@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils';
 
 const Hero: React.FC = () => {
   return (
-    <div id="about" className="relative pt-24 pb-10 overflow-hidden sm:pt-32 sm:pb-10 lg:pb-10 bg-kai-black">
+    <div id="methodology" className="relative pt-24 pb-10 overflow-hidden sm:pt-32 sm:pb-10 lg:pb-10 bg-kai-black">
       {/* Background glow effects */}
       <div className="absolute top-0 left-1/2 w-full -translate-x-1/2 h-full z-0 pointer-events-none">
         <div className="absolute top-20 left-1/4 w-[500px] h-[500px] bg-kai-accent/5 rounded-full blur-[120px]" />

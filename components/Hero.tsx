@@ -17,18 +17,18 @@ const Hero: React.FC = () => {
 
           {/* Text Content */}
           <div className="lg:col-span-12 text-center">
-            <h1 className="text-[2.5rem] md:text-[5rem] lg:text-[6rem] font-black tracking-tight mb-16 leading-[1.1] max-w-7xl mx-auto text-kai-fg-primary">
-              Método <span className="bg-kai-bg-sunken border border-kai-border-default px-6 py-1 rounded-xl inline-block align-middle transform -translate-y-[4px] text-kai-brand-olive">KAI</span> de Automação com IA
+            <h1 className="t-hero text-[3.5rem] md:text-[5rem] lg:text-[6.5rem] mb-16 max-w-7xl mx-auto text-kai-fg-primary">
+              Método <span className="font-display not-italic font-normal text-kai-brand-olive">KAI</span> de Automação com IA
             </h1>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 mb-20 px-4">
               {/* Column 1 */}
               <div className="flex flex-col items-center">
-                <h2 className="text-2xl md:text-[2.2rem] font-bold text-kai-green mb-8 leading-tight text-center lg:h-32 flex items-center">
+                <h2 className="t-h2 text-kai-forest-500 mb-8 text-center lg:h-32 flex items-center">
                   para preparar sua equipe,
                 </h2>
-                <p className="text-base md:text-[1.2rem] text-kai-fg-secondary font-medium leading-relaxed text-center max-w-sm mb-12 lg:h-24">
-                  Sua equipe preparada para trabalhar<br /> com IA, com o apoio do nosso<br /> <span className="text-kai-forest-500">AI Maturity</span> para avaliar o nível atual.
+                <p className="t-body text-kai-fg-secondary text-center max-w-sm mb-12 lg:h-24">
+                  Sua equipe preparada para trabalhar<br /> com IA, com o apoio do nosso<br /> <span className="text-kai-forest-500 font-bold">AI Maturity</span> para avaliar o nível atual.
                 </p>
                 <FlippingCard
                   width={340}
@@ -59,11 +59,11 @@ const Hero: React.FC = () => {
               
               {/* Column 2 */}
               <div className="flex flex-col items-center">
-                <h2 className="text-2xl md:text-[2.2rem] font-bold text-kai-yellow mb-8 leading-tight text-center lg:h-32 flex items-center">
+                <h2 className="t-h2 text-kai-olive-600 mb-8 text-center lg:h-32 flex items-center">
                   estruturar seus processos
                 </h2>
-                <p className="text-base md:text-[1.2rem] text-kai-fg-secondary font-medium leading-relaxed text-center max-w-sm mb-12 lg:h-24">
-                  Sua operação organizada com um<br /> <span className="text-kai-olive-600">Mapeamento Claro de Processos</span> e uma<br /> priorização prática das melhores<br /> oportunidades.
+                <p className="t-body text-kai-fg-secondary text-center max-w-sm mb-12 lg:h-24">
+                  Sua operação organizada com um<br /> <span className="text-kai-olive-600 font-bold">Mapeamento Claro de Processos</span> e uma<br /> priorização prática das melhores<br /> oportunidades.
                 </p>
                 <FlippingCard
                   width={340}
@@ -94,11 +94,11 @@ const Hero: React.FC = () => {
 
               {/* Column 3 */}
               <div className="flex flex-col items-center">
-                <h2 className="text-2xl md:text-[2.2rem] font-bold text-kai-pink mb-8 leading-tight text-center lg:h-32 flex items-center">
+                <h2 className="t-h2 text-kai-pink mb-8 text-center lg:h-32 flex items-center">
                   com inteligência escalável
                 </h2>
-                <p className="text-base md:text-[1.2rem] text-kai-fg-secondary font-medium leading-relaxed text-center max-w-sm mb-12 lg:h-24">
-                  E sua empresa pronta para o <span className="text-kai-pink">Método Kai</span> de automações inteligentes que realmente escalam.
+                <p className="t-body text-kai-fg-secondary text-center max-w-sm mb-12 lg:h-24">
+                  E sua empresa pronta para o <span className="text-kai-pink font-bold">Método Kai</span> de automações inteligentes que realmente escalam.
                 </p>
                 <FlippingCard
                   width={340}

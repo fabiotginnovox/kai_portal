@@ -11,14 +11,14 @@ const Footer: React.FC = () => {
             </div>
           </div>
           
-          <div className="flex gap-8 text-sm text-kai-muted">
-             <a href="#" className="hover:text-white transition-colors">Documentation</a>
-             <a href="#" className="hover:text-white transition-colors">Pricing</a>
-             <a href="#" className="hover:text-white transition-colors">Privacy</a>
-             <a href="#" className="hover:text-white transition-colors">Contact</a>
+          <div className="flex gap-8 text-kai-fg-secondary">
+             <a href="#" className="t-small hover:text-kai-forest-500 transition-colors">Documentation</a>
+             <a href="#" className="t-small hover:text-kai-forest-500 transition-colors">Pricing</a>
+             <a href="#" className="t-small hover:text-kai-forest-500 transition-colors">Privacy</a>
+             <a href="#" className="t-small hover:text-kai-forest-500 transition-colors">Contact</a>
           </div>
 
-          <div className="text-xs text-kai-muted/50">
+          <div className="t-label text-kai-fg-tertiary">
             © {new Date().getFullYear()} InnoVox. Powered by Gemini.
           </div>
         </div>

@@ -126,12 +126,18 @@ export default {
         },
       },
       borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        sm: "var(--radius-sm)",
+        md: "var(--radius-md)",
+        lg: "var(--radius-lg)",
+        xl: "var(--radius-xl)",
+        '2xl': "var(--radius-2xl)",
+        full: "var(--radius-pill)",
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        sans: ['DM Sans', 'Inter', 'sans-serif'],
+        display: ['Fraunces', 'serif'],
+        body: ['DM Sans', 'sans-serif'],
+        mono: ['JetBrains Mono', 'monospace'],
       },
       animation: {
         'spin-slow': 'spin 12s linear infinite',

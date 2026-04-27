@@ -36,37 +36,37 @@ const Contact: React.FC = () => {
                 >
                     <form action="" className="w-full space-y-6">
                         <div className="flex flex-col gap-2">
-                            <Label className="text-kai-text/80">Nome</Label>
+                            <Label className="t-label text-kai-fg-secondary">Nome</Label>
                             <Input 
                                 type="text" 
-                                className="bg-kai-black border-kai-accent/20 focus-visible:ring-kai-accent text-white" 
+                                className="bg-kai-bg-sunken border-kai-border-default focus-visible:ring-kai-accent-primary text-kai-fg-primary" 
                                 placeholder="Seu Nome"
                             />
                         </div>
                         <div className="flex flex-col gap-2">
-                            <Label className="text-kai-text/80">E-mail</Label>
+                            <Label className="t-label text-kai-fg-secondary">E-mail</Label>
                             <Input 
                                 type="email" 
-                                className="bg-kai-black border-kai-accent/20 focus-visible:ring-kai-accent text-white" 
+                                className="bg-kai-bg-sunken border-kai-border-default focus-visible:ring-kai-accent-primary text-kai-fg-primary" 
                                 placeholder="seu@email.com"
                             />
                         </div>
                         <div className="flex flex-col gap-2">
-                            <Label className="text-kai-text/80">Telefone</Label>
+                            <Label className="t-label text-kai-fg-secondary">Telefone</Label>
                             <Input 
                                 type="phone" 
-                                className="bg-kai-black border-kai-accent/20 focus-visible:ring-kai-accent text-white" 
+                                className="bg-kai-bg-sunken border-kai-border-default focus-visible:ring-kai-accent-primary text-kai-fg-primary" 
                                 placeholder="+55 21 98898-0953"
                             />
                         </div>
                         <div className="flex flex-col gap-2">
-                            <Label className="text-kai-text/80">Mensagem</Label>
+                            <Label className="t-label text-kai-fg-secondary">Mensagem</Label>
                             <Textarea  
-                                className="bg-kai-black border-kai-accent/20 focus-visible:ring-kai-accent text-white min-h-[120px]" 
+                                className="bg-kai-bg-sunken border-kai-border-default focus-visible:ring-kai-accent-primary text-kai-fg-primary min-h-[120px]" 
                                 placeholder="Como podemos ajudar?"
                             />
                         </div>
-                        <Button className="w-full bg-kai-accent hover:bg-kai-accent/90 text-kai-black font-bold py-6 text-lg uppercase tracking-wider" type="button">
+                        <Button className="w-full bg-kai-forest-500 hover:bg-kai-forest-600 text-white font-bold py-6 text-lg uppercase tracking-wider transition-all active:scale-[0.98]" type="button">
                             Enviar Mensagem
                         </Button>
                     </form>

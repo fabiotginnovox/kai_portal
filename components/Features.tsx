@@ -21,129 +21,138 @@ const Features: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           
           {/* Card 1: Intelligent Workflows */}
-          <div className="group relative bg-kai-bg-surface border border-kai-border-default rounded-2xl p-6 overflow-hidden hover:border-kai-accent-primary/40 transition-all duration-300 shadow-sm hover:shadow-md">
+          <div className="group relative bg-[#EAE7DD] border border-[#D9D5C7] rounded-[40px] p-8 overflow-hidden hover:shadow-xl transition-all duration-500 shadow-sm">
             <div className="absolute top-0 right-0 w-32 h-32 bg-kai-accent/5 rounded-full blur-3xl -mr-10 -mt-10"></div>
             
             <div className="flex justify-between items-start mb-6">
-                <h3 className="t-h3 text-kai-fg-primary">Intelligent Workflows</h3>
-                <Network className="text-kai-accent w-6 h-6" />
+                <div>
+                  <span className="t-label text-[#849a30] mb-2 block">CONHECIMENTO</span>
+                  <h3 className="t-h3 text-[#1f3830] text-3xl font-display">Fluxos de Trabalho Inteligentes</h3>
+                </div>
+                <Network className="text-[#1f3830] w-6 h-6" />
             </div>
 
-            <div className="h-32 mb-6 bg-kai-bg-sunken rounded-xl border border-kai-border-default p-4 flex items-center justify-center">
+            <div className="h-32 mb-6 bg-white/40 rounded-2xl border border-[#D9D5C7] p-4 flex items-center justify-center">
                 <div className="flex gap-4 items-center">
-                    <div className="w-10 h-10 rounded-lg bg-emerald-900/40 border border-emerald-500/30 flex items-center justify-center">
-                        <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
+                    <div className="w-10 h-10 rounded-lg bg-[#1f3830]/10 border border-[#1f3830]/20 flex items-center justify-center">
+                        <div className="w-2 h-2 bg-[#1f3830] rounded-full"></div>
                     </div>
-                    <div className="w-8 h-[2px] bg-white/10"></div>
-                    <div className="w-10 h-10 rounded-lg bg-kai-accent/20 border border-kai-accent/40 flex items-center justify-center animate-pulse">
-                         <div className="w-2 h-2 bg-kai-accent rounded-full"></div>
+                    <div className="w-8 h-[2px] bg-[#1f3830]/10"></div>
+                    <div className="w-10 h-10 rounded-lg bg-[#849a30]/20 border border-[#849a30]/40 flex items-center justify-center animate-pulse">
+                         <div className="w-2 h-2 bg-[#849a30] rounded-full"></div>
                     </div>
-                     <div className="w-8 h-[2px] bg-white/10"></div>
-                    <div className="w-10 h-10 rounded-lg bg-emerald-900/40 border border-emerald-500/30 flex items-center justify-center">
-                        <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
+                     <div className="w-8 h-[2px] bg-[#1f3830]/10"></div>
+                    <div className="w-10 h-10 rounded-lg bg-[#1f3830]/10 border border-[#1f3830]/20 flex items-center justify-center">
+                        <div className="w-2 h-2 bg-[#1f3830] rounded-full"></div>
                     </div>
                 </div>
             </div>
 
-            <p className="t-body text-sm mb-6 min-h-[60px]">
+            <p className="t-body text-[#4A4538] text-lg mb-6 min-h-[60px] leading-relaxed">
               O KaiAssist organiza informações, responde mensagens e executa tarefas de marketing e suporte instantaneamente.
             </p>
 
-            <ul className="space-y-2 mb-8">
+            <ul className="space-y-3 mb-8">
                 {['Responder E-mails', 'Criar Resumos', 'Triagem de Suporte'].map(item => (
-                    <li key={item} className="flex items-center text-xs text-gray-400">
-                        <CheckCircle2 className="w-3 h-3 text-kai-accent mr-2" />
+                    <li key={item} className="flex items-center text-sm text-[#6B6557]">
+                        <CheckCircle2 className="w-4 h-4 text-[#849a30] mr-3" />
                         {item}
                     </li>
                 ))}
             </ul>
 
             <div className="flex items-center justify-end">
-                <span className="text-lg font-bold text-kai-accent">kaiAssist</span>
+                <span className="text-xl font-display italic text-[#1f3830]">kaiAssist</span>
             </div>
           </div>
 
           {/* Card 2: Data-Driven Insights */}
-          <div className="group relative bg-kai-card border border-kai-muted/20 rounded-2xl p-6 overflow-hidden hover:border-kai-accent/40 transition-all duration-300">
+          <div className="group relative bg-[#EAE7DD] border border-[#D9D5C7] rounded-[40px] p-8 overflow-hidden hover:shadow-xl transition-all duration-500 shadow-sm">
             <div className="flex justify-between items-start mb-6">
-                <h3 className="t-h3 text-kai-fg-primary">Data-Driven Insights</h3>
-                <BarChart3 className="text-kai-accent w-6 h-6" />
+                <div>
+                  <span className="t-label text-[#4d633b] mb-2 block">AUTOMAÇÃO</span>
+                  <h3 className="t-h3 text-[#1f3830] text-3xl font-display">Insights Baseados em Dados</h3>
+                </div>
+                <BarChart3 className="text-[#1f3830] w-6 h-6" />
             </div>
 
-            <div className="h-32 mb-6 bg-kai-dark/50 rounded-xl border border-white/5 overflow-hidden">
+            <div className="h-32 mb-6 bg-white/40 rounded-2xl border border-[#D9D5C7] overflow-hidden">
                 <ResponsiveContainer width="100%" height="100%">
                     <AreaChart data={data}>
                         <defs>
                             <linearGradient id="colorValue" x1="0" y1="0" x2="0" y2="1">
-                                <stop offset="5%" stopColor="#A3C644" stopOpacity={0.4}/>
-                                <stop offset="95%" stopColor="#A3C644" stopOpacity={0}/>
+                                <stop offset="5%" stopColor="#4d633b" stopOpacity={0.4}/>
+                                <stop offset="95%" stopColor="#4d633b" stopOpacity={0}/>
                             </linearGradient>
                         </defs>
                         <Tooltip 
-                            contentStyle={{ backgroundColor: '#0d1610', border: 'none', borderRadius: '8px' }}
-                            itemStyle={{ color: '#A3C644' }}
+                            contentStyle={{ backgroundColor: '#EAE7DD', border: '1px solid #D9D5C7', borderRadius: '12px' }}
+                            itemStyle={{ color: '#4d633b' }}
                         />
-                        <Area type="monotone" dataKey="value" stroke="#A3C644" fillOpacity={1} fill="url(#colorValue)" />
+                        <Area type="monotone" dataKey="value" stroke="#4d633b" fillOpacity={1} fill="url(#colorValue)" />
                     </AreaChart>
                 </ResponsiveContainer>
             </div>
 
-            <p className="t-body text-sm mb-6 min-h-[60px]">
+            <p className="t-body text-[#4A4538] text-lg mb-6 min-h-[60px] leading-relaxed">
               Análise estratégica e preparação de relatórios. O KaiAssist entende o contexto profundo do seu negócio.
             </p>
 
-            <ul className="space-y-2 mb-8">
+            <ul className="space-y-3 mb-8">
                 {['Dashboards Ativos', 'Resumos de KPI', 'Contexto de Mercado'].map(item => (
-                    <li key={item} className="flex items-center text-xs text-gray-400">
-                        <CheckCircle2 className="w-3 h-3 text-kai-accent mr-2" />
+                    <li key={item} className="flex items-center text-sm text-[#6B6557]">
+                        <CheckCircle2 className="w-4 h-4 text-[#4d633b] mr-3" />
                         {item}
                     </li>
                 ))}
             </ul>
 
             <div className="flex items-center justify-end gap-2">
-                <span className="text-lg font-bold text-kai-accent">kaiAssist</span>
-                <span className="bg-kai-accent/20 text-kai-accent text-[10px] font-bold px-2 py-0.5 rounded border border-kai-accent/30 uppercase tracking-tighter">Plus</span>
+                <span className="text-xl font-display italic text-[#1f3830]">kaiAssist</span>
+                <span className="bg-[#4d633b]/10 text-[#4d633b] text-[10px] font-bold px-2 py-0.5 rounded border border-[#4d633b]/20 uppercase tracking-tighter">Plus</span>
             </div>
           </div>
 
           {/* Card 3: Strategic AI Agents */}
-          <div className="group relative bg-kai-bg-surface border border-kai-accent-primary/30 rounded-2xl p-6 overflow-hidden shadow-[0_0_30px_rgba(38,92,74,0.05)] hover:shadow-[0_0_40px_rgba(38,92,74,0.1)] transition-all duration-300">
+          <div className="group relative bg-[#EAE7DD] border border-[#D9D5C7] rounded-[40px] p-8 overflow-hidden hover:shadow-xl transition-all duration-500 shadow-sm">
             <div className="flex justify-between items-start mb-6">
-                <h3 className="t-h3 text-kai-fg-primary">Strategic AI Agents</h3>
-                <Bot className="text-kai-accent w-6 h-6" />
+                <div>
+                  <span className="t-label text-[#1f3830] mb-2 block">INTELIGÊNCIA</span>
+                  <h3 className="t-h3 text-[#1f3830] text-3xl font-display">Agentes de IA Estratégicos</h3>
+                </div>
+                <Bot className="text-[#1f3830] w-6 h-6" />
             </div>
 
-            <div className="h-32 mb-6 bg-kai-dark/50 rounded-xl border border-white/5 relative overflow-hidden flex items-center justify-center">
+            <div className="h-32 mb-6 bg-white/40 rounded-2xl border border-[#D9D5C7] relative overflow-hidden flex items-center justify-center">
                 <div className="relative w-16 h-16 flex items-center justify-center">
-                    <div className="absolute w-12 h-12 rounded-full border-2 border-kai-accent/40 bg-kai-accent/5 flex items-center justify-center shadow-[0_0_15px_rgba(163,198,68,0.3)]">
-                        <div className="w-2 h-2 bg-kai-accent rounded-full animate-pulse"></div>
+                    <div className="absolute w-12 h-12 rounded-full border-2 border-[#1f3830]/40 bg-[#1f3830]/5 flex items-center justify-center shadow-[0_0_15px_rgba(31,56,48,0.2)]">
+                        <div className="w-2 h-2 bg-[#1f3830] rounded-full animate-pulse"></div>
                     </div>
-                    <div className="absolute w-20 h-20 rounded-full border border-white/10 animate-spin-slow">
-                        <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-emerald-500 rounded-full"></div>
+                    <div className="absolute w-20 h-20 rounded-full border border-[#1f3830]/10 animate-spin-slow">
+                        <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-[#849a30] rounded-full"></div>
                     </div>
-                    <div className="absolute w-24 h-24 rounded-full border border-white/5 animate-reverse-spin">
-                        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-1.5 h-1.5 bg-white/40 rounded-full"></div>
+                    <div className="absolute w-24 h-24 rounded-full border border-[#1f3830]/5 animate-reverse-spin">
+                        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-1.5 h-1.5 bg-[#1f3830]/40 rounded-full"></div>
                     </div>
                 </div>
             </div>
 
-            <p className="t-body text-sm mb-6 min-h-[60px]">
+            <p className="t-body text-[#4A4538] text-lg mb-6 min-h-[60px] leading-relaxed">
               Crie agentes personalizados que conectam sistemas e automatizam fluxos inteiros da sua empresa.
             </p>
 
-            <ul className="space-y-2 mb-8">
+            <ul className="space-y-3 mb-8">
                 {['Fluxos de Automação', 'Integração de APIs', 'Agentes Multi-Task'].map(item => (
-                    <li key={item} className="flex items-center text-xs text-gray-400">
-                        <CheckCircle2 className="w-3 h-3 text-kai-accent mr-2" />
+                    <li key={item} className="flex items-center text-sm text-[#6B6557]">
+                        <CheckCircle2 className="w-4 h-4 text-[#1f3830] mr-3" />
                         {item}
                     </li>
                 ))}
             </ul>
 
             <div className="flex items-center justify-end gap-2">
-                <span className="text-lg font-bold text-kai-accent">kaiAssist</span>
-                <span className="bg-emerald-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-tighter">Pro</span>
+                <span className="text-xl font-display italic text-[#1f3830]">kaiAssist</span>
+                <span className="bg-[#1f3830] text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-tighter">Pro</span>
             </div>
           </div>
 

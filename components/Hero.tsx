@@ -142,7 +142,7 @@ const Hero: React.FC = () => {
             </div>
             <div className="mt-24 mb-12 text-center opacity-70">
               <h2 className="text-2xl md:text-3xl lg:text-5xl font-bold tracking-tight text-kai-fg-primary">
-                <span className="text-kai-forest-500">K</span>nowledge, <span className="text-kai-olive-600">A</span>utomation, <span className="text-kai-pink">I</span>ntelligence
+                <span className="text-[#849a30]">K</span>nowledge, <span className="text-[#4d633b]">A</span>utomation, <span className="text-[#1A3830]">I</span>ntelligence
               </h2>
             </div>
           </div>

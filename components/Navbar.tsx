@@ -5,9 +5,9 @@ const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
-    { name: 'Funcionalidades', href: '#features' },
     { name: 'Metodologia', href: '#methodology' },
-    { name: 'Planos', href: '#pricing' },
+    { name: 'Serviços', href: '#features' },
+    { name: 'Contato', href: '#contact' },
   ];
 
   return (

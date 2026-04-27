@@ -15,7 +15,7 @@ const App: React.FC = () => {
         <Suspense fallback={<div className="h-screen flex items-center justify-center text-kai-accent">Carregando...</div>}>
           <Hero />
           <Features />
-          <Pricing />
+
           <Contact />
         </Suspense>
       </main>
